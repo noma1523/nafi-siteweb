@@ -19,6 +19,26 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Données structurées (SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "NAFI",
+    "description": "Eau minérale naturelle née en Guinée. Pure, fiable, contrôlée. Disponible à Conakry.",
+    "url": "https://noma1523.github.io/nafi-siteweb/",
+    "logo": "images/logo-nafi.png",
+    "telephone": "+224611260303",
+    "areaServed": "Conakry, Guinée",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Conakry",
+      "addressCountry": "GN"
+    },
+    "sameAs": ["https://wa.me/224611260303"]
+  }
+  </script>
 </head>
 <body>
 
@@ -257,6 +277,61 @@
     </div>
   </section>
 
+  <!-- ===================== FAQ ===================== -->
+  <section class="section faq" id="faq">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">FAQ</span>
+        <h2>Questions fréquentes</h2>
+        <p class="lead">Tout ce qu'il faut savoir sur NAFI, la livraison et la distribution.</p>
+      </div>
+
+      <div class="faq-list reveal" id="faqList">
+        <details class="faq-item">
+          <summary>Où puis-je acheter NAFI à Conakry ?</summary>
+          <div class="faq-answer">
+            <p>NAFI est disponible dans de nombreux points de vente répartis dans 5 communes de Conakry (Kaloum, Dixinn, Matam, Ratoma, Matoto). Utilisez la section <a href="#points-de-vente">Points de vente</a> pour trouver le plus proche et obtenir l'itinéraire.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Quels formats proposez-vous ?</summary>
+          <div class="faq-answer">
+            <p>Trois formats : <strong>0,33 L</strong> (petit format pratique), <strong>0,5 L</strong> (format nomade) et <strong>1,5 L</strong> (format familial). Pour les commerces et grossistes, NAFI est aussi vendue en <strong>packs / cartons</strong>.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Comment devenir distributeur ou grossiste NAFI ?</summary>
+          <div class="faq-answer">
+            <p>Remplissez le formulaire <a href="#contact">Contact</a> en choisissant « Devenir distributeur / grossiste », ou contactez-nous directement sur WhatsApp. Nous revenons vers vous rapidement avec les conditions.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Puis-je commander en gros pour un événement ?</summary>
+          <div class="faq-answer">
+            <p>Oui. Utilisez le formulaire <a href="#devis">Devis de commande</a> : indiquez les formats, les quantités en cartons, le lieu et la date de livraison. Vous obtenez une estimation de prix instantanée en GNF, puis nous confirmons le montant final.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>L'eau NAFI est-elle contrôlée ?</summary>
+          <div class="faq-answer">
+            <p>Absolument. NAFI est une eau minérale naturelle, embouteillée à la source en Guinée, avec un processus de purification rigoureux et des contrôles qualité à chaque étape de la production, dans le respect des normes et agréments sanitaires guinéens.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Livrez-vous en dehors de Conakry ?</summary>
+          <div class="faq-answer">
+            <p>La distribution couvre aujourd'hui les 5 communes de Conakry. Coyah et Dubréka arrivent bientôt. Pour une demande spécifique hors zone, contactez-nous : nous étudions chaque demande.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- ===================== CONTACT (FORM 1) ===================== -->
   <section class="section contact" id="contact">
     <div class="container">
@@ -396,6 +471,7 @@
         <a href="#marque">La marque</a>
         <a href="#produits">Produits</a>
         <a href="#points-de-vente">Points de vente</a>
+        <a href="#faq">FAQ</a>
         <a href="#devis">Devis de commande</a>
       </div>
 
@@ -433,6 +509,13 @@
       <a href="https://wa.me/224611260303?text=Bonjour%2C%20j%27ai%20une%20question%20sur%20NAFI" target="_blank" rel="noopener">💬 Poser une question</a>
     </div>
   </div>
+
+  <!-- ===================== RETOUR EN HAUT ===================== -->
+  <button class="to-top" id="toTop" aria-label="Revenir en haut de la page" title="Haut de page">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7" />
+    </svg>
+  </button>
 
   <script src="js/main.js"></script>
 </body>

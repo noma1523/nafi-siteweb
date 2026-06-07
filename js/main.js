@@ -264,3 +264,43 @@ function handleForm(formId, statusId) {
 
 handleForm("contactForm", "contactStatus");
 handleForm("devisForm", "devisStatus");
+
+/* ============================================================
+   Navigation active au défilement (scroll-spy)
+   ============================================================ */
+const navAnchors = $$(".nav-links a[href^='#']");
+const spySections = navAnchors
+  .map(a => document.getElementById(a.getAttribute("href").slice(1)))
+  .filter(Boolean);
+
+if (spySections.length) {
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const id = e.target.id;
+      navAnchors.forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + id));
+    });
+  }, { rootMargin: "-45% 0px -50% 0px", threshold: 0 });
+  spySections.forEach(s => spy.observe(s));
+}
+
+/* ============================================================
+   Bouton retour en haut
+   ============================================================ */
+const toTop = $("#toTop");
+if (toTop) {
+  const toggleToTop = () => toTop.classList.toggle("show", window.scrollY > 500);
+  toggleToTop();
+  window.addEventListener("scroll", toggleToTop, { passive: true });
+  toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+}
+
+/* ============================================================
+   FAQ : un seul item ouvert à la fois
+   ============================================================ */
+const faqItems = $$("#faqList .faq-item");
+faqItems.forEach(item => {
+  item.addEventListener("toggle", () => {
+    if (item.open) faqItems.forEach(other => { if (other !== item) other.open = false; });
+  });
+});
