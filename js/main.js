@@ -35,6 +35,17 @@ $$("img[data-fallback]").forEach(img => {
 });
 
 /* ============================================================
+   Vidéo de fond du hero : forcer la lecture (autoplay muet)
+   ============================================================ */
+const heroVideo = $(".hero-video");
+if (heroVideo) {
+  heroVideo.muted = true;
+  const playHero = () => heroVideo.play().catch(() => {});
+  if (heroVideo.readyState >= 2) playHero();
+  heroVideo.addEventListener("canplay", playHero, { once: true });
+}
+
+/* ============================================================
    Navbar : fond au scroll
    ============================================================ */
 const navbar = $("#navbar");
