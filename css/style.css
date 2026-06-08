@@ -132,7 +132,17 @@ img { max-width: 100%; display: block; }
 }
 .hero-inner {
   display: grid; grid-template-columns: 1fr; gap: 30px; align-items: center;
-  position: relative; z-index: 3; padding-bottom: 70px;
+  position: relative; z-index: 4; padding-bottom: 70px;
+}
+
+/* Vidéo de fond + voile */
+.hero-video {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: 0; border: 0; background: transparent;
+}
+.hero-overlay {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(160deg, rgba(6,49,107,.55), rgba(21,101,192,.30) 55%, rgba(74,168,224,.22));
 }
 .origin-badge {
   display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,.14);
@@ -165,7 +175,7 @@ img { max-width: 100%; display: block; }
 @keyframes pulse { 0%,100%{ transform: scale(1); opacity:.7 } 50%{ transform: scale(1.08); opacity:1 } }
 
 /* bulles montantes */
-.hero-bg-bubbles { position: absolute; inset: 0; z-index: 1; overflow: hidden; }
+.hero-bg-bubbles { position: absolute; inset: 0; z-index: 2; overflow: hidden; pointer-events: none; }
 .hero-bg-bubbles span {
   position: absolute; bottom: -60px; border-radius: 50%;
   background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.6), rgba(255,255,255,.05));
@@ -180,7 +190,7 @@ img { max-width: 100%; display: block; }
 @keyframes rise { to { transform: translateY(-110svh); opacity: 0; } }
 
 /* vague */
-.wave-wrap { position: absolute; bottom: -1px; left: 0; width: 100%; line-height: 0; z-index: 2; }
+.wave-wrap { position: absolute; bottom: -1px; left: 0; width: 100%; line-height: 0; z-index: 3; }
 .waves { width: 100%; height: 90px; }
 .wave-parallax use { animation: moveWave 12s cubic-bezier(.55,.5,.45,.5) infinite; }
 .wave-parallax use:nth-child(1){ animation-delay:-2s; animation-duration:9s; }
@@ -188,6 +198,27 @@ img { max-width: 100%; display: block; }
 .wave-parallax use:nth-child(3){ animation-delay:-4s; animation-duration:6s; }
 .wave-parallax use:nth-child(4){ animation-delay:-5s; animation-duration:16s; }
 @keyframes moveWave { 0%{ transform: translateX(-90px) } 100%{ transform: translateX(85px) } }
+
+/* ============================= ICÔNES SVG ============================= */
+.ico {
+  width: 1em; height: 1em; flex-shrink: 0; fill: none; stroke: currentColor;
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; vertical-align: -.12em;
+}
+.ico--fill { fill: currentColor; stroke: none; }
+.flag-gn {
+  width: 1.5em; height: 1em; border-radius: 3px; overflow: hidden; display: inline-block;
+  vertical-align: -.15em; box-shadow: 0 0 0 1px rgba(0,0,0,.1); flex-shrink: 0;
+}
+.flag-gn--lg { width: 2.4em; height: 1.6em; border-radius: 5px; }
+
+/* couleurs par conteneur */
+.feature-icon .ico, .benefit-icon .ico, .step-ico .ico { stroke: var(--blue); }
+.certif-ico { stroke: var(--blue); }
+.pillar-ico { stroke: var(--green-dark); }
+.hero-trust .ico { stroke: #d9f3ff; }
+.ico-link { width: 1.05em; height: 1.05em; vertical-align: -.2em; margin-right: 7px; }
+.footer-col a .ico-link { stroke: var(--blue-light); }
+.footer-col a:hover .ico-link { stroke: var(--white); }
 
 /* ============================= SECTIONS ============================= */
 .section { padding: 80px 0; }
@@ -428,7 +459,7 @@ img { max-width: 100%; display: block; }
 .hero-trust .trust-ico { font-size: 1.05rem; }
 
 .scroll-cue {
-  position: absolute; left: 50%; bottom: 104px; transform: translateX(-50%); z-index: 4;
+  position: absolute; left: 50%; bottom: 104px; transform: translateX(-50%); z-index: 5;
   display: flex; flex-direction: column; align-items: center; gap: 8px;
   color: rgba(255,255,255,.85); font-family: var(--font-head); font-size: .7rem;
   text-transform: uppercase; letter-spacing: 2px;

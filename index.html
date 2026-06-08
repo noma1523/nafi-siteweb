@@ -45,6 +45,38 @@
   <!-- Barre de progression de lecture -->
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
+  <!-- ===================== SPRITE D'ICÔNES SVG ===================== -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol>
+      <symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-feather" viewBox="0 0 24 24"><path d="M12.67 19a2 2 0 0 0 1.42-.59l6.15-6.17a6 6 0 0 0-8.49-8.49L5.59 9.91A2 2 0 0 0 5 11.33V18a1 1 0 0 0 1 1z"/><path d="M16 8 2 22"/><path d="M17.5 15H9"/></symbol>
+      <symbol id="i-salt" viewBox="0 0 24 24"><path d="M7 11a5 5 0 0 1 10 0"/><path d="M7 11h10v9a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1z"/><path d="M10 7.5v.01"/><path d="M14 7.5v.01"/><path d="M12 6v.01"/></symbol>
+      <symbol id="i-scale" viewBox="0 0 24 24"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></symbol>
+      <symbol id="i-family" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+      <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></symbol>
+      <symbol id="i-mountain" viewBox="0 0 24 24"><path d="m8 3 4 8 5-5 5 15H2z"/></symbol>
+      <symbol id="i-filter" viewBox="0 0 24 24"><path d="M22 3H2l8 9.46V19l4 2v-8.54z"/></symbol>
+      <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.94 14.06a2 2 0 0 0-1.44-1.44l-4.06-1.06 4.06-1.06A2 2 0 0 0 9.94 9L11 4.94 12.06 9a2 2 0 0 0 1.44 1.44l4.06 1.06-4.06 1.06A2 2 0 0 0 12.06 14L11 18.06z"/><path d="M19 4v3"/><path d="M20.5 5.5h-3"/><path d="M19 17v2"/><path d="M20 18h-2"/></symbol>
+      <symbol id="i-flask" viewBox="0 0 24 24"><path d="M14 2v6a2 2 0 0 0 .24.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.75-2.96l5.51-10.08A2 2 0 0 0 10 8V2"/><path d="M6.45 15h11.1"/><path d="M8.5 2h7"/></symbol>
+      <symbol id="i-factory" viewBox="0 0 24 24"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/><path d="M7 18h.01"/><path d="M12 18h.01"/><path d="M17 18h.01"/></symbol>
+      <symbol id="i-truck" viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M14 9h4l4 4v4a1 1 0 0 1-1 1h-2"/><circle cx="7.5" cy="18.5" r="2.5"/><circle cx="17.5" cy="18.5" r="2.5"/></symbol>
+      <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><path d="M13.83 16.57a1 1 0 0 0 1.21-.3l.36-.47A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.47.35a1 1 0 0 0-.29 1.23 14 14 0 0 0 6.39 6.39z"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+      <symbol id="i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></symbol>
+      <symbol id="i-file" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></symbol>
+      <symbol id="i-handshake" viewBox="0 0 24 24"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></symbol>
+      <symbol id="i-whatsapp" viewBox="0 0 32 32"><path d="M16.04 3C9.4 3 4 8.4 4 15.04c0 2.12.56 4.18 1.62 6L4 29l8.16-1.6a12 12 0 0 0 3.88.64h.01c6.64 0 12.04-5.4 12.04-12.04C28.09 8.4 22.68 3 16.04 3zm0 21.9c-1.18 0-2.34-.2-3.44-.6l-.25-.1-4.84.95.97-4.72-.16-.25a9.9 9.9 0 0 1-1.52-5.3c0-5.48 4.46-9.94 9.95-9.94 2.66 0 5.16 1.04 7.04 2.92a9.86 9.86 0 0 1 2.91 7.03c0 5.49-4.46 9.95-9.95 9.95zm5.46-7.45c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35z"/></symbol>
+      <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></symbol>
+      <symbol id="i-flag-gn" viewBox="0 0 30 20" preserveAspectRatio="none"><rect width="10" height="20" x="0" fill="#ce1126"/><rect width="10" height="20" x="10" fill="#fcd116"/><rect width="10" height="20" x="20" fill="#009460"/></symbol>
+    </defs>
+  </svg>
+
   <!-- ===================== NAVBAR ===================== -->
   <header class="navbar" id="navbar">
     <div class="container nav-inner">
@@ -71,13 +103,19 @@
 
   <!-- ===================== HERO ===================== -->
   <section class="hero" id="accueil">
+    <!-- Vidéo de fond : déposez votre clip dans videos/hero-water.mp4 (sinon l'animation s'affiche) -->
+    <video class="hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+      <source src="videos/hero-water.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-overlay" aria-hidden="true"></div>
+
     <div class="hero-bg-bubbles" aria-hidden="true">
       <span></span><span></span><span></span><span></span><span></span><span></span>
     </div>
 
     <div class="container hero-inner">
       <div class="hero-text reveal">
-        <span class="origin-badge">Origine&nbsp;: Guinée <span class="flag">🇬🇳</span></span>
+        <span class="origin-badge">Origine&nbsp;: Guinée <svg class="flag-gn" aria-hidden="true"><use href="#i-flag-gn"/></svg></span>
         <h1 class="hero-title">L'eau pure de Guinée,<br><span class="accent-water">la confiance en chaque goutte</span></h1>
         <p class="hero-tagline">NAFI, eau minérale naturelle très faiblement minéralisée, captée, purifiée et embouteillée avec soin — disponible dans tout Conakry.</p>
         <div class="hero-buttons">
@@ -86,15 +124,15 @@
         </div>
 
         <ul class="hero-trust" aria-label="Nos garanties">
-          <li><span class="trust-ico">✅</span> Eau potable certifiée</li>
-          <li><span class="trust-ico">🪶</span> Très faiblement minéralisée</li>
-          <li><span class="trust-ico">🇬🇳</span> 100% guinéenne</li>
+          <li><svg class="ico trust-ico" aria-hidden="true"><use href="#i-check"/></svg> Eau potable certifiée</li>
+          <li><svg class="ico trust-ico" aria-hidden="true"><use href="#i-feather"/></svg> Très faiblement minéralisée</li>
+          <li><svg class="flag-gn trust-ico" aria-hidden="true"><use href="#i-flag-gn"/></svg> 100% guinéenne</li>
         </ul>
       </div>
 
       <div class="hero-visual reveal">
         <div class="hero-glow" aria-hidden="true"></div>
-        <img src="images/hero-nafi.png" alt="Bouteille d'eau minérale NAFI" class="hero-bottle" data-fallback="bottle" />
+        <img src="images/hero-bottle.svg" alt="Bouteille d'eau minérale NAFI" class="hero-bottle" data-fallback="bottle" />
       </div>
     </div>
 
@@ -132,11 +170,11 @@
 
           <div class="story-pillars">
             <div class="pillar">
-              <h3><span class="pillar-ico">🎯</span> Notre mission</h3>
+              <h3><svg class="ico pillar-ico" aria-hidden="true"><use href="#i-target"/></svg> Notre mission</h3>
               <p>Rendre une eau pure et de qualité accessible à tous les Guinéens, au quotidien.</p>
             </div>
             <div class="pillar">
-              <h3><span class="pillar-ico">🌍</span> Notre vision</h3>
+              <h3><svg class="ico pillar-ico" aria-hidden="true"><use href="#i-globe"/></svg> Notre vision</h3>
               <p>Devenir une référence de l'eau minérale en Afrique de l'Ouest, fière de ses origines.</p>
             </div>
           </div>
@@ -182,22 +220,22 @@
 
       <div class="marque-grid">
         <article class="feature-card reveal">
-          <div class="feature-icon">💧</div>
+          <div class="feature-icon"><svg class="ico" aria-hidden="true"><use href="#i-drop"/></svg></div>
           <h3>Une source protégée</h3>
           <p>Une eau captée à la source en Guinée, préservée de toute pollution, qui conserve sa minéralité naturelle.</p>
         </article>
         <article class="feature-card reveal">
-          <div class="feature-icon">🛡️</div>
+          <div class="feature-icon"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg></div>
           <h3>Purification & contrôle</h3>
           <p>Un processus de purification rigoureux et des contrôles qualité à chaque étape de la production.</p>
         </article>
         <article class="feature-card reveal">
-          <div class="feature-icon">✅</div>
+          <div class="feature-icon"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></div>
           <h3>Certifiée & agréée</h3>
           <p>NAFI respecte les normes et agréments sanitaires guinéens. La confiance, c'est notre priorité numéro un.</p>
         </article>
         <article class="feature-card reveal">
-          <div class="feature-icon">🇬🇳</div>
+          <div class="feature-icon"><svg class="flag-gn flag-gn--lg" aria-hidden="true"><use href="#i-flag-gn"/></svg></div>
           <h3>Fièrement guinéenne</h3>
           <p>Produite et distribuée à Conakry. NAFI, c'est une fierté nationale au service de votre quotidien.</p>
         </article>
@@ -220,37 +258,37 @@
 
       <div class="benefits-grid">
         <article class="benefit-card reveal">
-          <div class="benefit-icon">🪶</div>
+          <div class="benefit-icon"><svg class="ico" aria-hidden="true"><use href="#i-feather"/></svg></div>
           <h3>Légère &amp; pure</h3>
           <p>Très faiblement minéralisée, NAFI désaltère sans alourdir. On peut en boire tout au long de la journée, sans modération.</p>
         </article>
 
         <article class="benefit-card reveal">
-          <div class="benefit-icon">🧂</div>
+          <div class="benefit-icon"><svg class="ico" aria-hidden="true"><use href="#i-salt"/></svg></div>
           <h3>Très pauvre en sodium</h3>
           <p>Avec seulement 0,01 mg/L de sodium, NAFI convient parfaitement aux régimes pauvres en sel et à toute la famille.</p>
         </article>
 
         <article class="benefit-card reveal">
-          <div class="benefit-icon">⚖️</div>
+          <div class="benefit-icon"><svg class="ico" aria-hidden="true"><use href="#i-scale"/></svg></div>
           <h3>pH équilibré</h3>
           <p>Un pH de 7,20, quasi neutre : une eau douce et équilibrée, agréable à boire et respectueuse de votre organisme.</p>
         </article>
 
         <article class="benefit-card reveal">
-          <div class="benefit-icon">👶</div>
+          <div class="benefit-icon"><svg class="ico" aria-hidden="true"><use href="#i-family"/></svg></div>
           <h3>Pour toute la famille</h3>
           <p>Adultes, enfants, sportifs : une eau idéale pour l'hydratation quotidienne, la préparation des repas, du thé ou du café.</p>
         </article>
 
         <article class="benefit-card reveal">
-          <div class="benefit-icon">🛡️</div>
+          <div class="benefit-icon"><svg class="ico" aria-hidden="true"><use href="#i-shield-check"/></svg></div>
           <h3>Sûre &amp; contrôlée</h3>
           <p>Faible en nitrates (4,84 mg/L) et conforme à l'analyse officielle, NAFI offre une qualité fiable à chaque gorgée.</p>
         </article>
 
         <article class="benefit-card reveal">
-          <div class="benefit-icon">🌿</div>
+          <div class="benefit-icon"><svg class="ico" aria-hidden="true"><use href="#i-leaf"/></svg></div>
           <h3>Vitalité naturelle</h3>
           <p>Née au cœur de la Guinée, NAFI vous apporte l'énergie d'une eau pure et naturelle, pour vous reconnecter à la nature.</p>
         </article>
@@ -270,7 +308,7 @@
       <div class="products-grid">
         <article class="product-card reveal">
           <div class="product-img">
-            <img src="images/bouteille-033.png" alt="Bouteille NAFI 0,33 L" data-fallback="bottle" />
+            <img src="images/bottle-033.svg" alt="Bouteille NAFI 0,33 L" loading="lazy" data-fallback="bottle" />
           </div>
           <span class="product-size">0,33 L</span>
           <h3>Petit format pratique</h3>
@@ -281,7 +319,7 @@
         <article class="product-card reveal featured">
           <span class="popular">Le plus courant</span>
           <div class="product-img">
-            <img src="images/bouteille-05.png" alt="Bouteille NAFI 0,5 L" data-fallback="bottle" />
+            <img src="images/bottle-05.svg" alt="Bouteille NAFI 0,5 L" loading="lazy" data-fallback="bottle" />
           </div>
           <span class="product-size">0,5 L</span>
           <h3>Format nomade</h3>
@@ -291,7 +329,7 @@
 
         <article class="product-card reveal">
           <div class="product-img">
-            <img src="images/bouteille-15.png" alt="Bouteille NAFI 1,5 L" data-fallback="bottle" />
+            <img src="images/bottle-15.svg" alt="Bouteille NAFI 1,5 L" loading="lazy" data-fallback="bottle" />
           </div>
           <span class="product-size">1,5 L</span>
           <h3>Format familial</h3>
@@ -353,37 +391,37 @@
       <ol class="process-timeline">
         <li class="step reveal">
           <span class="step-num">1</span>
-          <div class="step-ico">🏔️</div>
+          <div class="step-ico"><svg class="ico" aria-hidden="true"><use href="#i-mountain"/></svg></div>
           <h3>Captage</h3>
           <p>L'eau est captée à la source, préservée de toute pollution, dans le respect de son équilibre naturel.</p>
         </li>
         <li class="step reveal">
           <span class="step-num">2</span>
-          <div class="step-ico">🧴</div>
+          <div class="step-ico"><svg class="ico" aria-hidden="true"><use href="#i-filter"/></svg></div>
           <h3>Filtration</h3>
           <p>Une filtration fine élimine les impuretés tout en conservant la légèreté de l'eau.</p>
         </li>
         <li class="step reveal">
           <span class="step-num">3</span>
-          <div class="step-ico">💠</div>
+          <div class="step-ico"><svg class="ico" aria-hidden="true"><use href="#i-sparkles"/></svg></div>
           <h3>Purification</h3>
           <p>Traitement par osmose inverse et stérilisation UV pour une pureté microbiologique optimale.</p>
         </li>
         <li class="step reveal">
           <span class="step-num">4</span>
-          <div class="step-ico">🔬</div>
+          <div class="step-ico"><svg class="ico" aria-hidden="true"><use href="#i-flask"/></svg></div>
           <h3>Contrôle qualité</h3>
           <p>Des analyses en laboratoire vérifient chaque paramètre, à chaque étape de la production.</p>
         </li>
         <li class="step reveal">
           <span class="step-num">5</span>
-          <div class="step-ico">🏭</div>
+          <div class="step-ico"><svg class="ico" aria-hidden="true"><use href="#i-factory"/></svg></div>
           <h3>Mise en bouteille</h3>
           <p>Embouteillage automatisé sous conditions d'hygiène strictes, à l'abri de toute contamination.</p>
         </li>
         <li class="step reveal">
           <span class="step-num">6</span>
-          <div class="step-ico">🚚</div>
+          <div class="step-ico"><svg class="ico" aria-hidden="true"><use href="#i-truck"/></svg></div>
           <h3>Distribution</h3>
           <p>NAFI est livrée dans tout Conakry, jusqu'aux commerces, familles et professionnels.</p>
         </li>
@@ -396,10 +434,10 @@
           <p>La confiance se construit à chaque contrôle. Voici nos engagements de qualité.</p>
         </div>
         <div class="certif-grid">
-          <div class="certif-item"><span class="certif-ico">🛡️</span><p>Normes sanitaires guinéennes respectées</p></div>
-          <div class="certif-item"><span class="certif-ico">🔬</span><p>Contrôle laboratoire régulier</p></div>
-          <div class="certif-item"><span class="certif-ico">💧</span><p>Eau potable certifiée</p></div>
-          <div class="certif-item"><span class="certif-ico">🧼</span><p>Hygiène stricte à chaque étape</p></div>
+          <div class="certif-item"><svg class="ico certif-ico" aria-hidden="true"><use href="#i-shield"/></svg><p>Normes sanitaires guinéennes respectées</p></div>
+          <div class="certif-item"><svg class="ico certif-ico" aria-hidden="true"><use href="#i-flask"/></svg><p>Contrôle laboratoire régulier</p></div>
+          <div class="certif-item"><svg class="ico certif-ico" aria-hidden="true"><use href="#i-drop"/></svg><p>Eau potable certifiée</p></div>
+          <div class="certif-item"><svg class="ico certif-ico" aria-hidden="true"><use href="#i-sparkles"/></svg><p>Hygiène stricte à chaque étape</p></div>
         </div>
       </div>
     </div>
@@ -584,7 +622,7 @@
     <div class="container footer-inner">
       <div class="footer-brand">
         <img src="images/logo-nafi.png" alt="Logo NAFI" class="footer-logo" data-fallback="logo" />
-        <p class="footer-tagline">Eau minérale naturelle<br><span>Née en Guinée 🇬🇳</span></p>
+        <p class="footer-tagline">Eau minérale naturelle<br><span>Née en Guinée <svg class="flag-gn" aria-hidden="true"><use href="#i-flag-gn"/></svg></span></p>
       </div>
 
       <div class="footer-col">
@@ -597,17 +635,17 @@
 
       <div class="footer-col">
         <h4>Contact</h4>
-        <a href="tel:+224611260303">📞 +224 611 26 03 03</a>
-        <a href="https://wa.me/224611260303" target="_blank" rel="noopener">💬 WhatsApp</a>
-        <a href="#contact">✉️ Nous écrire</a>
+        <a href="tel:+224611260303"><svg class="ico ico-link" aria-hidden="true"><use href="#i-phone"/></svg> +224 611 26 03 03</a>
+        <a href="https://wa.me/224611260303" target="_blank" rel="noopener"><svg class="ico ico--fill ico-link" aria-hidden="true"><use href="#i-whatsapp"/></svg> WhatsApp</a>
+        <a href="#contact"><svg class="ico ico-link" aria-hidden="true"><use href="#i-mail"/></svg> Nous écrire</a>
         <p class="footer-city">Conakry, Guinée</p>
       </div>
 
       <div class="footer-col">
         <h4>Suivez-nous</h4>
         <!-- ⚙️ Remplace par tes vrais liens -->
-        <a href="#" class="social" target="_blank" rel="noopener">📘 Facebook</a>
-        <a href="#" class="social" target="_blank" rel="noopener">📷 Instagram</a>
+        <a href="#" class="social" target="_blank" rel="noopener"><svg class="ico ico--fill ico-link" aria-hidden="true"><use href="#i-facebook"/></svg> Facebook</a>
+        <a href="#" class="social" target="_blank" rel="noopener"><svg class="ico ico-link" aria-hidden="true"><use href="#i-instagram"/></svg> Instagram</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -624,9 +662,9 @@
     </button>
     <div class="wa-menu" id="waMenu" hidden>
       <p class="wa-menu-title">Discuter sur WhatsApp</p>
-      <a href="https://wa.me/224611260303?text=Bonjour%2C%20je%20veux%20devenir%20distributeur%20NAFI" target="_blank" rel="noopener">🤝 Devenir distributeur</a>
-      <a href="https://wa.me/224611260303?text=Bonjour%2C%20je%20veux%20un%20devis%20NAFI" target="_blank" rel="noopener">🧾 Demander un devis</a>
-      <a href="https://wa.me/224611260303?text=Bonjour%2C%20j%27ai%20une%20question%20sur%20NAFI" target="_blank" rel="noopener">💬 Poser une question</a>
+      <a href="https://wa.me/224611260303?text=Bonjour%2C%20je%20veux%20devenir%20distributeur%20NAFI" target="_blank" rel="noopener"><svg class="ico ico-link" aria-hidden="true"><use href="#i-handshake"/></svg> Devenir distributeur</a>
+      <a href="https://wa.me/224611260303?text=Bonjour%2C%20je%20veux%20un%20devis%20NAFI" target="_blank" rel="noopener"><svg class="ico ico-link" aria-hidden="true"><use href="#i-file"/></svg> Demander un devis</a>
+      <a href="https://wa.me/224611260303?text=Bonjour%2C%20j%27ai%20une%20question%20sur%20NAFI" target="_blank" rel="noopener"><svg class="ico ico-link" aria-hidden="true"><use href="#i-chat"/></svg> Poser une question</a>
     </div>
   </div>
 

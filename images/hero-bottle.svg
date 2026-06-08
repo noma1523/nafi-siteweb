@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 440" width="160" height="440" role="img" aria-label="Bouteille d'eau minérale NAFI">
+  <defs>
+    <linearGradient id="hwater" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#eafaff"/>
+      <stop offset=".4" stop-color="#a9dbf6"/>
+      <stop offset="1" stop-color="#3f9fda"/>
+    </linearGradient>
+    <linearGradient id="hcap" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1f73cf"/>
+      <stop offset="1" stop-color="#06316b"/>
+    </linearGradient>
+    <linearGradient id="hlbl" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#06316b"/>
+      <stop offset="1" stop-color="#1565c0"/>
+    </linearGradient>
+  </defs>
+
+  <path d="M64 30 C64 50 30 58 30 92 L30 404 Q30 418 45 418 L115 418 Q130 418 130 404 L130 92 C130 58 96 50 96 30 Z"
+        fill="url(#hwater)" stroke="#ffffff" stroke-width="2" stroke-opacity=".5"/>
+  <path d="M44 104 Q38 250 46 392 L56 392 Q48 250 56 108 Z" fill="#ffffff" opacity=".4"/>
+  <rect x="63" y="24" width="30" height="12" fill="#cdeafc"/>
+  <rect x="58" y="6" width="40" height="26" rx="5" fill="url(#hcap)"/>
+  <rect x="58" y="13" width="40" height="2.4" fill="#ffffff" opacity=".25"/>
+  <rect x="58" y="19" width="40" height="2.4" fill="#ffffff" opacity=".25"/>
+  <rect x="58" y="25" width="40" height="2.4" fill="#ffffff" opacity=".25"/>
+
+  <rect x="26" y="196" width="108" height="150" rx="12" fill="#ffffff"/>
+  <rect x="26" y="196" width="108" height="14" rx="6" fill="url(#hlbl)"/>
+  <rect x="26" y="332" width="108" height="14" rx="6" fill="#2ecc71"/>
+  <path d="M80 222 c7 8 11 12 11 18 a11 11 0 0 1-22 0 c0-6 4-10 11-18 z" fill="#1565c0"/>
+  <text x="80" y="288" text-anchor="middle" font-family="'Poppins','Arial',sans-serif" font-weight="800" font-size="38" fill="#06316b" letter-spacing="1.5">NAFI</text>
+  <text x="80" y="314" text-anchor="middle" font-family="'Arial',sans-serif" font-size="7" fill="#5a6b82" letter-spacing="1">EAU MINÉRALE NATURELLE</text>
+
+  <!-- gouttes de condensation -->
+  <circle cx="44" cy="150" r="3" fill="#ffffff" opacity=".55"/>
+  <circle cx="118" cy="170" r="2.4" fill="#ffffff" opacity=".5"/>
+  <circle cx="112" cy="380" r="3.2" fill="#ffffff" opacity=".5"/>
+  <circle cx="40" cy="372" r="2.2" fill="#ffffff" opacity=".5"/>
+</svg>

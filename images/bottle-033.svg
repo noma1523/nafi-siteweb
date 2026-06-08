@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 380" width="140" height="380" role="img" aria-label="Bouteille NAFI 0,33 L">
+  <defs>
+    <linearGradient id="water033" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#dff3ff"/>
+      <stop offset=".45" stop-color="#9fd6f5"/>
+      <stop offset="1" stop-color="#4aa8e0"/>
+    </linearGradient>
+    <linearGradient id="cap033" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1565c0"/>
+      <stop offset="1" stop-color="#06316b"/>
+    </linearGradient>
+    <linearGradient id="lbl033" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#06316b"/>
+      <stop offset="1" stop-color="#1565c0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- corps -->
+  <path d="M58 34 C58 50 30 56 30 86 L30 348 Q30 360 42 360 L98 360 Q110 360 110 348 L110 86 C110 56 82 50 82 34 Z"
+        fill="url(#water033)" stroke="#2f8fce" stroke-width="1.2"/>
+  <!-- reflet -->
+  <path d="M41 96 Q36 210 43 338 L51 338 Q45 210 51 100 Z" fill="#ffffff" opacity=".35"/>
+  <!-- col -->
+  <rect x="57" y="30" width="26" height="10" fill="#bfe6fb"/>
+  <!-- bouchon -->
+  <rect x="53" y="8" width="34" height="25" rx="4" fill="url(#cap033)"/>
+  <rect x="53" y="14" width="34" height="2" fill="#ffffff" opacity=".25"/>
+  <rect x="53" y="19" width="34" height="2" fill="#ffffff" opacity=".25"/>
+  <rect x="53" y="24" width="34" height="2" fill="#ffffff" opacity=".25"/>
+
+  <!-- étiquette -->
+  <rect x="27" y="176" width="86" height="118" rx="10" fill="#ffffff"/>
+  <rect x="27" y="176" width="86" height="118" rx="10" fill="none" stroke="#e2eaf3" stroke-width="1"/>
+  <rect x="27" y="176" width="86" height="9" rx="4" fill="url(#lbl033)"/>
+  <rect x="27" y="285" width="86" height="9" rx="4" fill="#2ecc71"/>
+  <!-- goutte -->
+  <path d="M70 196 c5 6 8 9 8 13 a8 8 0 0 1-16 0 c0-4 3-7 8-13 z" fill="#1565c0"/>
+  <!-- marque -->
+  <text x="70" y="245" text-anchor="middle" font-family="'Poppins','Arial',sans-serif" font-weight="800" font-size="27" fill="#06316b" letter-spacing="1">NAFI</text>
+  <text x="70" y="268" text-anchor="middle" font-family="'Poppins','Arial',sans-serif" font-weight="700" font-size="16" fill="#1565c0">0,33 L</text>
+  <text x="70" y="281" text-anchor="middle" font-family="'Arial',sans-serif" font-size="6.2" fill="#5a6b82" letter-spacing="1.5">EAU MINÉRALE NATURELLE</text>
+</svg>
