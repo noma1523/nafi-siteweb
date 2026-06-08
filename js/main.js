@@ -1,13 +1,11 @@
 /* ============================================================
    NAFI — main.js
-   Menu mobile • navbar scroll • reveal • scroll-spy •
-   retour en haut • FAQ • formulaires (Formspree) • WhatsApp flottant
+   Menu mobile, navbar scroll, reveal, scroll-spy,
+   retour en haut, FAQ, formulaires (Formspree)
    ============================================================ */
 
-/* ⚙️⚙️⚙️ ZONE À MODIFIER FACILEMENT ⚙️⚙️⚙️ */
-
-// Numéro WhatsApp pro (format international SANS +, ni espaces)
-const WHATSAPP_NUMBER = "224611260303";
+// Adresse e-mail de secours (utilisée si Formspree n'est pas encore configuré)
+const CONTACT_EMAIL = "contact@nafi.gn";
 
 /* ============================================================
    Helpers
@@ -72,40 +70,29 @@ const io = new IntersectionObserver((entries) => {
 $$(".reveal").forEach(el => io.observe(el));
 
 /* ============================================================
-   WhatsApp flottant
+   Formulaires (Formspree) + lien e-mail de secours
    ============================================================ */
-const waToggle = $("#waToggle");
-const waMenu   = $("#waMenu");
-waToggle.addEventListener("click", () => {
-  const show = waMenu.hasAttribute("hidden");
-  waMenu.toggleAttribute("hidden", !show);
-});
-document.addEventListener("click", (e) => {
-  if (!$("#waFloat").contains(e.target)) waMenu.setAttribute("hidden", "");
-});
-
-/* ============================================================
-   Formulaires (Formspree) + lien WhatsApp de secours
-   ============================================================ */
-function buildWhatsAppSummary(form, context) {
+function buildMailtoSummary(form, context) {
   const d = Object.fromEntries(new FormData(form).entries());
-  let msg;
+  let subject, body;
   if (context === "devis") {
-    msg = `Bonjour NAFI, je souhaite un devis :\n` +
-      `• 0,33 L : ${d.packs_033 || 0} pack(s) de 12\n` +
-      `• 0,5 L : ${d.packs_05 || 0} pack(s) de 12\n` +
-      `• 1,5 L : ${d.packs_15 || 0} pack(s) de 6\n` +
+    subject = "Demande de devis NAFI";
+    body = `Bonjour NAFI, je souhaite un devis :\n` +
+      `- 0,33 L : ${d.packs_033 || 0} pack(s) de 12\n` +
+      `- 0,5 L : ${d.packs_05 || 0} pack(s) de 12\n` +
+      `- 1,5 L : ${d.packs_15 || 0} pack(s) de 6\n` +
       `Livraison : ${d.lieu_livraison || "-"} le ${d.date_livraison || "-"}\n` +
       `Événement : ${d.type_evenement || "-"}\n` +
       `Nom : ${d.nom || "-"} | Tél : ${d.telephone || "-"}`;
   } else {
-    msg = `Bonjour NAFI,\n` +
+    subject = "Message via le site NAFI";
+    body = `Bonjour NAFI,\n` +
       `Nom : ${d.nom || "-"}${d.societe ? " (" + d.societe + ")" : ""}\n` +
       `Sujet : ${d.sujet || "-"}\n` +
       `Tél : ${d.telephone || "-"}\n` +
       `Message : ${d.message || "-"}`;
   }
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+  return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
 function refNumber() {
@@ -119,15 +106,15 @@ function handleForm(formId, statusId) {
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const context = form.dataset.waContext;
+    const context = form.dataset.context;
     const ref = refNumber();
-    const waLink = buildWhatsAppSummary(form, context);
+    const mailLink = buildMailtoSummary(form, context);
 
-    // Si Formspree non configuré -> bascule directe vers WhatsApp
+    // Si Formspree non configuré -> bascule vers le client e-mail
     if (form.action.includes("YOUR_FORM_ID")) {
       status.className = "form-status ok";
-      status.innerHTML = `Suivi <strong>${ref}</strong> — ouverture de WhatsApp…`;
-      window.open(waLink, "_blank");
+      status.innerHTML = `Suivi <strong>${ref}</strong> — ouverture de votre messagerie…`;
+      window.location.href = mailLink;
       return;
     }
 
@@ -142,17 +129,15 @@ function handleForm(formId, statusId) {
       });
       if (res.ok) {
         status.className = "form-status ok";
-        status.innerHTML = `Demande envoyée ✅ — suivi <strong>${ref}</strong>. ` +
-          `<a href="${waLink}" target="_blank" rel="noopener">Confirmer sur WhatsApp</a>`;
+        status.innerHTML = `Demande envoyée — suivi <strong>${ref}</strong>. Nous vous recontactons rapidement.`;
         form.reset();
-        window.open(waLink, "_blank");
       } else {
         throw new Error("Formspree error");
       }
     } catch (err) {
       status.className = "form-status err";
       status.innerHTML = `Échec de l'envoi. ` +
-        `<a href="${waLink}" target="_blank" rel="noopener">Envoyer plutôt par WhatsApp</a>`;
+        `<a href="${mailLink}">Envoyer plutôt par e-mail</a>`;
     }
   });
 }

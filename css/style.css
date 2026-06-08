@@ -421,27 +421,6 @@ img { max-width: 100%; display: block; }
 .footer-city { color: rgba(255,255,255,.6); font-size: .88rem; margin-top: 8px; }
 .footer-bottom { border-top: 1px solid rgba(255,255,255,.12); padding: 18px 0; text-align: center; font-size: .85rem; color: rgba(255,255,255,.6); }
 
-/* ============================= WHATSAPP FLOTTANT ============================= */
-.wa-float { position: fixed; right: 18px; bottom: 18px; z-index: 1500; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
-.wa-toggle {
-  width: 60px; height: 60px; border-radius: 50%; border: 0; cursor: pointer;
-  background: #25d366; color: #fff; display: grid; place-items: center;
-  box-shadow: 0 8px 24px rgba(37,211,102,.5); transition: transform .25s;
-  animation: waPulse 2.5s ease-in-out infinite;
-}
-.wa-toggle:hover { transform: scale(1.08); }
-@keyframes waPulse { 0%,100%{ box-shadow: 0 8px 24px rgba(37,211,102,.5) } 50%{ box-shadow: 0 8px 34px rgba(37,211,102,.8) } }
-.wa-menu {
-  background: #fff; border-radius: var(--radius); box-shadow: var(--shadow-lg); padding: 14px;
-  width: 250px; display: flex; flex-direction: column; gap: 4px; transform-origin: bottom right;
-  animation: waPop .25s ease;
-}
-.wa-menu[hidden] { display: none; }
-@keyframes waPop { from { opacity: 0; transform: scale(.9) translateY(10px); } to { opacity: 1; transform: scale(1); } }
-.wa-menu-title { font-family: var(--font-head); font-weight: 600; color: var(--blue-deep); font-size: .9rem; padding: 4px 8px 8px; border-bottom: 1px solid var(--line); margin-bottom: 4px; }
-.wa-menu a { display: block; padding: 10px 8px; border-radius: 8px; font-size: .92rem; color: var(--ink); transition: background .2s; }
-.wa-menu a:hover { background: var(--blue-soft); }
-
 /* ============================= NAV ACTIVE ============================= */
 .nav-links a.active { color: var(--blue-light); }
 .navbar.scrolled .nav-links a.active { color: var(--blue); background: var(--blue-soft); }
