@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#06316b" />
-  <title>NAFI — Eau minérale naturelle, née en Guinée</title>
-  <meta name="description" content="NAFI, eau minérale naturelle née en Guinée. Pure, fiable, contrôlée. Disponible à Conakry en 0,33 L, 0,5 L et 1,5 L. Devenez distributeur ou commandez en gros." />
+  <title>NAFI — L'eau pure de Guinée, la confiance en chaque goutte</title>
+  <meta name="description" content="NAFI, eau minérale naturelle née en Guinée. De la source à votre verre : captée, purifiée et contrôlée. Disponible à Conakry en 0,33 L, 0,5 L et 1,5 L. Devenez distributeur ou commandez en gros." />
   <meta name="keywords" content="NAFI, eau minérale, Guinée, Conakry, distributeur, eau, packs, commande en gros" />
 
   <!-- Open Graph -->
@@ -42,6 +42,9 @@
 </head>
 <body>
 
+  <!-- Barre de progression de lecture -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
   <!-- ===================== NAVBAR ===================== -->
   <header class="navbar" id="navbar">
     <div class="container nav-inner">
@@ -52,10 +55,10 @@
 
       <nav class="nav-links" id="navLinks" aria-label="Navigation principale">
         <a href="#accueil">Accueil</a>
-        <a href="#marque">La marque</a>
+        <a href="#histoire">Histoire</a>
         <a href="#bienfaits">Bienfaits</a>
         <a href="#produits">Produits</a>
-        <a href="#faq">FAQ</a>
+        <a href="#qualite">Qualité</a>
         <a href="#contact">Contact</a>
         <a href="#devis" class="nav-cta">Devis</a>
       </nav>
@@ -75,12 +78,18 @@
     <div class="container hero-inner">
       <div class="hero-text reveal">
         <span class="origin-badge">Origine&nbsp;: Guinée <span class="flag">🇬🇳</span></span>
-        <h1 class="hero-title">NAFI,<br><span class="accent-water">née en Guinée</span></h1>
-        <p class="hero-tagline">Eau minérale naturelle, pure et fiable — disponible dans tout Conakry.</p>
+        <h1 class="hero-title">L'eau pure de Guinée,<br><span class="accent-water">la confiance en chaque goutte</span></h1>
+        <p class="hero-tagline">NAFI, eau minérale naturelle très faiblement minéralisée, captée, purifiée et embouteillée avec soin — disponible dans tout Conakry.</p>
         <div class="hero-buttons">
-          <a href="#devis" class="btn btn-primary">Commander en gros</a>
-          <a href="#contact" class="btn btn-outline">Devenir distributeur</a>
+          <a href="#produits" class="btn btn-primary">Découvrir nos produits</a>
+          <a href="#contact" class="btn btn-outline">Nous contacter</a>
         </div>
+
+        <ul class="hero-trust" aria-label="Nos garanties">
+          <li><span class="trust-ico">✅</span> Eau potable certifiée</li>
+          <li><span class="trust-ico">🪶</span> Très faiblement minéralisée</li>
+          <li><span class="trust-ico">🇬🇳</span> 100% guinéenne</li>
+        </ul>
       </div>
 
       <div class="hero-visual reveal">
@@ -88,6 +97,12 @@
         <img src="images/hero-nafi.png" alt="Bouteille d'eau minérale NAFI" class="hero-bottle" data-fallback="bottle" />
       </div>
     </div>
+
+    <!-- Indicateur de défilement -->
+    <a href="#histoire" class="scroll-cue" aria-label="Défiler vers le bas">
+      <span class="scroll-cue-dot"></span>
+      <span class="scroll-cue-txt">Découvrir</span>
+    </a>
 
     <!-- Vague animée -->
     <div class="wave-wrap" aria-hidden="true">
@@ -105,13 +120,64 @@
     </div>
   </section>
 
+  <!-- ===================== NOTRE HISTOIRE ===================== -->
+  <section class="section histoire" id="histoire">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-text reveal" data-reveal="left">
+          <span class="eyebrow">Notre histoire</span>
+          <h2>Née d'une ambition&nbsp;: offrir le meilleur de la Guinée</h2>
+          <p>Tout commence par une conviction simple&nbsp;: chaque famille guinéenne mérite une eau d'une pureté irréprochable, accessible et fiable. C'est ainsi qu'est née <strong>NAFI</strong> — une eau minérale naturelle, captée au cœur de la Guinée et embouteillée à Conakry.</p>
+          <p>De la source à votre verre, nous veillons sur chaque goutte. Purification rigoureuse, contrôles permanents, hygiène stricte&nbsp;: NAFI, c'est la promesse d'une eau saine, légère et sûre, jour après jour.</p>
+
+          <div class="story-pillars">
+            <div class="pillar">
+              <h3><span class="pillar-ico">🎯</span> Notre mission</h3>
+              <p>Rendre une eau pure et de qualité accessible à tous les Guinéens, au quotidien.</p>
+            </div>
+            <div class="pillar">
+              <h3><span class="pillar-ico">🌍</span> Notre vision</h3>
+              <p>Devenir une référence de l'eau minérale en Afrique de l'Ouest, fière de ses origines.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="story-visual reveal" data-reveal="right">
+          <div class="story-logo-wrap">
+            <img src="images/logo-nafi.png" alt="Logo NAFI" class="story-logo" data-fallback="logo" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Chiffres clés (compteurs animés) -->
+      <div class="stats-strip reveal">
+        <div class="stat">
+          <span class="stat-num" data-count="100" data-suffix="%">0</span>
+          <span class="stat-label">Naturelle</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num" data-count="16.4" data-decimals="1">0</span>
+          <span class="stat-label">mg/L de résidu sec</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num" data-count="7.2" data-decimals="1">0</span>
+          <span class="stat-label">pH équilibré</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num" data-count="3">0</span>
+          <span class="stat-label">Formats pratiques</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===================== LA MARQUE ===================== -->
   <section class="section marque" id="marque">
     <div class="container">
       <div class="section-head reveal">
-        <span class="eyebrow">La marque</span>
-        <h2>Une eau pure, née de la terre de Guinée</h2>
-        <p class="lead">NAFI puise sa source au cœur de la Guinée. De la source à votre table, chaque goutte est protégée, purifiée et contrôlée pour vous offrir une eau d'une pureté irréprochable.</p>
+        <span class="eyebrow">Nos engagements</span>
+        <h2>Pourquoi NAFI inspire confiance</h2>
+        <p class="lead">De la source à votre table, chaque goutte est protégée, purifiée et contrôlée pour vous offrir une eau d'une pureté irréprochable.</p>
       </div>
 
       <div class="marque-grid">
@@ -271,6 +337,70 @@
           </table>
         </div>
         <p class="min-note">Valeurs issues de l'analyse officielle figurant sur l'étiquette NAFI.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== QUALITÉ / PROCESSUS ===================== -->
+  <section class="section qualite" id="qualite">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Notre processus</span>
+        <h2>De la source à votre verre</h2>
+        <p class="lead">Six étapes maîtrisées, contrôlées en continu, pour garantir une eau pure et sûre à chaque bouteille.</p>
+      </div>
+
+      <ol class="process-timeline">
+        <li class="step reveal">
+          <span class="step-num">1</span>
+          <div class="step-ico">🏔️</div>
+          <h3>Captage</h3>
+          <p>L'eau est captée à la source, préservée de toute pollution, dans le respect de son équilibre naturel.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step-num">2</span>
+          <div class="step-ico">🧴</div>
+          <h3>Filtration</h3>
+          <p>Une filtration fine élimine les impuretés tout en conservant la légèreté de l'eau.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step-num">3</span>
+          <div class="step-ico">💠</div>
+          <h3>Purification</h3>
+          <p>Traitement par osmose inverse et stérilisation UV pour une pureté microbiologique optimale.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step-num">4</span>
+          <div class="step-ico">🔬</div>
+          <h3>Contrôle qualité</h3>
+          <p>Des analyses en laboratoire vérifient chaque paramètre, à chaque étape de la production.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step-num">5</span>
+          <div class="step-ico">🏭</div>
+          <h3>Mise en bouteille</h3>
+          <p>Embouteillage automatisé sous conditions d'hygiène strictes, à l'abri de toute contamination.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step-num">6</span>
+          <div class="step-ico">🚚</div>
+          <h3>Distribution</h3>
+          <p>NAFI est livrée dans tout Conakry, jusqu'aux commerces, familles et professionnels.</p>
+        </li>
+      </ol>
+
+      <!-- Bandeau qualité & certifications -->
+      <div class="certif-band reveal">
+        <div class="certif-head">
+          <h3>Qualité &amp; sécurité garanties</h3>
+          <p>La confiance se construit à chaque contrôle. Voici nos engagements de qualité.</p>
+        </div>
+        <div class="certif-grid">
+          <div class="certif-item"><span class="certif-ico">🛡️</span><p>Normes sanitaires guinéennes respectées</p></div>
+          <div class="certif-item"><span class="certif-ico">🔬</span><p>Contrôle laboratoire régulier</p></div>
+          <div class="certif-item"><span class="certif-ico">💧</span><p>Eau potable certifiée</p></div>
+          <div class="certif-item"><span class="certif-ico">🧼</span><p>Hygiène stricte à chaque étape</p></div>
+        </div>
       </div>
     </div>
   </section>

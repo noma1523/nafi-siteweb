@@ -199,3 +199,53 @@ faqItems.forEach(item => {
     if (item.open) faqItems.forEach(other => { if (other !== item) other.open = false; });
   });
 });
+
+/* ============================================================
+   Barre de progression de lecture (scroll)
+   ============================================================ */
+const progressBar = $("#scrollProgress");
+if (progressBar) {
+  const updateProgress = () => {
+    const doc = document.documentElement;
+    const scrollable = doc.scrollHeight - doc.clientHeight;
+    const pct = scrollable > 0 ? (doc.scrollTop / scrollable) * 100 : 0;
+    progressBar.style.width = pct + "%";
+  };
+  updateProgress();
+  window.addEventListener("scroll", updateProgress, { passive: true });
+  window.addEventListener("resize", updateProgress, { passive: true });
+}
+
+/* ============================================================
+   Compteurs animés (stats-strip)
+   ============================================================ */
+function animateCount(el) {
+  const target   = parseFloat(el.dataset.count || "0");
+  const decimals = parseInt(el.dataset.decimals || "0", 10);
+  const suffix   = el.dataset.suffix || "";
+  const duration = 1600;
+  const start    = performance.now();
+  const easeOut  = t => 1 - Math.pow(1 - t, 3);
+
+  const tick = (now) => {
+    const p = Math.min((now - start) / duration, 1);
+    const val = target * easeOut(p);
+    el.textContent = val.toFixed(decimals).replace(".", ",") + suffix;
+    if (p < 1) requestAnimationFrame(tick);
+    else el.textContent = target.toFixed(decimals).replace(".", ",") + suffix;
+  };
+  requestAnimationFrame(tick);
+}
+
+const counters = $$(".stat-num");
+if (counters.length) {
+  const countObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        animateCount(e.target);
+        countObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.6 });
+  counters.forEach(c => countObserver.observe(c));
+}
