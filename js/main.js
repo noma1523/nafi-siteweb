@@ -81,6 +81,24 @@ const io = new IntersectionObserver((entries) => {
 $$(".reveal").forEach(el => io.observe(el));
 
 /* ============================================================
+   Parallaxe douce de la bouteille du hero au défilement
+   ============================================================ */
+const bottleStage = $(".hero-bottle-stage");
+if (bottleStage && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  let ticking = false;
+  const parallax = () => {
+    const y = window.scrollY;
+    if (y < window.innerHeight) {
+      bottleStage.style.transform = `translateY(${y * 0.18}px) scale(${1 - y * 0.00012})`;
+    }
+    ticking = false;
+  };
+  window.addEventListener("scroll", () => {
+    if (!ticking) { requestAnimationFrame(parallax); ticking = true; }
+  }, { passive: true });
+}
+
+/* ============================================================
    Formulaires (Formspree) + lien e-mail de secours
    ============================================================ */
 function buildMailtoSummary(form, context) {

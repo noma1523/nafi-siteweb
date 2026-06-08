@@ -203,18 +203,38 @@ img { max-width: 100%; display: block; }
 .hero-buttons { display: flex; flex-wrap: wrap; gap: 14px; }
 
 .hero-visual { position: relative; display: flex; justify-content: center; align-items: center; min-height: 320px; }
+.hero-bottle-stage { position: relative; display: flex; flex-direction: column; align-items: center; z-index: 2; }
 .hero-bottle {
-  max-height: 70vh; width: auto; filter: drop-shadow(0 30px 50px rgba(0,0,0,.35));
-  animation: floaty 5s ease-in-out infinite; position: relative; z-index: 2;
+  max-height: 72vh; width: auto;
+  filter: drop-shadow(0 34px 46px rgba(3,28,68,.55));
+  animation: bottleFloat 6s ease-in-out infinite;
+  transform-origin: 50% 90%; will-change: transform;
 }
 .hero-bottle.img-missing { width: 260px; min-height: 420px; }
+/* reflet au sol */
+.hero-bottle-reflection {
+  width: 58%; height: 26px; margin-top: -6px; border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(3,28,68,.45), transparent 70%);
+  filter: blur(4px); animation: shadowPulse 6s ease-in-out infinite;
+}
 .hero-glow {
-  position: absolute; width: 360px; height: 360px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,255,255,.45), transparent 65%);
-  filter: blur(10px); z-index: 1; animation: pulse 6s ease-in-out infinite;
+  position: absolute; width: 380px; height: 380px; border-radius: 50%; top: 50%; left: 50%;
+  transform: translate(-50%,-55%);
+  background: radial-gradient(circle, rgba(255,255,255,.5), transparent 65%);
+  filter: blur(12px); z-index: 1; animation: pulse 7s ease-in-out infinite;
 }
 @keyframes floaty { 0%,100%{ transform: translateY(0) } 50%{ transform: translateY(-18px) } }
-@keyframes pulse { 0%,100%{ transform: scale(1); opacity:.7 } 50%{ transform: scale(1.08); opacity:1 } }
+/* flottement + balancement 3D subtil facon casamancaise */
+@keyframes bottleFloat {
+  0%   { transform: translateY(0)     rotate(-1.6deg); }
+  50%  { transform: translateY(-22px) rotate(1.6deg); }
+  100% { transform: translateY(0)     rotate(-1.6deg); }
+}
+@keyframes shadowPulse {
+  0%,100% { transform: scaleX(1);   opacity: .55; }
+  50%     { transform: scaleX(.82); opacity: .3; }
+}
+@keyframes pulse { 0%,100%{ transform: translate(-50%,-55%) scale(1); opacity:.65 } 50%{ transform: translate(-50%,-55%) scale(1.08); opacity:1 } }
 
 /* bulles montantes */
 .hero-bg-bubbles { position: absolute; inset: 0; z-index: 2; overflow: hidden; pointer-events: none; }
@@ -334,10 +354,19 @@ img { max-width: 100%; display: block; }
   position: absolute; top: 14px; right: 14px; background: var(--green); color: #fff;
   font-family: var(--font-head); font-weight: 600; font-size: .72rem; padding: 5px 12px; border-radius: 50px;
 }
-.product-img { height: 220px; display: flex; align-items: flex-end; justify-content: center; margin-bottom: 16px; }
-.product-img img { max-height: 220px; width: auto; filter: drop-shadow(0 14px 22px rgba(6,49,107,.2)); transition: transform .4s; }
-.product-card:hover .product-img img { transform: translateY(-6px) scale(1.04); }
+.product-img { height: 240px; display: flex; align-items: flex-end; justify-content: center; margin-bottom: 16px; }
+.product-img img { max-height: 240px; width: auto; filter: drop-shadow(0 16px 22px rgba(6,49,107,.22)); transition: transform .5s cubic-bezier(.22,1,.36,1); }
+.product-card:hover .product-img img { transform: translateY(-8px) scale(1.05) rotate(-1.5deg); }
 .product-img img.img-missing { width: 110px; min-height: 200px; }
+/* photos reelles : echelle selon le format */
+.prod-bottle--sm { max-height: 175px; }
+.prod-bottle--md { max-height: 215px; }
+.prod-bottle--lg { max-height: 240px; }
+.product-card:hover .prod-bottle { animation: bottleNudge 2.4s ease-in-out infinite; }
+@keyframes bottleNudge {
+  0%,100% { transform: translateY(-8px) rotate(-1.5deg); }
+  50%     { transform: translateY(-14px) rotate(1.5deg); }
+}
 .product-size {
   display: inline-block; font-family: var(--font-head); font-weight: 800; font-size: 1.5rem;
   color: var(--blue); background: var(--blue-soft); padding: 4px 16px; border-radius: 50px; margin-bottom: 8px;
@@ -596,10 +625,14 @@ img { max-width: 100%; display: block; }
   display: flex; justify-content: center; align-items: flex-end; gap: 6px;
   filter: drop-shadow(0 24px 40px rgba(0,0,0,.35));
 }
-.cta-bottle { width: auto; }
-.cta-bottle--sm { height: 180px; transform: translateY(6px); }
-.cta-bottle--md { height: 210px; transform: translateY(6px); }
-.cta-bottle--lg { height: 260px; animation: floaty 5s ease-in-out infinite; }
+.cta-bottle { width: auto; will-change: transform; }
+.cta-bottle--sm { height: 200px; animation: ctaFloat 5.5s ease-in-out infinite; animation-delay: .6s; }
+.cta-bottle--md { height: 220px; animation: ctaFloat 6.5s ease-in-out infinite; animation-delay: 1.2s; }
+.cta-bottle--lg { height: 270px; z-index: 2; animation: ctaFloat 6s ease-in-out infinite; }
+@keyframes ctaFloat {
+  0%,100% { transform: translateY(6px) rotate(-1.4deg); }
+  50%     { transform: translateY(-14px) rotate(1.4deg); }
+}
 .cta-bubbles { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
 .cta-bubbles span {
   position: absolute; bottom: -40px; border-radius: 50%;
