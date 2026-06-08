@@ -102,23 +102,34 @@ if (bottleStage && !window.matchMedia("(prefers-reduced-motion: reduce)").matche
    Formulaires (Formspree) + lien e-mail de secours
    ============================================================ */
 function buildMailtoSummary(form, context) {
-  const d = Object.fromEntries(new FormData(form).entries());
+  const fd = new FormData(form);
+  const d = Object.fromEntries(fd.entries());
   let subject, body;
-  if (context === "devis") {
-    subject = "Demande de devis NAFI";
-    body = `Bonjour NAFI, je souhaite un devis :\n` +
-      `- 0,33 L : ${d.packs_033 || 0} pack(s) de 12\n` +
-      `- 0,5 L : ${d.packs_05 || 0} pack(s) de 12\n` +
-      `- 1,5 L : ${d.packs_15 || 0} pack(s) de 6\n` +
-      `Livraison : ${d.lieu_livraison || "-"} le ${d.date_livraison || "-"}\n` +
-      `Événement : ${d.type_evenement || "-"}\n` +
-      `Nom : ${d.nom || "-"} | Tél : ${d.telephone || "-"}`;
+  if (context === "distributeur") {
+    subject = "NAFI — Demande de distribution";
+    body = `Bonjour NAFI, je souhaite devenir distributeur :\n` +
+      `Contact : ${d.nom || "-"}\n` +
+      `Entreprise : ${d.entreprise || "-"}\n` +
+      `Email : ${d.email || "-"} | Tél : ${d.telephone || "-"}\n` +
+      `Pays / Région : ${d.region || "-"}\n` +
+      `Type d'activité : ${d.type_activite || "-"}\n` +
+      `Volume estimé : ${d.volume || "-"}\n` +
+      `Message : ${d.message || "-"}`;
+  } else if (context === "commande") {
+    const produits = fd.getAll("produits").join(", ") || "-";
+    subject = "NAFI — Nouvelle commande";
+    body = `Bonjour NAFI, je souhaite passer commande :\n` +
+      `Nom : ${d.nom || "-"}\n` +
+      `Email : ${d.email || "-"} | Tél : ${d.telephone || "-"}\n` +
+      `Adresse de livraison : ${d.adresse || "-"}\n` +
+      `Produit(s) : ${produits}\n` +
+      `Quantité : ${d.quantite || "-"} pack(s)\n` +
+      `Commentaire : ${d.commentaire || "-"}`;
   } else {
-    subject = "Message via le site NAFI";
+    subject = "NAFI — Question via le site";
     body = `Bonjour NAFI,\n` +
-      `Nom : ${d.nom || "-"}${d.societe ? " (" + d.societe + ")" : ""}\n` +
-      `Sujet : ${d.sujet || "-"}\n` +
-      `Tél : ${d.telephone || "-"}\n` +
+      `Nom : ${d.nom || "-"}\n` +
+      `Email : ${d.email || "-"} | Tél : ${d.telephone || "-"}\n` +
       `Message : ${d.message || "-"}`;
   }
   return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -128,51 +139,91 @@ function refNumber() {
   return "NAFI-" + Date.now().toString().slice(-6);
 }
 
-function handleForm(formId, statusId) {
-  const form = $("#" + formId);
-  const status = $("#" + statusId);
-  if (!form) return;
+function showSuccess(form, ref) {
+  const card = form.closest(".modal-card") || form.parentElement;
+  const done = document.createElement("div");
+  done.className = "form-done";
+  done.innerHTML =
+    `<span class="form-done-ico"><svg viewBox="0 0 24 24" aria-hidden="true">` +
+    `<path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" ` +
+    `stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>` +
+    `<h4>Merci, c'est noté&nbsp;!</h4>` +
+    `<p>Votre demande est prête — référence <strong>${ref}</strong>.<br>` +
+    `Nous vous recontactons rapidement.</p>`;
+  form.style.display = "none";
+  card.appendChild(done);
+}
 
+function handleForm(form) {
+  const status = form.querySelector(".form-status");
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const context = form.dataset.context;
     const ref = refNumber();
     const mailLink = buildMailtoSummary(form, context);
 
-    // Si Formspree non configuré -> bascule vers le client e-mail
+    // Formspree non configuré -> confirmation puis ouverture du client e-mail
     if (form.action.includes("YOUR_FORM_ID")) {
-      status.className = "form-status ok";
-      status.innerHTML = `Suivi <strong>${ref}</strong> — ouverture de votre messagerie…`;
-      window.location.href = mailLink;
+      showSuccess(form, ref);
+      setTimeout(() => { window.open(mailLink, "_blank"); }, 400);
       return;
     }
 
-    status.className = "form-status loading";
-    status.textContent = "Envoi en cours…";
-
+    if (status) { status.className = "form-status loading"; status.textContent = "Envoi en cours…"; }
     try {
       const res = await fetch(form.action, {
         method: "POST",
         body: new FormData(form),
         headers: { Accept: "application/json" }
       });
-      if (res.ok) {
-        status.className = "form-status ok";
-        status.innerHTML = `Demande envoyée — suivi <strong>${ref}</strong>. Nous vous recontactons rapidement.`;
-        form.reset();
-      } else {
-        throw new Error("Formspree error");
-      }
+      if (!res.ok) throw new Error("Formspree error");
+      showSuccess(form, ref);
     } catch (err) {
-      status.className = "form-status err";
-      status.innerHTML = `Échec de l'envoi. ` +
-        `<a href="${mailLink}">Envoyer plutôt par e-mail</a>`;
+      if (status) {
+        status.className = "form-status err";
+        status.innerHTML = `Échec de l'envoi. <a href="${mailLink}">Envoyer plutôt par e-mail</a>`;
+      }
     }
   });
 }
 
-handleForm("contactForm", "contactStatus");
-handleForm("devisForm", "devisStatus");
+$$(".nafi-form").forEach(handleForm);
+
+/* ============================================================
+   Modales de contact (ouverture / fermeture, accessibilité)
+   ============================================================ */
+let lastFocused = null;
+function openModal(modal) {
+  if (!modal) return;
+  lastFocused = document.activeElement;
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-lock");
+  const first = modal.querySelector("input, select, textarea, button");
+  if (first) setTimeout(() => first.focus(), 60);
+}
+function closeModal(modal) {
+  if (!modal) return;
+  modal.classList.remove("open");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-lock");
+  if (lastFocused) lastFocused.focus();
+}
+$$("[data-modal]").forEach(btn => {
+  btn.addEventListener("click", () => openModal($("#" + btn.dataset.modal)));
+});
+$$(".modal [data-close]").forEach(el => {
+  el.addEventListener("click", () => closeModal(el.closest(".modal")));
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") { const m = $(".modal.open"); if (m) closeModal(m); }
+});
+// Lien #devis -> ouvre la modale de commande
+function handleDevisHash() {
+  if (location.hash === "#devis") openModal($("#modal-commande"));
+}
+window.addEventListener("hashchange", handleDevisHash);
+handleDevisHash();
 
 /* ============================================================
    Navigation active au défilement (scroll-spy)

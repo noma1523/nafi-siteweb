@@ -436,6 +436,86 @@ img { max-width: 100%; display: block; }
 .form-status.ok { color: var(--green-dark); }
 .form-status.err { color: #d9534f; }
 .form-status.loading { color: var(--blue); }
+.opt { color: var(--muted); font-weight: 400; }
+
+/* ----- Cartes de contact (3 choix) ----- */
+.section-sub { text-align: center; color: var(--muted); max-width: 560px; margin: 0 auto; }
+.contact-options { display: grid; grid-template-columns: 1fr; gap: 22px; margin-top: 40px; }
+.contact-card {
+  position: relative; text-align: center; cursor: pointer; overflow: hidden;
+  background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 38px 26px 30px; box-shadow: var(--shadow-sm);
+  transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s, border-color .35s;
+  font-family: var(--font-body);
+}
+.contact-card::before {
+  content: ""; position: absolute; inset: 0 0 auto 0; height: 4px;
+  background: linear-gradient(90deg, var(--blue), var(--blue-light), var(--green));
+  transform: scaleX(0); transform-origin: left; transition: transform .4s ease;
+}
+.contact-card:hover, .contact-card:focus-visible {
+  transform: translateY(-10px); box-shadow: var(--shadow-lg); border-color: var(--blue-light); outline: none;
+}
+.contact-card:hover::before, .contact-card:focus-visible::before { transform: scaleX(1); }
+.contact-card.featured { border-color: var(--blue-light); box-shadow: var(--shadow-md); }
+.contact-ico {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 76px; height: 76px; margin-bottom: 18px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #eaf6ff, var(--blue-soft));
+  color: var(--blue); transition: transform .4s, background .4s;
+}
+.contact-ico .ico { width: 36px; height: 36px; }
+.contact-card:hover .contact-ico { transform: translateY(-4px) scale(1.08); background: radial-gradient(circle at 35% 30%, #d6efff, #bfe3fb); }
+.contact-card h3 { font-size: 1.22rem; margin-bottom: 8px; color: var(--ink); }
+.contact-card p { color: var(--muted); font-size: .96rem; margin-bottom: 18px; }
+.contact-link { display: inline-block; font-family: var(--font-head); font-weight: 600; color: var(--blue); transition: gap .3s; }
+.contact-card:hover .contact-link span { display: inline-block; transform: translateX(5px); transition: transform .3s; }
+
+/* ----- Modales ----- */
+body.modal-lock { overflow: hidden; }
+.modal {
+  position: fixed; inset: 0; z-index: 200; display: flex; align-items: center; justify-content: center;
+  padding: 20px; visibility: hidden; opacity: 0; transition: opacity .3s, visibility .3s;
+}
+.modal.open { visibility: visible; opacity: 1; }
+.modal-overlay { position: absolute; inset: 0; background: rgba(6,28,60,.55); backdrop-filter: blur(4px); }
+.modal-card {
+  position: relative; z-index: 1; width: 100%; max-width: 560px; max-height: 90vh; overflow-y: auto;
+  background: var(--white); border-radius: var(--radius); padding: 30px 26px;
+  box-shadow: 0 30px 70px rgba(3,28,68,.4);
+  transform: translateY(24px) scale(.97); opacity: 0; transition: transform .4s cubic-bezier(.22,1,.36,1), opacity .4s;
+}
+.modal.open .modal-card { transform: translateY(0) scale(1); opacity: 1; }
+.modal-close {
+  position: absolute; top: 14px; right: 14px; width: 38px; height: 38px; border: none; cursor: pointer;
+  background: var(--blue-soft); color: var(--blue); border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  transition: background .25s, transform .25s;
+}
+.modal-close:hover { background: #d6efff; transform: rotate(90deg); }
+.modal-close svg { width: 20px; height: 20px; }
+.modal-head { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; padding-right: 34px; }
+.modal-ico {
+  flex-shrink: 0; width: 58px; height: 58px; border-radius: 16px; display: flex; align-items: center; justify-content: center;
+  background: radial-gradient(circle at 35% 30%, #eaf6ff, var(--blue-soft)); color: var(--blue);
+}
+.modal-ico .ico { width: 30px; height: 30px; }
+.modal-head h3 { font-size: 1.4rem; margin-bottom: 2px; }
+.modal-head p { color: var(--muted); font-size: .92rem; }
+.check-row { display: flex; align-items: center; gap: 10px; padding: 9px 0; cursor: pointer; font-size: .96rem; color: var(--ink); }
+.check-row + .check-row { border-top: 1px solid var(--line); }
+.check-row input { width: 18px; height: 18px; accent-color: var(--blue); flex-shrink: 0; }
+.check-row small { color: var(--muted); }
+
+/* ----- Confirmation après envoi ----- */
+.form-done { text-align: center; padding: 18px 8px 6px; animation: doneIn .5s ease both; }
+.form-done-ico {
+  display: inline-flex; align-items: center; justify-content: center; width: 72px; height: 72px;
+  border-radius: 50%; background: rgba(46,204,113,.14); color: var(--green-dark); margin-bottom: 16px;
+}
+.form-done-ico svg { width: 36px; height: 36px; }
+.form-done h4 { font-family: var(--font-head); font-size: 1.4rem; color: var(--ink); margin-bottom: 8px; }
+.form-done p { color: var(--muted); }
+@keyframes doneIn { from { opacity: 0; transform: scale(.9); } to { opacity: 1; transform: scale(1); } }
 
 /* ============================= FOOTER ============================= */
 .footer { background: var(--blue-deep); color: rgba(255,255,255,.85); padding: 56px 0 0; }
@@ -648,6 +728,7 @@ img { max-width: 100%; display: block; }
 /* ============================= RESPONSIVE ============================= */
 @media (min-width: 600px) {
   .field-row { grid-template-columns: 1fr 1fr; }
+  .contact-options { grid-template-columns: repeat(2, 1fr); }
   .products-grid { grid-template-columns: repeat(2, 1fr); }
   .marque-grid { grid-template-columns: repeat(2, 1fr); }
   .benefits-grid { grid-template-columns: repeat(2, 1fr); }
@@ -661,6 +742,7 @@ img { max-width: 100%; display: block; }
   .marque-grid { grid-template-columns: repeat(4, 1fr); }
   .benefits-grid { grid-template-columns: repeat(3, 1fr); }
   .products-grid { grid-template-columns: repeat(4, 1fr); }
+  .contact-options { grid-template-columns: repeat(3, 1fr); }
   .forms-grid { grid-template-columns: 1fr 1fr; align-items: start; }
   .footer-inner { grid-template-columns: 1.4fr 1fr 1fr 1fr; }
   .story-grid { grid-template-columns: 1.1fr .9fr; align-items: center; }
