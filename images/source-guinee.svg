@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" width="640" height="480" role="img" aria-label="Source naturelle de NAFI au cœur des montagnes de Guinée">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#bfe6fb"/>
+      <stop offset=".55" stop-color="#e8f4fc"/>
+      <stop offset="1" stop-color="#f4fbff"/>
+    </linearGradient>
+    <linearGradient id="mtnFar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7fb6dd"/>
+      <stop offset="1" stop-color="#a9d3ee"/>
+    </linearGradient>
+    <linearGradient id="mtnMid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3f9fda"/>
+      <stop offset="1" stop-color="#6fb8e2"/>
+    </linearGradient>
+    <linearGradient id="mtnNear" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1f73cf"/>
+      <stop offset="1" stop-color="#2f8fce"/>
+    </linearGradient>
+    <linearGradient id="hill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5bc47a"/>
+      <stop offset="1" stop-color="#2ecc71"/>
+    </linearGradient>
+    <linearGradient id="hillDark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#36a85e"/>
+      <stop offset="1" stop-color="#27ae60"/>
+    </linearGradient>
+    <linearGradient id="riverG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#eafaff"/>
+      <stop offset="1" stop-color="#7fc6ee"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ciel -->
+  <rect width="640" height="480" fill="url(#sky)"/>
+  <!-- soleil -->
+  <circle cx="510" cy="90" r="46" fill="#ffffff" opacity=".85"/>
+  <circle cx="510" cy="90" r="64" fill="#ffffff" opacity=".25"/>
+
+  <!-- nuages -->
+  <g fill="#ffffff" opacity=".85">
+    <ellipse cx="150" cy="70" rx="46" ry="18"/>
+    <ellipse cx="190" cy="62" rx="34" ry="16"/>
+    <ellipse cx="115" cy="62" rx="30" ry="14"/>
+    <ellipse cx="380" cy="110" rx="38" ry="15"/>
+    <ellipse cx="412" cy="104" rx="28" ry="13"/>
+  </g>
+
+  <!-- montagnes lointaines -->
+  <path d="M0 250 L90 150 L170 230 L250 140 L340 240 L430 160 L520 235 L620 165 L640 220 L640 480 L0 480 Z" fill="url(#mtnFar)"/>
+  <!-- montagnes médianes -->
+  <path d="M0 300 L120 200 L230 290 L330 210 L450 300 L560 220 L640 290 L640 480 L0 480 Z" fill="url(#mtnMid)"/>
+  <!-- neige / reflets sommets -->
+  <path d="M120 200 L150 230 L100 230 Z" fill="#ffffff" opacity=".6"/>
+  <path d="M330 210 L360 244 L300 244 Z" fill="#ffffff" opacity=".55"/>
+  <path d="M560 220 L588 250 L532 250 Z" fill="#ffffff" opacity=".55"/>
+
+  <!-- montagne proche (source) -->
+  <path d="M0 360 L160 250 L320 360 L320 480 L0 480 Z" fill="url(#mtnNear)"/>
+
+  <!-- rivière qui descend -->
+  <path d="M150 270 C150 320 120 340 130 380 C138 412 175 430 180 480 L120 480 C112 432 90 410 96 380 C104 344 132 322 132 272 Z" fill="url(#riverG)" opacity=".95"/>
+  <path d="M150 280 C150 322 126 342 134 378" fill="none" stroke="#ffffff" stroke-width="3" opacity=".5"/>
+
+  <!-- collines vertes -->
+  <path d="M0 400 Q160 350 320 400 T640 395 L640 480 L0 480 Z" fill="url(#hill)"/>
+  <path d="M0 440 Q200 400 400 440 T640 440 L640 480 L0 480 Z" fill="url(#hillDark)"/>
+
+  <!-- palmiers stylisés -->
+  <g stroke="#1c7a45" stroke-width="4" stroke-linecap="round" fill="none">
+    <path d="M470 440 q4 -40 0 -64"/>
+    <path d="M540 450 q6 -46 0 -72"/>
+  </g>
+  <g fill="#2ecc71">
+    <path d="M470 372 q-26 -6 -40 6 q22 -2 40 8 q18 -10 40 -8 q-14 -12 -40 -6"/>
+    <path d="M540 376 q-28 -8 -44 6 q24 -2 44 8 q20 -10 44 -8 q-16 -14 -44 -6"/>
+  </g>
+
+  <!-- reflets soleil sur eau -->
+  <g fill="#ffffff" opacity=".5">
+    <rect x="118" y="430" width="60" height="3" rx="2"/>
+    <rect x="124" y="448" width="48" height="3" rx="2"/>
+  </g>
+</svg>

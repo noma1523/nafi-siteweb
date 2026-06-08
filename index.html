@@ -109,8 +109,14 @@
     </video>
     <div class="hero-overlay" aria-hidden="true"></div>
 
+    <!-- Scène d'eau animée (rendu vidéo sans fichier) -->
+    <div class="hero-caustics" aria-hidden="true"></div>
+    <div class="hero-rays" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
     <div class="hero-bg-bubbles" aria-hidden="true">
-      <span></span><span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
     </div>
 
     <div class="container hero-inner">
@@ -181,9 +187,16 @@
         </div>
 
         <div class="story-visual reveal" data-reveal="right">
-          <div class="story-logo-wrap">
-            <img src="images/logo-nafi.png" alt="Logo NAFI" class="story-logo" data-fallback="logo" />
-          </div>
+          <figure class="source-card">
+            <img src="images/source-guinee.svg" alt="Source naturelle de NAFI au cœur des montagnes de Guinée" class="source-img" loading="lazy" />
+            <figcaption class="source-caption">
+              <svg class="ico" aria-hidden="true"><use href="#i-mountain"/></svg>
+              Captée au cœur de la Guinée
+            </figcaption>
+            <div class="source-badge">
+              <img src="images/logo-nafi.png" alt="Logo NAFI" data-fallback="logo" />
+            </div>
+          </figure>
         </div>
       </div>
 
@@ -494,6 +507,27 @@
             <p>Nous couvrons tout Conakry. Pour une livraison en dehors de Conakry, contactez-nous : nous étudions chaque demande au cas par cas.</p>
           </div>
         </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BANNIÈRE CTA ===================== -->
+  <section class="cta-banner" aria-label="Commander NAFI">
+    <div class="cta-bubbles" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="container cta-inner">
+      <div class="cta-text reveal">
+        <span class="eyebrow eyebrow--light">Commandez dès maintenant</span>
+        <h2>L'eau pure de Guinée, livrée partout à Conakry</h2>
+        <p>Pour la maison, le bureau, votre commerce ou vos événements — choisissez le format NAFI qu'il vous faut, en packs pratiques.</p>
+        <div class="cta-actions">
+          <a href="#devis" class="btn btn-light">Demander un devis</a>
+          <a href="#produits" class="btn btn-outline-light">Voir les formats</a>
+        </div>
+      </div>
+      <div class="cta-bottles reveal" aria-hidden="true">
+        <img src="images/bottle-033.svg" alt="" class="cta-bottle cta-bottle--sm" loading="lazy" />
+        <img src="images/bottle-15.svg" alt="" class="cta-bottle cta-bottle--lg" loading="lazy" />
+        <img src="images/bottle-05.svg" alt="" class="cta-bottle cta-bottle--md" loading="lazy" />
       </div>
     </div>
   </section>
