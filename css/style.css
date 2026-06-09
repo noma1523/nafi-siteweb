@@ -727,6 +727,39 @@ body.modal-lock { overflow: hidden; }
 .cta-bubbles span:nth-child(4){ left:72%; width:11px; height:11px; animation-duration:10s; animation-delay:.8s; }
 .cta-bubbles span:nth-child(5){ left:90%; width:8px;  height:8px;  animation-duration:8s;  animation-delay:2.5s; }
 
+/* ============================= QUALITÉ : galerie & bande ============================= */
+.quality-gallery {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 48px 0 24px;
+}
+.qg-item {
+  position: relative; margin: 0; border-radius: var(--radius-sm); overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+.qg-item img {
+  display: block; width: 100%; height: 210px; object-fit: cover;
+  transition: transform .6s cubic-bezier(.22,1,.36,1);
+}
+.qg-item:hover img { transform: scale(1.06); }
+.qg-item figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 26px 14px 12px;
+  color: #fff; font-family: var(--font-head); font-weight: 600; font-size: .92rem;
+  background: linear-gradient(to top, rgba(6,49,107,.92), transparent);
+}
+.quality-band {
+  position: relative; min-height: 280px; border-radius: var(--radius); overflow: hidden;
+  margin: 8px 0 48px; display: grid; place-items: center;
+  background: url("../images/quality/riviere.jpg") center/cover no-repeat;
+}
+.quality-band-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(120deg, rgba(6,49,107,.78), rgba(46,204,113,.4));
+}
+.quality-band-text {
+  position: relative; z-index: 2; color: #fff; max-width: 780px; text-align: center;
+  font-family: var(--font-head); font-weight: 600; font-size: clamp(1.2rem, 3vw, 1.85rem);
+  line-height: 1.5; padding: 36px 22px; text-shadow: 0 2px 16px rgba(0,0,0,.35);
+}
+
 /* ============================= NOTRE HISTOIRE (récit) ============================= */
 .story-feature { background: linear-gradient(180deg, #f3f9fe, #ffffff); overflow: hidden; }
 .story-head { max-width: 760px; margin: 0 auto 0; text-align: center; }
@@ -801,6 +834,7 @@ body.modal-lock { overflow: hidden; }
   .forms-grid { grid-template-columns: 1fr 1fr; align-items: start; }
   .footer-inner { grid-template-columns: 1.4fr 1fr 1fr 1fr; }
   .story-grid { grid-template-columns: 1.1fr .9fr; align-items: center; }
+  .quality-gallery { grid-template-columns: repeat(4, 1fr); }
   .story-row { grid-template-columns: 1fr 1fr; gap: 48px; }
   .story-row--reverse .story-row-media { order: 2; }
   .story-row-media img { height: 380px; }
