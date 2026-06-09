@@ -108,6 +108,58 @@ def navbar(active):
   </header>
 '''
 
+# ---------- Section "hub" d'accueil : boutons vers les pages ----------
+HUB = '''
+  <!-- ===================== ACCÈS AUX PAGES ===================== -->
+  <section class="section nav-hub">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Explorer</span>
+        <h2>Découvrez l'univers NAFI</h2>
+        <p class="lead">Choisissez une rubrique pour en savoir plus.</p>
+      </div>
+      <div class="hub-grid">
+        <a class="hub-card reveal" href="histoire.html">
+          <span class="hub-ico"><svg class="ico" aria-hidden="true"><use href="#i-mountain"/></svg></span>
+          <h3>Notre histoire</h3>
+          <p>Une source de vie née au cœur de la Guinée.</p>
+          <span class="hub-link">Découvrir <span aria-hidden="true">&rarr;</span></span>
+        </a>
+        <a class="hub-card reveal" href="bienfaits.html">
+          <span class="hub-ico"><svg class="ico" aria-hidden="true"><use href="#i-feather"/></svg></span>
+          <h3>Les bienfaits</h3>
+          <p>Une eau légère, très faiblement minéralisée.</p>
+          <span class="hub-link">Découvrir <span aria-hidden="true">&rarr;</span></span>
+        </a>
+        <a class="hub-card reveal" href="produits.html">
+          <span class="hub-ico"><svg class="ico" aria-hidden="true"><use href="#i-drop"/></svg></span>
+          <h3>Nos produits</h3>
+          <p>Les formats 0,33 L, 0,5 L et 1,5 L.</p>
+          <span class="hub-link">Découvrir <span aria-hidden="true">&rarr;</span></span>
+        </a>
+        <a class="hub-card reveal" href="qualite.html">
+          <span class="hub-ico"><svg class="ico" aria-hidden="true"><use href="#i-flask"/></svg></span>
+          <h3>Qualité &amp; process</h3>
+          <p>De la source à la bouteille, contrôlée.</p>
+          <span class="hub-link">Découvrir <span aria-hidden="true">&rarr;</span></span>
+        </a>
+        <a class="hub-card reveal" href="contact.html">
+          <span class="hub-ico"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg></span>
+          <h3>Contact</h3>
+          <p>Question, distribution ou commande.</p>
+          <span class="hub-link">Découvrir <span aria-hidden="true">&rarr;</span></span>
+        </a>
+        <a class="hub-card hub-card--cta reveal" href="contact.html#devis">
+          <span class="hub-ico"><svg class="ico" aria-hidden="true"><use href="#i-truck"/></svg></span>
+          <h3>Commander</h3>
+          <p>Faites-vous livrer partout à Conakry.</p>
+          <span class="hub-link">Demander un devis <span aria-hidden="true">&rarr;</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+'''
+
 FOOT = fixlinks(FOOTER)
 TAIL = f'''
 {fixlinks(TOTOP).strip()}
@@ -129,7 +181,7 @@ PAGES = {
  "index.html": ("accueil",
     "NAFI — L'eau pure de Guinée, la confiance en chaque goutte",
     "NAFI, eau minérale naturelle née en Guinée. De la source à votre verre : captée, purifiée et contrôlée. Disponible à Conakry en 0,33 L, 0,5 L et 1,5 L.",
-    [HERO, MARQUE, CTA]),
+    [HERO, HUB]),
  "histoire.html": ("histoire",
     "Notre histoire — NAFI, l'eau pure de Guinée",
     "L'histoire de NAFI : une eau minérale née au cœur de la Guinée, symbole de confiance et de fierté nationale.",
