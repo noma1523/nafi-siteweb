@@ -127,7 +127,7 @@ HUB = '''
         <a class="hub-card reveal" href="bienfaits.html">
           <span class="hub-ico"><svg class="ico" aria-hidden="true"><use href="#i-feather"/></svg></span>
           <h3>Les bienfaits</h3>
-          <p>Une eau légère, très faiblement minéralisée.</p>
+          <p>Une eau pure, légère et équilibrée.</p>
           <span class="hub-link">Découvrir <span aria-hidden="true">&rarr;</span></span>
         </a>
         <a class="hub-card reveal" href="produits.html">
@@ -187,7 +187,7 @@ PAGES = {
     [HIST, RECIT, CTA]),
  "bienfaits.html": ("bienfaits",
     "Les bienfaits — NAFI eau minérale naturelle",
-    "Pourquoi choisir NAFI : une eau très faiblement minéralisée, légère, pure et idéale pour toute la famille au quotidien.",
+    "Pourquoi choisir NAFI : une eau pure, légère et idéale pour toute la famille au quotidien.",
     [BIEN, CTA]),
  "produits.html": ("produits",
     "Nos produits & formats — NAFI",
