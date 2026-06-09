@@ -630,7 +630,7 @@ body.modal-lock { overflow: hidden; }
   border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg);
   background: var(--blue-soft); border: 6px solid #fff;
 }
-.source-img { display: block; width: 100%; height: auto; }
+.source-img { display: block; width: 100%; height: 380px; object-fit: cover; }
 .source-caption {
   position: absolute; left: 0; right: 0; bottom: 0;
   display: flex; align-items: center; gap: 8px;
@@ -725,6 +725,55 @@ body.modal-lock { overflow: hidden; }
 .cta-bubbles span:nth-child(4){ left:72%; width:11px; height:11px; animation-duration:10s; animation-delay:.8s; }
 .cta-bubbles span:nth-child(5){ left:90%; width:8px;  height:8px;  animation-duration:8s;  animation-delay:2.5s; }
 
+/* ============================= NOTRE HISTOIRE (récit) ============================= */
+.story-feature { background: linear-gradient(180deg, #f3f9fe, #ffffff); overflow: hidden; }
+.story-head { max-width: 760px; margin: 0 auto 0; text-align: center; }
+.story-lead { font-size: 1.18rem; color: var(--muted); margin-top: 12px; }
+.story-lead strong { color: var(--blue); }
+
+/* Bande immersive parallaxe */
+.story-band {
+  position: relative; margin: 48px 0 64px; min-height: 360px;
+  display: grid; place-items: center; padding: 60px 22px;
+  background: url("../images/story/paysage.jpg") center/cover no-repeat fixed;
+}
+.story-band-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(120deg, rgba(6,49,107,.78), rgba(21,101,192,.55));
+}
+.story-band-quote {
+  position: relative; z-index: 2; max-width: 880px; text-align: center; margin: 0;
+  color: #fff; font-family: var(--font-head); font-weight: 600;
+  font-size: clamp(1.25rem, 3.2vw, 2rem); line-height: 1.45; text-shadow: 0 2px 18px rgba(0,0,0,.35);
+}
+
+/* Lignes alternées texte / image */
+.story-rows { display: flex; flex-direction: column; gap: 64px; }
+.story-row { display: grid; grid-template-columns: 1fr; gap: 28px; align-items: center; }
+.story-row-media { position: relative; }
+.story-row-media img {
+  display: block; width: 100%; height: 320px; object-fit: cover;
+  border-radius: var(--radius); box-shadow: var(--shadow-lg);
+  transition: transform .6s cubic-bezier(.22,1,.36,1);
+}
+.story-row-media img:hover { transform: scale(1.03); }
+.story-row-media--duo { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.story-row-media--duo img { height: 240px; }
+.story-row-txt h3 {
+  font-size: 1.55rem; color: var(--ink); margin-bottom: 14px; position: relative; padding-bottom: 12px;
+}
+.story-row-txt h3::after {
+  content: ""; position: absolute; left: 0; bottom: 0; width: 54px; height: 4px;
+  background: linear-gradient(90deg, var(--blue), var(--green)); border-radius: 4px;
+}
+.story-row-txt p { color: var(--muted); margin-bottom: 12px; line-height: 1.75; }
+
+.story-signature {
+  text-align: center; margin: 60px auto 0; max-width: 720px;
+  font-family: var(--font-head); font-weight: 700; font-size: clamp(1.2rem, 3vw, 1.7rem);
+  color: var(--blue-deep);
+}
+
 /* ============================= RESPONSIVE ============================= */
 @media (min-width: 600px) {
   .field-row { grid-template-columns: 1fr 1fr; }
@@ -746,6 +795,10 @@ body.modal-lock { overflow: hidden; }
   .forms-grid { grid-template-columns: 1fr 1fr; align-items: start; }
   .footer-inner { grid-template-columns: 1.4fr 1fr 1fr 1fr; }
   .story-grid { grid-template-columns: 1.1fr .9fr; align-items: center; }
+  .story-row { grid-template-columns: 1fr 1fr; gap: 48px; }
+  .story-row--reverse .story-row-media { order: 2; }
+  .story-row-media img { height: 380px; }
+  .story-row-media--duo img { height: 300px; }
   .process-timeline { grid-template-columns: repeat(3, 1fr); }
   .certif-grid { grid-template-columns: repeat(4, 1fr); }
   .cta-inner { grid-template-columns: 1.1fr .9fr; gap: 40px; }
