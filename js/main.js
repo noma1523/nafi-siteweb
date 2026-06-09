@@ -49,9 +49,24 @@ if (heroVideo) {
    Navbar : fond au scroll
    ============================================================ */
 const navbar = $("#navbar");
-const onScroll = () => navbar.classList.toggle("scrolled", window.scrollY > 40);
-onScroll();
-window.addEventListener("scroll", onScroll, { passive: true });
+
+/* Un SEUL écouteur de scroll, throttlé par rAF, qui exécute toutes les
+   mises à jour liées au défilement (navbar, parallaxe, bouton haut, barre).
+   Évite le thrashing de 4 écouteurs séparés. */
+const scrollFns = [];
+let scrollTicking = false;
+const runScrollFns = () => {
+  const y = window.scrollY;
+  for (let i = 0; i < scrollFns.length; i++) scrollFns[i](y);
+  scrollTicking = false;
+};
+window.addEventListener("scroll", () => {
+  if (!scrollTicking) { scrollTicking = true; requestAnimationFrame(runScrollFns); }
+}, { passive: true });
+
+const onNav = (y) => navbar.classList.toggle("scrolled", y > 40);
+scrollFns.push(onNav);
+onNav(window.scrollY);
 
 /* ============================================================
    Menu mobile (burger)
@@ -85,17 +100,12 @@ $$(".reveal").forEach(el => io.observe(el));
    ============================================================ */
 const bottleStage = $(".hero-bottle-stage");
 if (bottleStage && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  let ticking = false;
-  const parallax = () => {
-    const y = window.scrollY;
-    if (y < window.innerHeight) {
-      bottleStage.style.transform = `translateY(${y * 0.18}px) scale(${1 - y * 0.00012})`;
+  const vh = () => window.innerHeight;
+  scrollFns.push((y) => {
+    if (y < vh()) {
+      bottleStage.style.transform = `translate3d(0, ${y * 0.18}px, 0) scale(${1 - y * 0.00012})`;
     }
-    ticking = false;
-  };
-  window.addEventListener("scroll", () => {
-    if (!ticking) { requestAnimationFrame(parallax); ticking = true; }
-  }, { passive: true });
+  });
 }
 
 /* ============================================================
@@ -249,9 +259,7 @@ if (spySections.length) {
    ============================================================ */
 const toTop = $("#toTop");
 if (toTop) {
-  const toggleToTop = () => toTop.classList.toggle("show", window.scrollY > 500);
-  toggleToTop();
-  window.addEventListener("scroll", toggleToTop, { passive: true });
+  scrollFns.push((y) => toTop.classList.toggle("show", y > 500));
   toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 }
 
@@ -274,10 +282,10 @@ if (progressBar) {
     const doc = document.documentElement;
     const scrollable = doc.scrollHeight - doc.clientHeight;
     const pct = scrollable > 0 ? (doc.scrollTop / scrollable) * 100 : 0;
-    progressBar.style.width = pct + "%";
+    progressBar.style.transform = `scaleX(${pct / 100})`;
   };
+  scrollFns.push(updateProgress);
   updateProgress();
-  window.addEventListener("scroll", updateProgress, { passive: true });
   window.addEventListener("resize", updateProgress, { passive: true });
 }
 

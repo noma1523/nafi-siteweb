@@ -160,13 +160,14 @@ img { max-width: 100%; display: block; }
     radial-gradient(closest-side at 45% 65%, rgba(255,255,255,.16), transparent 70%),
     radial-gradient(closest-side at 85% 75%, rgba(217,243,255,.14), transparent 70%);
   background-size: 60% 60%, 55% 55%, 65% 65%, 50% 50%;
-  mix-blend-mode: screen;
+  mix-blend-mode: screen; filter: blur(2px); will-change: transform;
   animation: caustics-drift 18s ease-in-out infinite alternate;
 }
+/* transform uniquement (compositeur GPU) — plus de blur animé coûteux */
 @keyframes caustics-drift {
-  0%   { transform: translate3d(0,0,0) scale(1);     filter: blur(2px); }
-  50%  { transform: translate3d(3%, -2%, 0) scale(1.08); filter: blur(0px); }
-  100% { transform: translate3d(-2%, 3%, 0) scale(1.04); filter: blur(3px); }
+  0%   { transform: translate3d(0,0,0) scale(1); }
+  50%  { transform: translate3d(3%, -2%, 0) scale(1.08); }
+  100% { transform: translate3d(-2%, 3%, 0) scale(1.04); }
 }
 
 /* Rayons de lumière sous-marins (god rays) */
@@ -588,7 +589,8 @@ body.modal-lock { overflow: hidden; }
 
 /* ============================= BARRE DE PROGRESSION ============================= */
 .scroll-progress {
-  position: fixed; top: 0; left: 0; height: 4px; width: 0; z-index: 2000;
+  position: fixed; top: 0; left: 0; height: 4px; width: 100%; z-index: 2000;
+  transform: scaleX(0); transform-origin: 0 50%; will-change: transform;
   background: linear-gradient(90deg, var(--blue-light), var(--green));
   box-shadow: 0 0 10px rgba(46,204,113,.5);
 }
@@ -735,7 +737,11 @@ body.modal-lock { overflow: hidden; }
 .story-band {
   position: relative; margin: 48px 0 64px; min-height: 360px;
   display: grid; place-items: center; padding: 60px 22px;
-  background: url("../images/story/paysage.jpg") center/cover no-repeat fixed;
+  background: url("../images/story/paysage.jpg") center/cover no-repeat;
+}
+/* effet "fixed" seulement sur grand écran avec souris (évite le jank mobile) */
+@media (min-width: 1000px) and (pointer: fine) {
+  .story-band { background-attachment: fixed; }
 }
 .story-band-overlay {
   position: absolute; inset: 0;
@@ -821,4 +827,18 @@ body.modal-lock { overflow: hidden; }
 /* ---- Réduire animations si demandé ---- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+  .hero-bottle-stage { transform: none !important; }
 }
+
+/* ---- Performance mobile : on allège le hero (la vidéo suffit) ---- */
+@media (max-width: 760px) {
+  /* effets d'eau coûteux retirés : déjà rendus par la vidéo de fond */
+  .hero-caustics, .hero-rays { display: none; }
+  /* moins de bulles = moins de repaints */
+  .hero-bg-bubbles span:nth-child(n+6) { display: none; }
+  /* ombres/halo plus légers */
+  .hero-glow { filter: blur(8px); }
+}
+
+/* Indices de compositing pour les éléments en mouvement permanent */
+.hero-bottle, .cta-bottle, .source-badge { will-change: transform; }
