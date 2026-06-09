@@ -68,12 +68,6 @@ DISTRIB = '''<form class="nafi-form" id="formDistrib" data-context="distributeur
         <p class="form-section">Motivation</p>
         <div class="field"><label for="d-motiv">Pourquoi souhaitez-vous devenir distributeur NAFI ? *</label><textarea id="d-motiv" name="motivation" rows="4" required></textarea></div>
 
-        <p class="form-section">Documents à joindre</p>
-        <div class="field"><label for="d-doc-rccm">Registre de commerce</label><input id="d-doc-rccm" name="doc_rccm" type="file" /></div>
-        <div class="field"><label for="d-doc-nif">NIF</label><input id="d-doc-nif" name="doc_nif" type="file" /></div>
-        <div class="field"><label for="d-doc-id">Pièce d'identité du responsable</label><input id="d-doc-id" name="doc_identite" type="file" /></div>
-        <div class="field"><label for="d-doc-entrepot">Photo de l'entrepôt <span class="opt">(optionnel)</span></label><input id="d-doc-entrepot" name="doc_entrepot" type="file" accept="image/*" /></div>
-
         <label class="check-row check-row--solo"><input type="checkbox" name="certification" required /> <span>Je certifie que les informations fournies sont exactes.</span></label>
         <button type="submit" class="btn btn-primary btn-block">Soumettre ma candidature de distributeur</button>
         <p class="form-status" role="status"></p>
