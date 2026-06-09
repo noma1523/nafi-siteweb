@@ -4,15 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#06316b" />
-  <title>NAFI — L'eau pure de Guinée, la confiance en chaque goutte</title>
-  <meta name="description" content="NAFI, eau minérale naturelle née en Guinée. De la source à votre verre : captée, purifiée et contrôlée. Disponible à Conakry en 0,33 L, 0,5 L et 1,5 L." />
+  <title>Nos produits & formats — NAFI</title>
+  <meta name="description" content="Découvrez les formats NAFI : 0,33 L, 0,5 L et 1,5 L, ainsi que la composition et la minéralité de notre eau." />
   <link rel="icon" type="image/png" href="images/logo-nafi.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
+<body class="page-inner">
 
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
@@ -55,10 +55,10 @@
       </a>
 
       <nav class="nav-links" id="navLinks" aria-label="Navigation principale">
-        <a href="index.html" class="active">Accueil</a>
+        <a href="index.html">Accueil</a>
         <a href="histoire.html">Histoire</a>
         <a href="bienfaits.html">Bienfaits</a>
-        <a href="produits.html">Produits</a>
+        <a href="produits.html" class="active">Produits</a>
         <a href="qualite.html">Qualité</a>
         <a href="contact.html">Contact</a>
         <a href="contact.html#devis" class="nav-cta">Devis</a>
@@ -70,104 +70,84 @@
     </div>
   </header>
 
-<section class="hero" id="accueil">
-    <!-- Vidéo de fond du hero -->
-    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="images/hero-poster.jpg" aria-hidden="true">
-      <source src="videos/hero-water.mp4" type="video/mp4" />
-    </video>
-    <div class="hero-overlay" aria-hidden="true"></div>
-
-    <!-- Scène d'eau animée (rendu vidéo sans fichier) -->
-    <div class="hero-caustics" aria-hidden="true"></div>
-    <div class="hero-rays" aria-hidden="true">
-      <span></span><span></span><span></span><span></span><span></span>
-    </div>
-
-    <div class="hero-bg-bubbles" aria-hidden="true">
-      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-    </div>
-
-    <div class="container hero-inner">
-      <div class="hero-text reveal">
-        <span class="origin-badge">Origine&nbsp;: Guinée <svg class="flag-gn" aria-hidden="true"><use href="#i-flag-gn"/></svg></span>
-        <h1 class="hero-title">L'eau pure de Guinée,<br><span class="accent-water">la confiance en chaque goutte</span></h1>
-        <p class="hero-tagline">NAFI, eau minérale naturelle très faiblement minéralisée, captée, purifiée et embouteillée avec soin — disponible dans tout Conakry.</p>
-        <div class="hero-buttons">
-          <a href="produits.html" class="btn btn-primary">Découvrir nos produits</a>
-          <a href="contact.html" class="btn btn-outline">Nous contacter</a>
-        </div>
-
-        <ul class="hero-trust" aria-label="Nos garanties">
-          <li><svg class="ico trust-ico" aria-hidden="true"><use href="#i-check"/></svg> Eau potable certifiée</li>
-          <li><svg class="ico trust-ico" aria-hidden="true"><use href="#i-feather"/></svg> Très faiblement minéralisée</li>
-          <li><svg class="flag-gn trust-ico" aria-hidden="true"><use href="#i-flag-gn"/></svg> 100% guinéenne</li>
-        </ul>
-      </div>
-
-      <div class="hero-visual reveal">
-        <div class="hero-glow" aria-hidden="true"></div>
-        <div class="hero-bottle-stage">
-          <img src="images/bottles/nafi-05.png" alt="Bouteille d'eau minérale NAFI" class="hero-bottle" data-fallback="bottle" />
-          <span class="hero-bottle-reflection" aria-hidden="true"></span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Indicateur de défilement -->
-    <a href="histoire.html" class="scroll-cue" aria-label="Défiler vers le bas">
-      <span class="scroll-cue-dot"></span>
-      <span class="scroll-cue-txt">Découvrir</span>
-    </a>
-
-    <!-- Vague animée -->
-    <div class="wave-wrap" aria-hidden="true">
-      <svg class="waves" viewBox="0 24 150 28" preserveAspectRatio="none">
-        <defs>
-          <path id="wavepath" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-        </defs>
-        <g class="wave-parallax">
-          <use href="#wavepath" x="48" y="0" fill="rgba(255,255,255,0.7)" />
-          <use href="#wavepath" x="48" y="3" fill="rgba(255,255,255,0.5)" />
-          <use href="#wavepath" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-          <use href="#wavepath" x="48" y="7" fill="#ffffff" />
-        </g>
-      </svg>
-    </div>
-  </section>
-
-<section class="section marque" id="marque">
+<section class="section produits" id="produits">
     <div class="container">
       <div class="section-head reveal">
-        <span class="eyebrow">Nos engagements</span>
-        <h2>Pourquoi NAFI inspire confiance</h2>
-        <p class="lead">De la source à votre table, chaque goutte est protégée, purifiée et contrôlée pour vous offrir une eau d'une pureté irréprochable.</p>
+        <span class="eyebrow">Nos produits</span>
+        <h2>Le bon format pour chaque moment</h2>
+        <p class="lead">Trois formats, vendus en packs pratiques — pour la maison comme pour les pros.</p>
       </div>
 
-      <div class="marque-grid">
-        <article class="feature-card reveal">
-          <div class="feature-icon"><svg class="ico" aria-hidden="true"><use href="#i-drop"/></svg></div>
-          <h3>Une source protégée</h3>
-          <p>Une eau captée à la source en Guinée, préservée de toute pollution, qui conserve sa minéralité naturelle.</p>
+      <div class="products-grid">
+        <article class="product-card reveal">
+          <div class="product-img">
+            <img src="images/bottles/nafi-033.png" alt="Bouteille NAFI 0,33 L" loading="lazy" data-fallback="bottle" class="prod-bottle prod-bottle--sm" />
+          </div>
+          <span class="product-size">0,33 L</span>
+          <h3>Petit format pratique</h3>
+          <p class="product-target">Enfants, événements, restaurants</p>
+          <p class="product-sale">Pack de 12 bouteilles</p>
         </article>
-        <article class="feature-card reveal">
-          <div class="feature-icon"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg></div>
-          <h3>Purification & contrôle</h3>
-          <p>Un processus de purification rigoureux et des contrôles qualité à chaque étape de la production.</p>
+
+        <article class="product-card reveal featured">
+          <span class="popular">Le plus courant</span>
+          <div class="product-img">
+            <img src="images/bottles/nafi-05.png" alt="Bouteille NAFI 0,5 L" loading="lazy" data-fallback="bottle" class="prod-bottle prod-bottle--md" />
+          </div>
+          <span class="product-size">0,5 L</span>
+          <h3>Format nomade</h3>
+          <p class="product-target">Déplacements, bureaux, événements</p>
+          <p class="product-sale">Pack de 12 bouteilles</p>
         </article>
-        <article class="feature-card reveal">
-          <div class="feature-icon"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></div>
-          <h3>Certifiée & agréée</h3>
-          <p>NAFI respecte les normes et agréments sanitaires guinéens. La confiance, c'est notre priorité numéro un.</p>
+
+        <article class="product-card reveal">
+          <div class="product-img">
+            <img src="images/bottles/nafi-15.png" alt="Bouteille NAFI 1,5 L" loading="lazy" data-fallback="bottle" class="prod-bottle prod-bottle--lg" />
+          </div>
+          <span class="product-size">1,5 L</span>
+          <h3>Format familial</h3>
+          <p class="product-target">Maison, repas en famille</p>
+          <p class="product-sale">Pack de 6 bouteilles</p>
         </article>
-        <article class="feature-card reveal">
-          <div class="feature-icon"><svg class="flag-gn flag-gn--lg" aria-hidden="true"><use href="#i-flag-gn"/></svg></div>
-          <h3>Fièrement guinéenne</h3>
-          <p>Produite et distribuée à Conakry. NAFI, c'est une fierté nationale au service de votre quotidien.</p>
+
+        <article class="product-card reveal pack-card">
+          <div class="product-img pack-visual" aria-hidden="true">
+            <div class="pack-stack"><span></span><span></span><span></span></div>
+          </div>
+          <span class="product-size">Gros volumes</span>
+          <h3>Pour les pros</h3>
+          <p class="product-target">Commerces & grossistes</p>
+          <p class="product-sale">Packs &amp; palettes sur commande</p>
+          <a href="contact.html#devis" class="btn btn-primary btn-sm">Demander un devis</a>
         </article>
       </div>
 
-      <div class="quality-banner reveal">
-        <p><strong>Eau minérale naturelle</strong> — embouteillée à la source, sous contrôle qualité permanent.</p>
+      <!-- Tableau de minéralité -->
+      <div class="minerality reveal">
+        <h3>Composition &amp; minéralité</h3>
+        <p class="min-intro">Analyse physico-chimique de l'eau minérale naturelle NAFI. Avec un résidu sec de seulement <strong>16,40 mg/L</strong>, NAFI est une eau <strong>très faiblement minéralisée</strong> — pure, légère et idéale pour toute la famille, au quotidien.</p>
+        <div class="table-scroll">
+          <table class="min-table">
+            <thead>
+              <tr><th>Analyse</th><th>Valeur (mg/L)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Calcium (Ca²⁺)</td><td>0,18</td></tr>
+              <tr><td>Magnésium (Mg²⁺)</td><td>0,08</td></tr>
+              <tr><td>Sodium (Na⁺)</td><td>0,01</td></tr>
+              <tr><td>Potassium (K⁺)</td><td>0,1</td></tr>
+              <tr><td>Silice</td><td>3</td></tr>
+              <tr><td>Bicarbonates (HCO₃⁻)</td><td>40</td></tr>
+              <tr><td>Sulfates (SO₄²⁻)</td><td>&lt; 2</td></tr>
+              <tr><td>Chlorures (Cl⁻)</td><td>&lt; 0,1</td></tr>
+              <tr><td>Nitrates (NO₃⁻)</td><td>4,84</td></tr>
+              <tr><td>Fluor (F⁻)</td><td>0,20</td></tr>
+              <tr><td>Extrait sec à 180&nbsp;°C</td><td>16,40</td></tr>
+              <tr><td>pH</td><td>7,20</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="min-note">Valeurs issues de l'analyse officielle figurant sur l'étiquette NAFI.</p>
       </div>
     </div>
   </section>

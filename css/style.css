@@ -108,6 +108,16 @@ img { max-width: 100%; display: block; }
 }
 .navbar.scrolled .brand-text { color: var(--blue-deep); }
 
+/* Pages internes (sans hero sombre) : navbar solide dès le départ + espace sous la barre fixe */
+body.page-inner { padding-top: 66px; }
+body.page-inner .navbar { background: rgba(255,255,255,.95); backdrop-filter: blur(12px); box-shadow: var(--shadow-sm); }
+body.page-inner .brand-text { color: var(--blue-deep); }
+body.page-inner .nav-links a { color: var(--ink); }
+body.page-inner .nav-links a:hover { background: var(--blue-soft); color: var(--blue-deep); }
+body.page-inner .nav-links a.active { color: var(--blue); background: var(--blue-soft); }
+body.page-inner .nav-cta, body.page-inner .nav-links a.nav-cta { color: var(--white); }
+body.page-inner .burger span { background: var(--blue-deep); }
+
 .nav-links { display: flex; align-items: center; gap: 6px; }
 .nav-links a {
   font-family: var(--font-head); font-weight: 500; font-size: .95rem;

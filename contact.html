@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#06316b" />
+  <title>Contact, distribution & commande — NAFI</title>
+  <meta name="description" content="Posez une question, devenez distributeur ou commandez NAFI, livré partout à Conakry." />
+  <link rel="icon" type="image/png" href="images/logo-nafi.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="page-inner">
+
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol>
+      <symbol id="i-shield-check" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-feather" viewBox="0 0 24 24"><path d="M12.67 19a2 2 0 0 0 1.42-.59l6.15-6.17a6 6 0 0 0-8.49-8.49L5.59 9.91A2 2 0 0 0 5 11.33V18a1 1 0 0 0 1 1z"/><path d="M16 8 2 22"/><path d="M17.5 15H9"/></symbol>
+      <symbol id="i-salt" viewBox="0 0 24 24"><path d="M7 11a5 5 0 0 1 10 0"/><path d="M7 11h10v9a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1z"/><path d="M10 7.5v.01"/><path d="M14 7.5v.01"/><path d="M12 6v.01"/></symbol>
+      <symbol id="i-scale" viewBox="0 0 24 24"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></symbol>
+      <symbol id="i-family" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+      <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></symbol>
+      <symbol id="i-mountain" viewBox="0 0 24 24"><path d="m8 3 4 8 5-5 5 15H2z"/></symbol>
+      <symbol id="i-filter" viewBox="0 0 24 24"><path d="M22 3H2l8 9.46V19l4 2v-8.54z"/></symbol>
+      <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.94 14.06a2 2 0 0 0-1.44-1.44l-4.06-1.06 4.06-1.06A2 2 0 0 0 9.94 9L11 4.94 12.06 9a2 2 0 0 0 1.44 1.44l4.06 1.06-4.06 1.06A2 2 0 0 0 12.06 14L11 18.06z"/><path d="M19 4v3"/><path d="M20.5 5.5h-3"/><path d="M19 17v2"/><path d="M20 18h-2"/></symbol>
+      <symbol id="i-flask" viewBox="0 0 24 24"><path d="M14 2v6a2 2 0 0 0 .24.96l5.51 10.08A2 2 0 0 1 18 22H6a2 2 0 0 1-1.75-2.96l5.51-10.08A2 2 0 0 0 10 8V2"/><path d="M6.45 15h11.1"/><path d="M8.5 2h7"/></symbol>
+      <symbol id="i-factory" viewBox="0 0 24 24"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/><path d="M7 18h.01"/><path d="M12 18h.01"/><path d="M17 18h.01"/></symbol>
+      <symbol id="i-truck" viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M14 9h4l4 4v4a1 1 0 0 1-1 1h-2"/><circle cx="7.5" cy="18.5" r="2.5"/><circle cx="17.5" cy="18.5" r="2.5"/></symbol>
+      <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><path d="M13.83 16.57a1 1 0 0 0 1.21-.3l.36-.47A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.47.35a1 1 0 0 0-.29 1.23 14 14 0 0 0 6.39 6.39z"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+      <symbol id="i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></symbol>
+      <symbol id="i-file" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></symbol>
+      <symbol id="i-handshake" viewBox="0 0 24 24"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></symbol>
+      <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></symbol>
+      <symbol id="i-flag-gn" viewBox="0 0 30 20" preserveAspectRatio="none"><rect width="10" height="20" x="0" fill="#ce1126"/><rect width="10" height="20" x="10" fill="#fcd116"/><rect width="10" height="20" x="20" fill="#009460"/></symbol>
+    </defs>
+  </svg>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand" aria-label="NAFI - Accueil">
+        <img src="images/logo-nafi.png" alt="Logo NAFI" class="brand-logo" data-fallback="logo" />
+        <span class="brand-text">NAFI</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <a href="histoire.html">Histoire</a>
+        <a href="bienfaits.html">Bienfaits</a>
+        <a href="produits.html">Produits</a>
+        <a href="qualite.html">Qualité</a>
+        <a href="contact.html" class="active">Contact</a>
+        <a href="contact.html#devis" class="nav-cta">Devis</a>
+      </nav>
+
+      <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+<section class="section contact" id="contact">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Contact</span>
+        <h2>Comment pouvons-nous vous aider&nbsp;?</h2>
+        <p class="section-sub">Choisissez votre besoin — nous vous répondons rapidement.</p>
+      </div>
+
+      <div class="contact-options" id="devis">
+        <button class="contact-card reveal" type="button" data-modal="modal-question">
+          <span class="contact-ico"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg></span>
+          <h3>Poser une question</h3>
+          <p>Une information, un renseignement&nbsp;? Écrivez-nous, on vous répond.</p>
+          <span class="contact-link">Nous écrire <span aria-hidden="true">→</span></span>
+        </button>
+
+        <button class="contact-card reveal featured" type="button" data-modal="modal-distrib">
+          <span class="popular">Pro</span>
+          <span class="contact-ico"><svg class="ico" aria-hidden="true"><use href="#i-handshake"/></svg></span>
+          <h3>Devenir distributeur</h3>
+          <p>Professionnels &amp; revendeurs&nbsp;: rejoignez le réseau NAFI.</p>
+          <span class="contact-link">Faire une demande <span aria-hidden="true">→</span></span>
+        </button>
+
+        <button class="contact-card reveal" type="button" data-modal="modal-commande">
+          <span class="contact-ico"><svg class="ico" aria-hidden="true"><use href="#i-truck"/></svg></span>
+          <h3>Commander maintenant</h3>
+          <p>Passez commande et faites-vous livrer partout à Conakry.</p>
+          <span class="contact-link">Commander <span aria-hidden="true">→</span></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+<section class="section faq" id="faq">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">FAQ</span>
+        <h2>Questions fréquentes</h2>
+        <p class="lead">Tout ce qu'il faut savoir sur NAFI, la livraison et la distribution.</p>
+      </div>
+
+      <div class="faq-list reveal" id="faqList">
+        <details class="faq-item">
+          <summary>Où puis-je acheter NAFI à Conakry ?</summary>
+          <div class="faq-answer">
+            <p>NAFI est distribuée dans tout Conakry — boutiques, supermarchés, dépôts et marchés. Pour commander en gros ou vous faire livrer, utilisez le formulaire <a href="contact.html#devis">Devis de commande</a> ou contactez-nous directement.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Quels formats proposez-vous ?</summary>
+          <div class="faq-answer">
+            <p>Trois formats, vendus en packs : <strong>0,33 L</strong> (pack de 12), <strong>0,5 L</strong> (pack de 12) et <strong>1,5 L</strong> (pack de 6). Pour les commerces et grossistes, NAFI est aussi disponible en gros volumes (palettes sur commande).</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Comment devenir distributeur ou grossiste NAFI ?</summary>
+          <div class="faq-answer">
+            <p>Remplissez le formulaire <a href="contact.html">Contact</a> en choisissant « Devenir distributeur / grossiste ». Nous revenons vers vous rapidement avec les conditions.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Puis-je commander en gros pour un événement ?</summary>
+          <div class="faq-answer">
+            <p>Oui. Utilisez le formulaire <a href="contact.html#devis">Devis de commande</a> : indiquez les formats, le nombre de packs, le lieu et la date de livraison. Nous revenons vers vous rapidement avec une proposition adaptée.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>L'eau NAFI est-elle contrôlée ?</summary>
+          <div class="faq-answer">
+            <p>Absolument. NAFI est une eau minérale naturelle, embouteillée à la source en Guinée, avec un processus de purification rigoureux et des contrôles qualité à chaque étape de la production, dans le respect des normes et agréments sanitaires guinéens.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Livrez-vous en dehors de Conakry ?</summary>
+          <div class="faq-answer">
+            <p>Nous couvrons tout Conakry. Pour une livraison en dehors de Conakry, contactez-nous : nous étudions chaque demande au cas par cas.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+<!-- ===================== MODALES DE CONTACT ===================== -->
+  <!-- Modale : Poser une question -->
+  <div class="modal" id="modal-question" aria-hidden="true">
+    <div class="modal-overlay" data-close></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="mq-title">
+      <button class="modal-close" type="button" data-close aria-label="Fermer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <div class="modal-head">
+        <span class="modal-ico"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg></span>
+        <div>
+          <h3 id="mq-title">Poser une question</h3>
+          <p>Dites-nous ce dont vous avez besoin, nous revenons vers vous.</p>
+        </div>
+      </div>
+      <form class="nafi-form" id="formQuestion" data-context="question" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="hidden" name="_subject" value="NAFI — Question d'un visiteur" />
+        <div class="field">
+          <label for="q-nom">Nom *</label>
+          <input id="q-nom" name="nom" type="text" required placeholder="Votre nom" />
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="q-email">Email *</label>
+            <input id="q-email" name="email" type="email" required placeholder="vous@exemple.com" />
+          </div>
+          <div class="field">
+            <label for="q-tel">Téléphone <span class="opt">(optionnel)</span></label>
+            <input id="q-tel" name="telephone" type="tel" placeholder="+224 6XX XX XX XX" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="q-msg">Message *</label>
+          <textarea id="q-msg" name="message" rows="4" required placeholder="Votre question…"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Envoyer ma question</button>
+        <p class="form-status" role="status"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modale : Devenir distributeur -->
+  <div class="modal" id="modal-distrib" aria-hidden="true">
+    <div class="modal-overlay" data-close></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="md-title">
+      <button class="modal-close" type="button" data-close aria-label="Fermer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <div class="modal-head">
+        <span class="modal-ico"><svg class="ico" aria-hidden="true"><use href="#i-handshake"/></svg></span>
+        <div>
+          <h3 id="md-title">Devenir distributeur</h3>
+          <p>Rejoignez le réseau NAFI — bars, restaurants, hôtels, grossistes.</p>
+        </div>
+      </div>
+      <form class="nafi-form" id="formDistrib" data-context="distributeur" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="hidden" name="_subject" value="NAFI — Demande de distribution" />
+        <div class="field-row">
+          <div class="field">
+            <label for="d-contact">Nom du contact *</label>
+            <input id="d-contact" name="nom" type="text" required placeholder="Votre nom" />
+          </div>
+          <div class="field">
+            <label for="d-entreprise">Nom de l'entreprise *</label>
+            <input id="d-entreprise" name="entreprise" type="text" required placeholder="Votre société" />
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="d-email2">Email *</label>
+            <input id="d-email2" name="email" type="email" required placeholder="vous@exemple.com" />
+          </div>
+          <div class="field">
+            <label for="d-tel2">Téléphone *</label>
+            <input id="d-tel2" name="telephone" type="tel" required placeholder="+224 6XX XX XX XX" />
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="d-region">Pays / Région *</label>
+            <input id="d-region" name="region" type="text" required placeholder="Ex. Guinée, Conakry" />
+          </div>
+          <div class="field">
+            <label for="d-activite">Type d'activité *</label>
+            <select id="d-activite" name="type_activite" required>
+              <option value="">— Choisir —</option>
+              <option>Bar</option>
+              <option>Restaurant</option>
+              <option>Hôtel</option>
+              <option>Grossiste</option>
+              <option>Supermarché / Boutique</option>
+              <option>Distributeur régional</option>
+              <option>Autre</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="d-volume">Volume estimé</label>
+          <select id="d-volume" name="volume">
+            <option value="">— Choisir —</option>
+            <option>Moins de 50 packs / mois</option>
+            <option>50 à 200 packs / mois</option>
+            <option>200 à 1000 packs / mois</option>
+            <option>Plus de 1000 packs / mois</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="d-msg">Message</label>
+          <textarea id="d-msg" name="message" rows="3" placeholder="Parlez-nous de votre projet…"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Envoyer ma demande</button>
+        <p class="form-status" role="status"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modale : Commander maintenant -->
+  <div class="modal" id="modal-commande" aria-hidden="true">
+    <div class="modal-overlay" data-close></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="mc-title">
+      <button class="modal-close" type="button" data-close aria-label="Fermer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <div class="modal-head">
+        <span class="modal-ico"><svg class="ico" aria-hidden="true"><use href="#i-truck"/></svg></span>
+        <div>
+          <h3 id="mc-title">Commander maintenant</h3>
+          <p>Indiquez vos formats et votre adresse — livraison à Conakry.</p>
+        </div>
+      </div>
+      <form class="nafi-form" id="formCommande" data-context="commande" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="hidden" name="_subject" value="NAFI — Nouvelle commande" />
+        <div class="field-row">
+          <div class="field">
+            <label for="o-nom">Nom *</label>
+            <input id="o-nom" name="nom" type="text" required placeholder="Votre nom" />
+          </div>
+          <div class="field">
+            <label for="o-tel">Téléphone *</label>
+            <input id="o-tel" name="telephone" type="tel" required placeholder="+224 6XX XX XX XX" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="o-email">Email *</label>
+          <input id="o-email" name="email" type="email" required placeholder="vous@exemple.com" />
+        </div>
+        <div class="field">
+          <label for="o-adresse">Adresse de livraison *</label>
+          <input id="o-adresse" name="adresse" type="text" required placeholder="Commune, quartier, repère" />
+        </div>
+        <fieldset class="formats-fieldset">
+          <legend>Produit(s) souhaité(s) *</legend>
+          <label class="check-row"><input type="checkbox" name="produits" value="0,33 L (pack de 12)" /> <span>0,33 L <small>— pack de 12</small></span></label>
+          <label class="check-row"><input type="checkbox" name="produits" value="0,5 L (pack de 12)" /> <span>0,5 L <small>— pack de 12</small></span></label>
+          <label class="check-row"><input type="checkbox" name="produits" value="1,5 L (pack de 6)" /> <span>1,5 L <small>— pack de 6</small></span></label>
+        </fieldset>
+        <div class="field-row">
+          <div class="field">
+            <label for="o-qte">Quantité (packs) *</label>
+            <input id="o-qte" name="quantite" type="number" min="1" required placeholder="Ex. 10" />
+          </div>
+          <div class="field">
+            <label for="o-comment">Commentaire</label>
+            <input id="o-comment" name="commentaire" type="text" placeholder="Précisions, date souhaitée…" />
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Valider ma commande</button>
+        <p class="form-status" role="status"></p>
+      </form>
+    </div>
+  </div>
+
+<footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="images/logo-nafi.png" alt="Logo NAFI" class="footer-logo" data-fallback="logo" />
+        <p class="footer-tagline">Eau minérale naturelle<br><span>Née en Guinée <svg class="flag-gn" aria-hidden="true"><use href="#i-flag-gn"/></svg></span></p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <a href="index.html#marque">La marque</a>
+        <a href="produits.html">Produits</a>
+        <a href="contact.html#faq">FAQ</a>
+        <a href="contact.html#devis">Devis de commande</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:+224611260303"><svg class="ico ico-link" aria-hidden="true"><use href="#i-phone"/></svg> +224 611 26 03 03</a>
+        <a href="contact.html"><svg class="ico ico-link" aria-hidden="true"><use href="#i-mail"/></svg> Nous écrire</a>
+        <p class="footer-city">Conakry, Guinée</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Suivez-nous</h4>
+        <a href="#" class="social" target="_blank" rel="noopener"><svg class="ico ico--fill ico-link" aria-hidden="true"><use href="#i-facebook"/></svg> Facebook</a>
+        <a href="#" class="social" target="_blank" rel="noopener"><svg class="ico ico-link" aria-hidden="true"><use href="#i-instagram"/></svg> Instagram</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> NAFI — Eau minérale naturelle. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+<button class="to-top" id="toTop" aria-label="Revenir en haut de la page" title="Haut de page">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M12 19V5M5 12l7-7 7 7" />
+    </svg>
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

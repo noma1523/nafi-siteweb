@@ -4,15 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#06316b" />
-  <title>NAFI — L'eau pure de Guinée, la confiance en chaque goutte</title>
-  <meta name="description" content="NAFI, eau minérale naturelle née en Guinée. De la source à votre verre : captée, purifiée et contrôlée. Disponible à Conakry en 0,33 L, 0,5 L et 1,5 L." />
+  <title>Les bienfaits — NAFI eau minérale naturelle</title>
+  <meta name="description" content="Pourquoi choisir NAFI : une eau très faiblement minéralisée, légère, pure et idéale pour toute la famille au quotidien." />
   <link rel="icon" type="image/png" href="images/logo-nafi.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
+<body class="page-inner">
 
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
@@ -55,9 +55,9 @@
       </a>
 
       <nav class="nav-links" id="navLinks" aria-label="Navigation principale">
-        <a href="index.html" class="active">Accueil</a>
+        <a href="index.html">Accueil</a>
         <a href="histoire.html">Histoire</a>
-        <a href="bienfaits.html">Bienfaits</a>
+        <a href="bienfaits.html" class="active">Bienfaits</a>
         <a href="produits.html">Produits</a>
         <a href="qualite.html">Qualité</a>
         <a href="contact.html">Contact</a>
@@ -70,104 +70,50 @@
     </div>
   </header>
 
-<section class="hero" id="accueil">
-    <!-- Vidéo de fond du hero -->
-    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="images/hero-poster.jpg" aria-hidden="true">
-      <source src="videos/hero-water.mp4" type="video/mp4" />
-    </video>
-    <div class="hero-overlay" aria-hidden="true"></div>
-
-    <!-- Scène d'eau animée (rendu vidéo sans fichier) -->
-    <div class="hero-caustics" aria-hidden="true"></div>
-    <div class="hero-rays" aria-hidden="true">
-      <span></span><span></span><span></span><span></span><span></span>
-    </div>
-
-    <div class="hero-bg-bubbles" aria-hidden="true">
-      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-    </div>
-
-    <div class="container hero-inner">
-      <div class="hero-text reveal">
-        <span class="origin-badge">Origine&nbsp;: Guinée <svg class="flag-gn" aria-hidden="true"><use href="#i-flag-gn"/></svg></span>
-        <h1 class="hero-title">L'eau pure de Guinée,<br><span class="accent-water">la confiance en chaque goutte</span></h1>
-        <p class="hero-tagline">NAFI, eau minérale naturelle très faiblement minéralisée, captée, purifiée et embouteillée avec soin — disponible dans tout Conakry.</p>
-        <div class="hero-buttons">
-          <a href="produits.html" class="btn btn-primary">Découvrir nos produits</a>
-          <a href="contact.html" class="btn btn-outline">Nous contacter</a>
-        </div>
-
-        <ul class="hero-trust" aria-label="Nos garanties">
-          <li><svg class="ico trust-ico" aria-hidden="true"><use href="#i-check"/></svg> Eau potable certifiée</li>
-          <li><svg class="ico trust-ico" aria-hidden="true"><use href="#i-feather"/></svg> Très faiblement minéralisée</li>
-          <li><svg class="flag-gn trust-ico" aria-hidden="true"><use href="#i-flag-gn"/></svg> 100% guinéenne</li>
-        </ul>
-      </div>
-
-      <div class="hero-visual reveal">
-        <div class="hero-glow" aria-hidden="true"></div>
-        <div class="hero-bottle-stage">
-          <img src="images/bottles/nafi-05.png" alt="Bouteille d'eau minérale NAFI" class="hero-bottle" data-fallback="bottle" />
-          <span class="hero-bottle-reflection" aria-hidden="true"></span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Indicateur de défilement -->
-    <a href="histoire.html" class="scroll-cue" aria-label="Défiler vers le bas">
-      <span class="scroll-cue-dot"></span>
-      <span class="scroll-cue-txt">Découvrir</span>
-    </a>
-
-    <!-- Vague animée -->
-    <div class="wave-wrap" aria-hidden="true">
-      <svg class="waves" viewBox="0 24 150 28" preserveAspectRatio="none">
-        <defs>
-          <path id="wavepath" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-        </defs>
-        <g class="wave-parallax">
-          <use href="#wavepath" x="48" y="0" fill="rgba(255,255,255,0.7)" />
-          <use href="#wavepath" x="48" y="3" fill="rgba(255,255,255,0.5)" />
-          <use href="#wavepath" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-          <use href="#wavepath" x="48" y="7" fill="#ffffff" />
-        </g>
-      </svg>
-    </div>
-  </section>
-
-<section class="section marque" id="marque">
+<section class="section bienfaits" id="bienfaits">
     <div class="container">
       <div class="section-head reveal">
-        <span class="eyebrow">Nos engagements</span>
-        <h2>Pourquoi NAFI inspire confiance</h2>
-        <p class="lead">De la source à votre table, chaque goutte est protégée, purifiée et contrôlée pour vous offrir une eau d'une pureté irréprochable.</p>
+        <span class="eyebrow">Bienfaits</span>
+        <h2>L'eau pure qui vous donne de la vitalité</h2>
+        <p class="lead">NAFI, c'est l'eau pure, légère et saine qui vous reconnecte à la nature. Très faiblement minéralisée (résidu sec de seulement 16,40 mg/L), elle hydrate en douceur et accompagne chaque moment de votre journée.</p>
       </div>
 
-      <div class="marque-grid">
-        <article class="feature-card reveal">
-          <div class="feature-icon"><svg class="ico" aria-hidden="true"><use href="#i-drop"/></svg></div>
-          <h3>Une source protégée</h3>
-          <p>Une eau captée à la source en Guinée, préservée de toute pollution, qui conserve sa minéralité naturelle.</p>
+      <div class="benefits-grid">
+        <article class="benefit-card reveal">
+          <div class="benefit-icon"><svg class="ico" aria-hidden="true"><use href="#i-feather"/></svg></div>
+          <h3>Légère &amp; pure</h3>
+          <p>Très faiblement minéralisée, NAFI désaltère sans alourdir. On peut en boire tout au long de la journée, sans modération.</p>
         </article>
-        <article class="feature-card reveal">
-          <div class="feature-icon"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg></div>
-          <h3>Purification & contrôle</h3>
-          <p>Un processus de purification rigoureux et des contrôles qualité à chaque étape de la production.</p>
-        </article>
-        <article class="feature-card reveal">
-          <div class="feature-icon"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></div>
-          <h3>Certifiée & agréée</h3>
-          <p>NAFI respecte les normes et agréments sanitaires guinéens. La confiance, c'est notre priorité numéro un.</p>
-        </article>
-        <article class="feature-card reveal">
-          <div class="feature-icon"><svg class="flag-gn flag-gn--lg" aria-hidden="true"><use href="#i-flag-gn"/></svg></div>
-          <h3>Fièrement guinéenne</h3>
-          <p>Produite et distribuée à Conakry. NAFI, c'est une fierté nationale au service de votre quotidien.</p>
-        </article>
-      </div>
 
-      <div class="quality-banner reveal">
-        <p><strong>Eau minérale naturelle</strong> — embouteillée à la source, sous contrôle qualité permanent.</p>
+        <article class="benefit-card reveal">
+          <div class="benefit-icon"><svg class="ico" aria-hidden="true"><use href="#i-salt"/></svg></div>
+          <h3>Très pauvre en sodium</h3>
+          <p>Avec seulement 0,01 mg/L de sodium, NAFI convient parfaitement aux régimes pauvres en sel et à toute la famille.</p>
+        </article>
+
+        <article class="benefit-card reveal">
+          <div class="benefit-icon"><svg class="ico" aria-hidden="true"><use href="#i-scale"/></svg></div>
+          <h3>pH équilibré</h3>
+          <p>Un pH de 7,20, quasi neutre : une eau douce et équilibrée, agréable à boire et respectueuse de votre organisme.</p>
+        </article>
+
+        <article class="benefit-card reveal">
+          <div class="benefit-icon"><svg class="ico" aria-hidden="true"><use href="#i-family"/></svg></div>
+          <h3>Pour toute la famille</h3>
+          <p>Adultes, enfants, sportifs : une eau idéale pour l'hydratation quotidienne, la préparation des repas, du thé ou du café.</p>
+        </article>
+
+        <article class="benefit-card reveal">
+          <div class="benefit-icon"><svg class="ico" aria-hidden="true"><use href="#i-shield-check"/></svg></div>
+          <h3>Sûre &amp; contrôlée</h3>
+          <p>Faible en nitrates (4,84 mg/L) et conforme à l'analyse officielle, NAFI offre une qualité fiable à chaque gorgée.</p>
+        </article>
+
+        <article class="benefit-card reveal">
+          <div class="benefit-icon"><svg class="ico" aria-hidden="true"><use href="#i-leaf"/></svg></div>
+          <h3>Vitalité naturelle</h3>
+          <p>Née au cœur de la Guinée, NAFI vous apporte l'énergie d'une eau pure et naturelle, pour vous reconnecter à la nature.</p>
+        </article>
       </div>
     </div>
   </section>

@@ -4,15 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#06316b" />
-  <title>NAFI — L'eau pure de Guinée, la confiance en chaque goutte</title>
-  <meta name="description" content="NAFI, eau minérale naturelle née en Guinée. De la source à votre verre : captée, purifiée et contrôlée. Disponible à Conakry en 0,33 L, 0,5 L et 1,5 L." />
+  <title>Notre histoire — NAFI, l'eau pure de Guinée</title>
+  <meta name="description" content="L'histoire de NAFI : une eau minérale née au cœur de la Guinée, symbole de confiance et de fierté nationale." />
   <link rel="icon" type="image/png" href="images/logo-nafi.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
+<body class="page-inner">
 
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
@@ -55,8 +55,8 @@
       </a>
 
       <nav class="nav-links" id="navLinks" aria-label="Navigation principale">
-        <a href="index.html" class="active">Accueil</a>
-        <a href="histoire.html">Histoire</a>
+        <a href="index.html">Accueil</a>
+        <a href="histoire.html" class="active">Histoire</a>
         <a href="bienfaits.html">Bienfaits</a>
         <a href="produits.html">Produits</a>
         <a href="qualite.html">Qualité</a>
@@ -70,105 +70,120 @@
     </div>
   </header>
 
-<section class="hero" id="accueil">
-    <!-- Vidéo de fond du hero -->
-    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="images/hero-poster.jpg" aria-hidden="true">
-      <source src="videos/hero-water.mp4" type="video/mp4" />
-    </video>
-    <div class="hero-overlay" aria-hidden="true"></div>
+<section class="section histoire" id="histoire">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-text reveal" data-reveal="left">
+          <span class="eyebrow">Notre histoire</span>
+          <h2>Née d'une ambition&nbsp;: offrir le meilleur de la Guinée</h2>
+          <p>Tout commence par une conviction simple&nbsp;: chaque famille guinéenne mérite une eau d'une pureté irréprochable, accessible et fiable. C'est ainsi qu'est née <strong>NAFI</strong> — une eau minérale naturelle, captée au cœur de la Guinée et embouteillée à Conakry.</p>
+          <p>De la source à votre verre, nous veillons sur chaque goutte. Purification rigoureuse, contrôles permanents, hygiène stricte&nbsp;: NAFI, c'est la promesse d'une eau saine, légère et sûre, jour après jour.</p>
 
-    <!-- Scène d'eau animée (rendu vidéo sans fichier) -->
-    <div class="hero-caustics" aria-hidden="true"></div>
-    <div class="hero-rays" aria-hidden="true">
-      <span></span><span></span><span></span><span></span><span></span>
-    </div>
-
-    <div class="hero-bg-bubbles" aria-hidden="true">
-      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-    </div>
-
-    <div class="container hero-inner">
-      <div class="hero-text reveal">
-        <span class="origin-badge">Origine&nbsp;: Guinée <svg class="flag-gn" aria-hidden="true"><use href="#i-flag-gn"/></svg></span>
-        <h1 class="hero-title">L'eau pure de Guinée,<br><span class="accent-water">la confiance en chaque goutte</span></h1>
-        <p class="hero-tagline">NAFI, eau minérale naturelle très faiblement minéralisée, captée, purifiée et embouteillée avec soin — disponible dans tout Conakry.</p>
-        <div class="hero-buttons">
-          <a href="produits.html" class="btn btn-primary">Découvrir nos produits</a>
-          <a href="contact.html" class="btn btn-outline">Nous contacter</a>
+          <div class="story-pillars">
+            <div class="pillar">
+              <h3><svg class="ico pillar-ico" aria-hidden="true"><use href="#i-target"/></svg> Notre mission</h3>
+              <p>Rendre une eau pure et de qualité accessible à tous les Guinéens, au quotidien.</p>
+            </div>
+            <div class="pillar">
+              <h3><svg class="ico pillar-ico" aria-hidden="true"><use href="#i-globe"/></svg> Notre vision</h3>
+              <p>Devenir une référence de l'eau minérale en Afrique de l'Ouest, fière de ses origines.</p>
+            </div>
+          </div>
         </div>
 
-        <ul class="hero-trust" aria-label="Nos garanties">
-          <li><svg class="ico trust-ico" aria-hidden="true"><use href="#i-check"/></svg> Eau potable certifiée</li>
-          <li><svg class="ico trust-ico" aria-hidden="true"><use href="#i-feather"/></svg> Très faiblement minéralisée</li>
-          <li><svg class="flag-gn trust-ico" aria-hidden="true"><use href="#i-flag-gn"/></svg> 100% guinéenne</li>
-        </ul>
-      </div>
-
-      <div class="hero-visual reveal">
-        <div class="hero-glow" aria-hidden="true"></div>
-        <div class="hero-bottle-stage">
-          <img src="images/bottles/nafi-05.png" alt="Bouteille d'eau minérale NAFI" class="hero-bottle" data-fallback="bottle" />
-          <span class="hero-bottle-reflection" aria-hidden="true"></span>
+        <div class="story-visual reveal" data-reveal="right">
+          <figure class="source-card">
+            <img src="images/story/montagne.jpg" alt="Montagnes verdoyantes de Guinée, terre d'origine de l'eau NAFI" class="source-img" loading="lazy" />
+            <figcaption class="source-caption">
+              <svg class="ico" aria-hidden="true"><use href="#i-mountain"/></svg>
+              Captée au cœur de la Guinée
+            </figcaption>
+            <div class="source-badge">
+              <img src="images/logo-nafi.png" alt="Logo NAFI" data-fallback="logo" />
+            </div>
+          </figure>
         </div>
       </div>
-    </div>
 
-    <!-- Indicateur de défilement -->
-    <a href="histoire.html" class="scroll-cue" aria-label="Défiler vers le bas">
-      <span class="scroll-cue-dot"></span>
-      <span class="scroll-cue-txt">Découvrir</span>
-    </a>
-
-    <!-- Vague animée -->
-    <div class="wave-wrap" aria-hidden="true">
-      <svg class="waves" viewBox="0 24 150 28" preserveAspectRatio="none">
-        <defs>
-          <path id="wavepath" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-        </defs>
-        <g class="wave-parallax">
-          <use href="#wavepath" x="48" y="0" fill="rgba(255,255,255,0.7)" />
-          <use href="#wavepath" x="48" y="3" fill="rgba(255,255,255,0.5)" />
-          <use href="#wavepath" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-          <use href="#wavepath" x="48" y="7" fill="#ffffff" />
-        </g>
-      </svg>
+      <!-- Chiffres clés (compteurs animés) -->
+      <div class="stats-strip reveal">
+        <div class="stat">
+          <span class="stat-num" data-count="100" data-suffix="%">0</span>
+          <span class="stat-label">Naturelle</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num" data-count="16.4" data-decimals="1">0</span>
+          <span class="stat-label">mg/L de résidu sec</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num" data-count="7.2" data-decimals="1">0</span>
+          <span class="stat-label">pH équilibré</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num" data-count="3">0</span>
+          <span class="stat-label">Formats pratiques</span>
+        </div>
+      </div>
     </div>
   </section>
 
-<section class="section marque" id="marque">
+<section class="section story-feature" id="notre-histoire">
     <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow">Nos engagements</span>
-        <h2>Pourquoi NAFI inspire confiance</h2>
-        <p class="lead">De la source à votre table, chaque goutte est protégée, purifiée et contrôlée pour vous offrir une eau d'une pureté irréprochable.</p>
+      <header class="story-head reveal">
+        <span class="eyebrow">L'histoire de NAFI</span>
+        <h2>Une source de vie venue de Guinée</h2>
+        <p class="story-lead">Au cœur de la Guinée, là où la nature est généreuse et préservée, naît une eau d'une pureté exceptionnelle&nbsp;: <strong>NAFI</strong>.</p>
+      </header>
+    </div>
+
+    <!-- Bande immersive parallaxe -->
+    <div class="story-band reveal" role="img" aria-label="Paysages préservés de Guinée">
+      <div class="story-band-overlay"></div>
+      <blockquote class="story-band-quote">
+        « Chaque goutte de NAFI raconte l'histoire d'une terre authentique, façonnée par des paysages verdoyants et des montagnes majestueuses. »
+      </blockquote>
+    </div>
+
+    <div class="container">
+      <div class="story-rows">
+
+        <article class="story-row reveal">
+          <div class="story-row-media">
+            <img src="images/story/cascade.jpg" alt="Cascade naturelle en pleine forêt guinéenne" loading="lazy" />
+          </div>
+          <div class="story-row-txt">
+            <h3>Un trésor précieux</h3>
+            <p>Depuis des générations, l'eau est considérée comme un bien inestimable. Elle accompagne les familles, nourrit les terres et apporte la vie aux communautés.</p>
+            <p>Inspirée par cette richesse naturelle, NAFI est née avec une mission simple&nbsp;: offrir une eau pure, saine et rafraîchissante à tous.</p>
+          </div>
+        </article>
+
+        <article class="story-row story-row--reverse reveal">
+          <div class="story-row-media story-row-media--duo">
+            <img src="images/story/enfant-source.jpg" alt="Enfant se rafraîchissant à une source d'eau en Guinée" loading="lazy" />
+            <img src="images/story/enfants-source.jpg" alt="Enfants buvant de l'eau fraîche à une fontaine" loading="lazy" />
+          </div>
+          <div class="story-row-txt">
+            <h3>Une eau du quotidien</h3>
+            <p>Grâce à des contrôles rigoureux et à un engagement constant pour la qualité, NAFI garantit une eau qui répond aux plus hautes exigences de sécurité et de fraîcheur.</p>
+            <p>Aujourd'hui, NAFI accompagne les Guinéens partout&nbsp;: à la maison, au travail, à l'école ou pendant les activités sportives.</p>
+          </div>
+        </article>
+
+        <article class="story-row reveal">
+          <div class="story-row-media">
+            <img src="images/story/famille.jpg" alt="Famille réunie autour d'un repas avec de l'eau NAFI" loading="lazy" />
+          </div>
+          <div class="story-row-txt">
+            <h3>Un symbole de confiance</h3>
+            <p>Plus qu'une simple eau, NAFI est un symbole de confiance, de bien-être et de fierté nationale.</p>
+            <p>Choisir NAFI, c'est choisir une eau qui puise sa force dans la richesse naturelle de la Guinée et contribue chaque jour au bien-être de ceux qui la consomment.</p>
+          </div>
+        </article>
+
       </div>
 
-      <div class="marque-grid">
-        <article class="feature-card reveal">
-          <div class="feature-icon"><svg class="ico" aria-hidden="true"><use href="#i-drop"/></svg></div>
-          <h3>Une source protégée</h3>
-          <p>Une eau captée à la source en Guinée, préservée de toute pollution, qui conserve sa minéralité naturelle.</p>
-        </article>
-        <article class="feature-card reveal">
-          <div class="feature-icon"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg></div>
-          <h3>Purification & contrôle</h3>
-          <p>Un processus de purification rigoureux et des contrôles qualité à chaque étape de la production.</p>
-        </article>
-        <article class="feature-card reveal">
-          <div class="feature-icon"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></div>
-          <h3>Certifiée & agréée</h3>
-          <p>NAFI respecte les normes et agréments sanitaires guinéens. La confiance, c'est notre priorité numéro un.</p>
-        </article>
-        <article class="feature-card reveal">
-          <div class="feature-icon"><svg class="flag-gn flag-gn--lg" aria-hidden="true"><use href="#i-flag-gn"/></svg></div>
-          <h3>Fièrement guinéenne</h3>
-          <p>Produite et distribuée à Conakry. NAFI, c'est une fierté nationale au service de votre quotidien.</p>
-        </article>
-      </div>
-
-      <div class="quality-banner reveal">
-        <p><strong>Eau minérale naturelle</strong> — embouteillée à la source, sous contrôle qualité permanent.</p>
-      </div>
+      <p class="story-signature reveal">NAFI — La pureté de la Guinée dans chaque goutte.</p>
     </div>
   </section>
 
