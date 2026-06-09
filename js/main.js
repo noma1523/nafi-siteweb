@@ -111,37 +111,34 @@ if (bottleStage && !window.matchMedia("(prefers-reduced-motion: reduce)").matche
 /* ============================================================
    Formulaires (Formspree) + lien e-mail de secours
    ============================================================ */
-function buildMailtoSummary(form, context) {
-  const fd = new FormData(form);
-  const d = Object.fromEntries(fd.entries());
-  let subject, body;
-  if (context === "distributeur") {
-    subject = "NAFI — Demande de distribution";
-    body = `Bonjour NAFI, je souhaite devenir distributeur :\n` +
-      `Contact : ${d.nom || "-"}\n` +
-      `Entreprise : ${d.entreprise || "-"}\n` +
-      `Email : ${d.email || "-"} | Tél : ${d.telephone || "-"}\n` +
-      `Pays / Région : ${d.region || "-"}\n` +
-      `Type d'activité : ${d.type_activite || "-"}\n` +
-      `Volume estimé : ${d.volume || "-"}\n` +
-      `Message : ${d.message || "-"}`;
-  } else if (context === "commande") {
-    const produits = fd.getAll("produits").join(", ") || "-";
-    subject = "NAFI — Nouvelle commande";
-    body = `Bonjour NAFI, je souhaite passer commande :\n` +
-      `Nom : ${d.nom || "-"}\n` +
-      `Email : ${d.email || "-"} | Tél : ${d.telephone || "-"}\n` +
-      `Adresse de livraison : ${d.adresse || "-"}\n` +
-      `Produit(s) : ${produits}\n` +
-      `Quantité : ${d.quantite || "-"} pack(s)\n` +
-      `Commentaire : ${d.commentaire || "-"}`;
-  } else {
-    subject = "NAFI — Question via le site";
-    body = `Bonjour NAFI,\n` +
-      `Nom : ${d.nom || "-"}\n` +
-      `Email : ${d.email || "-"} | Tél : ${d.telephone || "-"}\n` +
-      `Message : ${d.message || "-"}`;
+function fieldLabel(form, el) {
+  if (el.id) {
+    const l = form.querySelector('label[for="' + (window.CSS && CSS.escape ? CSS.escape(el.id) : el.id) + '"]');
+    if (l) return l.textContent.replace(/\*/g, "").trim();
   }
+  const wrap = el.closest("label");
+  if (wrap) return wrap.textContent.replace(/\*/g, "").trim();
+  return el.name;
+}
+/* Construit un résumé e-mail à partir de TOUS les champs remplis (générique). */
+function buildMailtoSummary(form, context) {
+  const lines = [];
+  form.querySelectorAll("input, select, textarea").forEach(el => {
+    if (!el.name || el.type === "hidden") return;
+    if (el.type === "file") {
+      if (el.files && el.files.length)
+        lines.push(fieldLabel(form, el) + " : " + [...el.files].map(f => f.name).join(", ") + " (à joindre)");
+      return;
+    }
+    if (el.type === "checkbox") { if (el.checked) lines.push(fieldLabel(form, el) + " : Oui"); return; }
+    if (el.type === "radio") { if (el.checked) lines.push(fieldLabel(form, el) + " : " + el.value); return; }
+    const v = (el.value || "").trim();
+    if (!v) return;
+    lines.push(fieldLabel(form, el) + " : " + v);
+  });
+  const subject = form.dataset.subject || "NAFI — Demande via le site";
+  const body = "Bonjour NAFI,\n\n" + lines.join("\n") +
+    "\n\nSi des documents sont demandés, merci de les joindre à cet e-mail.";
   return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
