@@ -94,7 +94,6 @@ def navbar(active):
     <div class="container nav-inner">
       <a href="index.html" class="brand" aria-label="NAFI - Accueil">
         <img src="images/logo-nafi.png" alt="Logo NAFI" class="brand-logo" data-fallback="logo" />
-        <span class="brand-text">NAFI</span>
       </a>
 
       <nav class="nav-links" id="navLinks" aria-label="Navigation principale">
