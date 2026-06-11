@@ -1149,3 +1149,30 @@ body:not(.page-inner) .navbar:not(.scrolled) .nav-links > a:not(.nav-cta):hover:
   .product-card.is-tilting .product-img img { transform: none !important; }
 }
 @media (max-width: 760px) { .bg-parallax { display: none; } }
+
+/* ============================================================
+   MOTION+ TEXTE — titres animés mot par mot + accent dégradé animé
+   Le JS découpe les titres en mots (.word) et ajoute .is-revealed à l'apparition.
+   ============================================================ */
+.anim-words .word {
+  display: inline-block;
+  opacity: 0; transform: translateY(.5em) rotate(2deg);
+  transition: opacity .55s var(--ease-out), transform .55s var(--ease-out);
+  transition-delay: calc(var(--wi, 0) * .055s);
+  will-change: opacity, transform;
+}
+.anim-words.is-revealed .word { opacity: 1; transform: none; }
+
+/* Accent du hero : dégradé qui coule en continu */
+.accent-water {
+  background: linear-gradient(100deg, #d9f3ff 0%, #7fd0f5 28%, #eaf9ff 50%, #7fd0f5 72%, #d9f3ff 100%);
+  background-size: 220% auto;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: accentFlow 6s linear infinite;
+}
+@keyframes accentFlow { from { background-position: 0% center; } to { background-position: 220% center; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-words .word { opacity: 1 !important; transform: none !important; }
+  .accent-water { animation: none !important; }
+}

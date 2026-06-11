@@ -409,3 +409,48 @@ if (counters.length) {
     }
   });
 })();
+
+/* ============================================================
+   Titres animés mot par mot (cascade à l'apparition).
+   Découpe le texte en .word en préservant <br> et les éléments (accent).
+   ============================================================ */
+(() => {
+  const heads = $$(".hero-title, .section-head h2, .story-text h2");
+  if (!heads.length) return;
+
+  const split = (el) => {
+    let wi = 0;
+    const frag = [];
+    [...el.childNodes].forEach(node => {
+      if (node.nodeType === 3) {
+        node.textContent.split(/(\s+)/).forEach(p => {
+          if (p === "") return;
+          if (/^\s+$/.test(p)) { frag.push(document.createTextNode(p)); return; }
+          const w = document.createElement("span");
+          w.className = "word"; w.textContent = p;
+          w.style.setProperty("--wi", wi++);
+          frag.push(w);
+        });
+      } else if (node.nodeName === "BR") {
+        frag.push(document.createElement("br"));
+      } else {
+        node.classList.add("word");
+        node.style.setProperty("--wi", wi++);
+        frag.push(node);
+      }
+    });
+    el.textContent = "";
+    frag.forEach(n => el.appendChild(n));
+    el.classList.add("anim-words");
+  };
+  heads.forEach(split);
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    heads.forEach(h => h.classList.add("is-revealed"));
+    return;
+  }
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("is-revealed"); obs.unobserve(e.target); } });
+  }, { threshold: 0.25 });
+  heads.forEach(h => obs.observe(h));
+})();
