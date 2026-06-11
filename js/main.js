@@ -330,3 +330,62 @@ if (counters.length) {
     counts.set(parent, i + 1);
   });
 })();
+
+/* ============================================================
+   Effets 3D interactifs : tilt des cartes + boutons magnétiques.
+   Désactivés sur tactile (hover: none) et si prefers-reduced-motion.
+   ============================================================ */
+(() => {
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const fineHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  if (reduce || !fineHover) return;
+
+  // --- Tilt 3D des cartes (reflet seulement sur celles à overflow caché) ---
+  const TILT = 8; // amplitude en degrés
+  const GLARE = ".feature-card, .benefit-card, .hub-card";
+  $$(".feature-card, .benefit-card, .hub-card, .product-card, .contact-card, .pillar").forEach(card => {
+    card.classList.add("tilt");
+    let glare = null;
+    if (card.matches(GLARE)) {
+      glare = document.createElement("span");
+      glare.className = "tilt-glare";
+      card.appendChild(glare);
+    }
+    let rect = null, raf = 0, lx = 0, ly = 0;
+    card.addEventListener("pointerenter", () => { rect = card.getBoundingClientRect(); card.classList.add("is-tilting"); });
+    card.addEventListener("pointermove", (e) => {
+      lx = e.clientX; ly = e.clientY;
+      if (!rect) rect = card.getBoundingClientRect();
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        const px = (lx - rect.left) / rect.width;
+        const py = (ly - rect.top) / rect.height;
+        const rx = (0.5 - py) * 2 * TILT;
+        const ry = (px - 0.5) * 2 * TILT;
+        card.style.transform = `perspective(1000px) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) translateY(-6px)`;
+        if (glare) { glare.style.setProperty("--gx", (px * 100).toFixed(1) + "%"); glare.style.setProperty("--gy", (py * 100).toFixed(1) + "%"); }
+      });
+    });
+    card.addEventListener("pointerleave", () => { card.classList.remove("is-tilting"); card.style.transform = ""; rect = null; });
+  });
+
+  // --- Boutons magnétiques (suivi léger du curseur), hors boutons pleine largeur ---
+  const MAG = 6; // px
+  $$(".btn:not(.btn-block)").forEach(btn => {
+    btn.classList.add("is-magnetic");
+    let rect = null, raf = 0, lx = 0, ly = 0;
+    btn.addEventListener("pointermove", (e) => {
+      lx = e.clientX; ly = e.clientY;
+      if (!rect) rect = btn.getBoundingClientRect();
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        const dx = ((lx - rect.left) / rect.width - 0.5) * 2 * MAG;
+        const dy = ((ly - rect.top) / rect.height - 0.5) * 2 * MAG - 3;
+        btn.style.transform = `translate(${dx.toFixed(1)}px, ${dy.toFixed(1)}px)`;
+      });
+    });
+    btn.addEventListener("pointerleave", () => { btn.style.transform = ""; rect = null; });
+  });
+})();
