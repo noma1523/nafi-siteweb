@@ -342,8 +342,8 @@ if (counters.length) {
 
   // --- Tilt 3D des cartes (reflet seulement sur celles à overflow caché) ---
   const TILT = 8; // amplitude en degrés
-  const GLARE = ".feature-card, .benefit-card, .hub-card";
-  $$(".feature-card, .benefit-card, .hub-card, .product-card, .contact-card, .pillar").forEach(card => {
+  const GLARE = ".feature-card, .benefit-card, .hub-card, .qg-item, .ls-item";
+  $$(".feature-card, .benefit-card, .hub-card, .product-card, .contact-card, .pillar, .qg-item, .ls-item").forEach(card => {
     card.classList.add("tilt");
     let glare = null;
     if (card.matches(GLARE)) {
@@ -387,5 +387,25 @@ if (counters.length) {
       });
     });
     btn.addEventListener("pointerleave", () => { btn.style.transform = ""; rect = null; });
+  });
+})();
+
+/* ============================================================
+   Fond en parallaxe multi-couches (blobs doux qui dérivent au scroll).
+   Injecté en JS, désactivé si prefers-reduced-motion (et masqué en CSS sur mobile).
+   ============================================================ */
+(() => {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const layer = document.createElement("div");
+  layer.className = "bg-parallax";
+  layer.setAttribute("aria-hidden", "true");
+  layer.innerHTML = '<span class="b1"></span><span class="b2"></span><span class="b3"></span>';
+  document.body.prepend(layer);
+  const blobs = $$("span", layer);
+  const speeds = [0.07, -0.05, 0.09];
+  scrollFns.push((y) => {
+    for (let i = 0; i < blobs.length; i++) {
+      blobs[i].style.transform = `translate3d(0, ${(y * speeds[i]).toFixed(1)}px, 0)`;
+    }
   });
 })();

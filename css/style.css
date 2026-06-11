@@ -1125,3 +1125,27 @@ body:not(.page-inner) .navbar:not(.scrolled) .nav-links > a:not(.nav-cta):hover:
   .product-card.reveal, .contact-card.reveal, .pillar.reveal { transform: none !important; }
   .tilt-glare { display: none !important; }
 }
+
+/* — Bouteille produit : profondeur 3D (sort de la carte pendant le tilt) — */
+.product-card.tilt, .product-card .product-img { transform-style: preserve-3d; }
+.product-card.is-tilting .product-img img {
+  animation: none !important;
+  transform: translateZ(60px) translateY(-6px) scale(1.05) !important;
+}
+
+/* — Fond en parallaxe multi-couches (blobs doux, injectés en JS) — */
+.bg-parallax { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.bg-parallax span {
+  position: absolute; border-radius: 50%; filter: blur(70px); opacity: .42; will-change: transform;
+}
+.bg-parallax .b1 { width: 460px; height: 460px; left: -120px; top: 12%;
+  background: radial-gradient(circle, rgba(74,168,224,.55), transparent 70%); }
+.bg-parallax .b2 { width: 560px; height: 560px; right: -160px; top: 45%;
+  background: radial-gradient(circle, rgba(46,204,113,.40), transparent 70%); }
+.bg-parallax .b3 { width: 400px; height: 400px; left: 28%; top: 78%;
+  background: radial-gradient(circle, rgba(21,101,192,.45), transparent 70%); }
+
+@media (prefers-reduced-motion: reduce) {
+  .product-card.is-tilting .product-img img { transform: none !important; }
+}
+@media (max-width: 760px) { .bg-parallax { display: none; } }
