@@ -333,12 +333,11 @@ if (counters.length) {
 
 /* ============================================================
    Effets 3D interactifs : tilt des cartes + boutons magnétiques.
-   Désactivés sur tactile (hover: none) et si prefers-reduced-motion.
+   Actifs au pointeur ET au tactile (reset sur pointercancel pour ne pas
+   gener le defilement). Desactives uniquement si prefers-reduced-motion.
    ============================================================ */
 (() => {
-  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const fineHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-  if (reduce || !fineHover) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
   // --- Tilt 3D des cartes (reflet seulement sur celles à overflow caché) ---
   const TILT = 8; // amplitude en degrés
@@ -367,7 +366,9 @@ if (counters.length) {
         if (glare) { glare.style.setProperty("--gx", (px * 100).toFixed(1) + "%"); glare.style.setProperty("--gy", (py * 100).toFixed(1) + "%"); }
       });
     });
-    card.addEventListener("pointerleave", () => { card.classList.remove("is-tilting"); card.style.transform = ""; rect = null; });
+    const resetCard = () => { card.classList.remove("is-tilting"); card.style.transform = ""; rect = null; };
+    card.addEventListener("pointerleave", resetCard);
+    card.addEventListener("pointercancel", resetCard);
   });
 
   // --- Boutons magnétiques (suivi léger du curseur), hors boutons pleine largeur ---
@@ -386,7 +387,9 @@ if (counters.length) {
         btn.style.transform = `translate(${dx.toFixed(1)}px, ${dy.toFixed(1)}px)`;
       });
     });
-    btn.addEventListener("pointerleave", () => { btn.style.transform = ""; rect = null; });
+    const resetBtn = () => { btn.style.transform = ""; rect = null; };
+    btn.addEventListener("pointerleave", resetBtn);
+    btn.addEventListener("pointercancel", resetBtn);
   });
 })();
 

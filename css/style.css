@@ -1020,12 +1020,6 @@ body.modal-lock { overflow: hidden; }
 /* ---- Performance mobile : on allège le hero (la vidéo suffit) ---- */
 @media (max-width: 760px) {
   .section { padding: 56px 0; }
-  /* effets d'eau coûteux retirés : déjà rendus par la vidéo de fond */
-  .hero-caustics, .hero-rays { display: none; }
-  /* moins de bulles = moins de repaints */
-  .hero-bg-bubbles span:nth-child(n+6) { display: none; }
-  /* ombres/halo plus légers */
-  .hero-glow { filter: blur(8px); }
 }
 
 /* Indices de compositing pour les éléments en mouvement permanent */
@@ -1161,7 +1155,7 @@ body:not(.page-inner) .navbar:not(.scrolled) .nav-links > a:not(.nav-cta):hover:
 @media (prefers-reduced-motion: reduce) {
   .product-card.is-tilting .product-img img { transform: none !important; }
 }
-@media (max-width: 760px) { .bg-parallax { display: none; } }
+/* fond parallaxe actif aussi sur mobile (memes animations que le desktop) */
 
 /* ============================================================
    MOTION+ TEXTE — titres animés mot par mot + accent dégradé animé
