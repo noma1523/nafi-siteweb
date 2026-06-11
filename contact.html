@@ -218,6 +218,14 @@
       <form class="nafi-form" id="formDistrib" data-context="distributeur" data-subject="NAFI — Candidature distributeur" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="_subject" value="NAFI — Candidature distributeur" />
 
+        <div class="distrib-requirement">
+          <p class="form-section">Capacité de distribution requise</p>
+          <p class="req-text">Afin de devenir distributeur agréé, vous devez être en mesure d'assurer la livraison d'au moins <strong>5 camions par mois</strong>, soit environ <strong>12 500 packs mensuels</strong>.</p>
+          <p class="req-question">Confirmez-vous votre capacité à atteindre ce volume&nbsp;? *</p>
+          <label class="check-row"><input type="radio" name="capacite_volume" value="Oui" required /> <span>Oui, je confirme pouvoir distribuer au minimum 12 500 packs par mois.</span></label>
+          <label class="check-row"><input type="radio" name="capacite_volume" value="Non" /> <span>Non, je ne peux pas garantir ce volume.</span></label>
+        </div>
+
         <div class="field"><label for="d-profil">Vous candidatez en tant que *</label>
           <select id="d-profil" name="profil" required><option value="">— Choisir —</option><option>Particulier</option><option>Entreprise</option></select>
         </div>
