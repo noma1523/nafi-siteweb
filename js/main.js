@@ -225,12 +225,6 @@ $$(".modal [data-close]").forEach(el => {
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") { const m = $(".modal.open"); if (m) closeModal(m); }
 });
-// Lien #devis -> ouvre la modale de commande
-function handleDevisHash() {
-  if (location.hash === "#devis") openModal($("#modal-commande"));
-}
-window.addEventListener("hashchange", handleDevisHash);
-handleDevisHash();
 
 /* ============================================================
    Navigation active au défilement (scroll-spy)
