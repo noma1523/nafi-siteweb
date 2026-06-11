@@ -319,3 +319,20 @@ if (counters.length) {
   }, { threshold: 0.6 });
   counters.forEach(c => countObserver.observe(c));
 }
+
+/* ============================================================
+   Stagger automatique des reveals (cascade douce par groupe)
+   Pose --i = position de l'élément parmi ses frères .reveal.
+   Le CSS l'utilise via transition-delay: calc(var(--i) * .06s).
+   Les délais explicites (benefits/products/process…) restent
+   prioritaires grâce à leur spécificité plus forte.
+   ============================================================ */
+(() => {
+  const counts = new Map();
+  $$(".reveal").forEach(el => {
+    const parent = el.parentElement;
+    const i = counts.get(parent) || 0;
+    el.style.setProperty("--i", i);
+    counts.set(parent, i + 1);
+  });
+})();

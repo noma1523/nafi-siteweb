@@ -1017,3 +1017,67 @@ body.modal-lock { overflow: hidden; }
 
 /* Indices de compositing pour les éléments en mouvement permanent */
 .hero-bottle, .cta-bottle, .source-badge { will-change: transform; }
+
+/* ============================================================
+   MOTION+ — couche d'enrichissement (additive, design inchangé)
+   Easing signature, reveals affinés, stagger auto, micro-interactions.
+   Entièrement neutralisée par prefers-reduced-motion (bloc en fin).
+   ============================================================ */
+:root {
+  --ease-out: cubic-bezier(.22, .61, .36, 1);
+  --ease-spring: cubic-bezier(.34, 1.4, .64, 1);
+}
+
+/* — Reveal affiné : courbe signature + léger flou qui se dissipe — */
+.reveal {
+  transition: opacity .8s var(--ease-out), transform .8s var(--ease-out), filter .8s var(--ease-out);
+  filter: blur(4px);
+}
+.reveal.visible { filter: blur(0); }
+
+/* — Stagger automatique pour toutes les grilles (var --i posée en JS).
+     Les délais explicites définis plus haut (benefits/products/process…)
+     restent prioritaires grâce à leur spécificité plus forte. — */
+.reveal { transition-delay: calc(var(--i, 0) * .06s); }
+
+/* — Easing cohérent sur les survols de cartes (mêmes durées qu'avant) — */
+.feature-card, .benefit-card, .product-card, .hub-card,
+.pillar, .contact-card, .step, .qg-item, .ls-item, .story-row-media img {
+  transition-timing-function: var(--ease-out);
+}
+
+/* — Boutons : courbe + léger retour tactile au clic — */
+.btn { transition: transform .28s var(--ease-spring), box-shadow .28s var(--ease-out), background .28s var(--ease-out), color .28s var(--ease-out); }
+.btn:active { transform: translateY(-1px) scale(.985); }
+
+/* — Navbar (accueil, au-dessus du hero) : soulignement animé au survol — */
+body:not(.page-inner) .navbar:not(.scrolled) .nav-links > a:not(.nav-cta) { position: relative; }
+body:not(.page-inner) .navbar:not(.scrolled) .nav-links > a:not(.nav-cta)::after {
+  content: ""; position: absolute; left: 14px; right: 14px; bottom: 3px; height: 2px;
+  border-radius: 2px; background: var(--blue-light);
+  transform: scaleX(0); transform-origin: 50% 50%;
+  transition: transform .3s var(--ease-out);
+}
+body:not(.page-inner) .navbar:not(.scrolled) .nav-links > a:not(.nav-cta):hover::after { transform: scaleX(1); }
+
+/* — Cartes simples : voile lumineux discret qui balaie une fois au survol — */
+.feature-card, .benefit-card, .hub-card { position: relative; overflow: hidden; }
+.feature-card::after, .benefit-card::after, .hub-card::after {
+  content: ""; position: absolute; top: 0; left: -60%; width: 45%; height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,.42), transparent);
+  transform: skewX(-18deg); pointer-events: none; opacity: 0;
+  transition: opacity .25s ease;
+}
+.feature-card:hover::after, .benefit-card:hover::after, .hub-card:hover::after {
+  opacity: 1; animation: cardSheen .9s var(--ease-out);
+}
+@keyframes cardSheen { from { left: -60%; } to { left: 130%; } }
+
+/* — Liens de pied de page & FAQ : petit glissement de la puce/flèche — */
+.faq-item summary { transition: background .25s var(--ease-out); }
+
+/* — Respect strict de prefers-reduced-motion pour tous les ajouts ci-dessus — */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { filter: none !important; transition-delay: 0 !important; }
+  .feature-card::after, .benefit-card::after, .hub-card::after { display: none !important; }
+}
