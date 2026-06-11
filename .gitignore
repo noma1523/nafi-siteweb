@@ -9,3 +9,6 @@ Thumbs.db
 # Logs / temp
 *.log
 node_modules/
+
+# Artefacts générés par l'outillage graphify (régénérables, pas du code source)
+graphify-out/
