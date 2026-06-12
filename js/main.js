@@ -225,6 +225,12 @@ $$(".modal [data-close]").forEach(el => {
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") { const m = $(".modal.open"); if (m) closeModal(m); }
 });
+/* Ouvre automatiquement la modale "Devenir distributeur" via #distributeur */
+function openHashModal() {
+  if (location.hash === "#distributeur") openModal($("#modal-distrib"));
+}
+window.addEventListener("hashchange", openHashModal);
+openHashModal();
 
 /* ============================================================
    Navigation active au défilement (scroll-spy)

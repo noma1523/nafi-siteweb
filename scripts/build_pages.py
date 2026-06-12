@@ -48,7 +48,7 @@ LINKMAP = [
     ('#qualite',  'qualite.html'),
     ('#faq',      'contact.html#faq'),
     ('#contact',  'contact.html'),
-    ('#devis',    'contact.html#devis'),
+    ('#distributeur', 'contact.html#distributeur'),
 ]
 def fixlinks(html):
     # ne touche pas aux href="#i-..." (sprite) ni href="#wavepath"
@@ -97,7 +97,7 @@ def navbar(active):
       </a>
 
       <nav class="nav-links" id="navLinks" aria-label="Navigation principale">
-{links}        <a href="contact.html#devis" class="nav-cta">Devis</a>
+{links}        <a href="contact.html#distributeur" class="nav-cta">Distributeur</a>
       </nav>
 
       <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
@@ -145,14 +145,14 @@ HUB = '''
         <a class="hub-card reveal" href="contact.html">
           <span class="hub-ico"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg></span>
           <h3>Contact</h3>
-          <p>Question, distribution ou commande.</p>
+          <p>Une question ? Écrivez-nous.</p>
           <span class="hub-link">Découvrir <span aria-hidden="true">&rarr;</span></span>
         </a>
-        <a class="hub-card hub-card--cta reveal" href="contact.html#devis">
-          <span class="hub-ico"><svg class="ico" aria-hidden="true"><use href="#i-truck"/></svg></span>
-          <h3>Commander</h3>
-          <p>Faites-vous livrer partout à Conakry.</p>
-          <span class="hub-link">Demander un devis <span aria-hidden="true">&rarr;</span></span>
+        <a class="hub-card hub-card--cta reveal" href="contact.html#distributeur">
+          <span class="hub-ico"><svg class="ico" aria-hidden="true"><use href="#i-handshake"/></svg></span>
+          <h3>Devenir distributeur</h3>
+          <p>Rejoignez le réseau de distribution NAFI.</p>
+          <span class="hub-link">Faire une demande <span aria-hidden="true">&rarr;</span></span>
         </a>
       </div>
     </div>
@@ -198,8 +198,8 @@ PAGES = {
     "De la source à votre verre : six étapes maîtrisées, analyses en laboratoire et contrôles permanents garantissent la pureté de NAFI.",
     [QUAL]),
  "contact.html": ("contact",
-    "Contact, distribution & commande — NAFI",
-    "Posez une question, devenez distributeur ou commandez NAFI, livré partout à Conakry.",
+    "Contact & distribution — NAFI",
+    "Posez une question ou devenez distributeur NAFI.",
     [CONTACT, FAQ, MODALS]),
 }
 
