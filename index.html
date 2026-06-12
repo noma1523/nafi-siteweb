@@ -55,10 +55,12 @@
 
       <nav class="nav-links" id="navLinks" aria-label="Navigation principale">
         <a href="index.html" class="active">Accueil</a>
+        <a href="histoire.html">Histoire</a>
         <a href="bienfaits.html">Bienfaits</a>
         <a href="produits.html">Produits</a>
         <a href="qualite.html">Qualité</a>
         <a href="contact.html">Contact</a>
+        <a href="contact.html#devis" class="nav-cta">Devis</a>
       </nav>
 
       <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
@@ -86,12 +88,19 @@
 
     <div class="container hero-inner">
       <div class="hero-text reveal">
+        <span class="origin-badge">Origine&nbsp;: Guinée <svg class="flag-gn" aria-hidden="true"><use href="#i-flag-gn"/></svg></span>
         <h1 class="hero-title">L'eau pure de Guinée,<br><span class="accent-water">la confiance en chaque goutte</span></h1>
         <p class="hero-tagline">NAFI, eau minérale naturelle captée, purifiée et embouteillée avec soin — disponible dans tout Conakry.</p>
         <div class="hero-buttons">
           <a href="produits.html" class="btn btn-primary">Découvrir nos produits</a>
           <a href="contact.html" class="btn btn-outline">Nous contacter</a>
         </div>
+
+        <ul class="hero-trust" aria-label="Nos garanties">
+          <li><svg class="ico trust-ico" aria-hidden="true"><use href="#i-check"/></svg> Eau certifiée</li>
+          <li><svg class="ico trust-ico" aria-hidden="true"><use href="#i-feather"/></svg> Pure &amp; légère</li>
+          <li><svg class="flag-gn trust-ico" aria-hidden="true"><use href="#i-flag-gn"/></svg> 100% guinéenne</li>
+        </ul>
       </div>
 
       <div class="hero-visual reveal">
@@ -104,7 +113,7 @@
     </div>
 
     <!-- Indicateur de défilement -->
-    <a href="#decouvrir" class="scroll-cue" aria-label="Défiler vers le bas">
+    <a href="histoire.html" class="scroll-cue" aria-label="Défiler vers le bas">
       <span class="scroll-cue-dot"></span>
       <span class="scroll-cue-txt">Découvrir</span>
     </a>
@@ -127,7 +136,7 @@
 
 
   <!-- ===================== ACCÈS AUX PAGES ===================== -->
-  <section class="section nav-hub" id="decouvrir">
+  <section class="section nav-hub">
     <div class="container">
       <div class="section-head reveal">
         <span class="eyebrow">Explorer</span>
@@ -135,6 +144,12 @@
         <p class="lead">Choisissez une rubrique pour en savoir plus.</p>
       </div>
       <div class="hub-grid">
+        <a class="hub-card reveal" href="histoire.html">
+          <span class="hub-ico"><svg class="ico" aria-hidden="true"><use href="#i-mountain"/></svg></span>
+          <h3>Notre histoire</h3>
+          <p>Une source de vie née au cœur de la Guinée.</p>
+          <span class="hub-link">Découvrir <span aria-hidden="true">&rarr;</span></span>
+        </a>
         <a class="hub-card reveal" href="bienfaits.html">
           <span class="hub-ico"><svg class="ico" aria-hidden="true"><use href="#i-feather"/></svg></span>
           <h3>Les bienfaits</h3>
@@ -159,6 +174,12 @@
           <p>Question, distribution ou commande.</p>
           <span class="hub-link">Découvrir <span aria-hidden="true">&rarr;</span></span>
         </a>
+        <a class="hub-card hub-card--cta reveal" href="contact.html#devis">
+          <span class="hub-ico"><svg class="ico" aria-hidden="true"><use href="#i-truck"/></svg></span>
+          <h3>Commander</h3>
+          <p>Faites-vous livrer partout à Conakry.</p>
+          <span class="hub-link">Demander un devis <span aria-hidden="true">&rarr;</span></span>
+        </a>
       </div>
     </div>
   </section>
@@ -168,7 +189,7 @@
     <div class="container footer-inner">
       <div class="footer-brand">
         <img src="images/logo-nafi.png" alt="Logo NAFI" class="footer-logo" data-fallback="logo" />
-        <p class="footer-tagline">Eau minérale naturelle</p>
+        <p class="footer-tagline">Eau minérale naturelle<br><span>Née en Guinée <svg class="flag-gn" aria-hidden="true"><use href="#i-flag-gn"/></svg></span></p>
       </div>
 
       <div class="footer-col">
@@ -176,12 +197,20 @@
         <a href="index.html#marque">La marque</a>
         <a href="produits.html">Produits</a>
         <a href="contact.html#faq">FAQ</a>
+        <a href="contact.html#devis">Devis de commande</a>
       </div>
 
       <div class="footer-col">
         <h4>Contact</h4>
+        <a href="tel:+224611260303"><svg class="ico ico-link" aria-hidden="true"><use href="#i-phone"/></svg> +224 611 26 03 03</a>
         <a href="contact.html"><svg class="ico ico-link" aria-hidden="true"><use href="#i-mail"/></svg> Nous écrire</a>
         <p class="footer-city">Conakry, Guinée</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Suivez-nous</h4>
+        <a href="#" class="social" target="_blank" rel="noopener"><svg class="ico ico--fill ico-link" aria-hidden="true"><use href="#i-facebook"/></svg> Facebook</a>
+        <a href="#" class="social" target="_blank" rel="noopener"><svg class="ico ico-link" aria-hidden="true"><use href="#i-instagram"/></svg> Instagram</a>
       </div>
     </div>
     <div class="footer-bottom">

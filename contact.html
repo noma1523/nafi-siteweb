@@ -55,10 +55,12 @@
 
       <nav class="nav-links" id="navLinks" aria-label="Navigation principale">
         <a href="index.html">Accueil</a>
+        <a href="histoire.html">Histoire</a>
         <a href="bienfaits.html">Bienfaits</a>
         <a href="produits.html">Produits</a>
         <a href="qualite.html">Qualité</a>
         <a href="contact.html" class="active">Contact</a>
+        <a href="contact.html#devis" class="nav-cta">Devis</a>
       </nav>
 
       <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
@@ -72,10 +74,10 @@
       <div class="section-head reveal">
         <span class="eyebrow">Contact</span>
         <h2>Comment pouvons-nous vous aider&nbsp;?</h2>
-        <p class="lead">Choisissez votre besoin — nous vous répondons rapidement.</p>
+        <p class="section-sub">Choisissez votre besoin — nous vous répondons rapidement.</p>
       </div>
 
-      <div class="contact-options">
+      <div class="contact-options" id="devis">
         <button class="contact-card reveal" type="button" data-modal="modal-question">
           <span class="contact-ico"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg></span>
           <h3>Poser une question</h3>
@@ -89,6 +91,13 @@
           <h3>Devenir distributeur</h3>
           <p>Particuliers ou professionnels&nbsp;: rejoignez le réseau NAFI.</p>
           <span class="contact-link">Faire une demande <span aria-hidden="true">→</span></span>
+        </button>
+
+        <button class="contact-card reveal" type="button" data-modal="modal-commande">
+          <span class="contact-ico"><svg class="ico" aria-hidden="true"><use href="#i-truck"/></svg></span>
+          <h3>Commander maintenant</h3>
+          <p>Passez commande et faites-vous livrer partout à Conakry.</p>
+          <span class="contact-link">Commander <span aria-hidden="true">→</span></span>
         </button>
       </div>
     </div>
@@ -106,7 +115,7 @@
         <details class="faq-item">
           <summary>Où puis-je acheter NAFI à Conakry ?</summary>
           <div class="faq-answer">
-            <p>NAFI est distribuée dans tout Conakry — boutiques, supermarchés, dépôts et marchés. Pour les commerces et les gros volumes, vous pouvez <a href="contact.html">devenir distributeur</a> ou nous contacter directement.</p>
+            <p>NAFI est distribuée dans tout Conakry — boutiques, supermarchés, dépôts et marchés. Pour commander en gros ou vous faire livrer, utilisez le formulaire <a href="contact.html#devis">Devis de commande</a> ou contactez-nous directement.</p>
           </div>
         </details>
 
@@ -125,9 +134,9 @@
         </details>
 
         <details class="faq-item">
-          <summary>Comment obtenir NAFI en gros pour un événement ?</summary>
+          <summary>Puis-je commander en gros pour un événement ?</summary>
           <div class="faq-answer">
-            <p>Pour les gros volumes (événements, commerces…), <a href="contact.html">contactez-nous</a> ou devenez distributeur en précisant les formats, le nombre de packs, le lieu et la date. Nous revenons vers vous rapidement avec une proposition adaptée.</p>
+            <p>Oui. Utilisez le formulaire <a href="contact.html#devis">Devis de commande</a> : indiquez les formats, le nombre de packs, le lieu et la date de livraison. Nous revenons vers vous rapidement avec une proposition adaptée.</p>
           </div>
         </details>
 
@@ -209,14 +218,6 @@
       <form class="nafi-form" id="formDistrib" data-context="distributeur" data-subject="NAFI — Candidature distributeur" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="_subject" value="NAFI — Candidature distributeur" />
 
-        <div class="distrib-requirement">
-          <p class="form-section">Capacité de distribution requise</p>
-          <p class="req-text">Afin de devenir distributeur agréé, vous devez être en mesure d'assurer la livraison d'au moins <strong>5 camions par mois</strong>, soit environ <strong>12 500 packs mensuels</strong>.</p>
-          <p class="req-question">Confirmez-vous votre capacité à atteindre ce volume&nbsp;? *</p>
-          <label class="check-row"><input type="radio" name="capacite_volume" value="Oui" required /> <span>Oui, je confirme pouvoir distribuer au minimum 12 500 packs par mois.</span></label>
-          <label class="check-row"><input type="radio" name="capacite_volume" value="Non" /> <span>Non, je ne peux pas garantir ce volume.</span></label>
-        </div>
-
         <div class="field"><label for="d-profil">Vous candidatez en tant que *</label>
           <select id="d-profil" name="profil" required><option value="">— Choisir —</option><option>Particulier</option><option>Entreprise</option></select>
         </div>
@@ -290,11 +291,80 @@
     </div>
   </div>
 
+  <!-- Modale : Commander maintenant -->
+  <div class="modal" id="modal-commande" aria-hidden="true">
+    <div class="modal-overlay" data-close></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="mc-title">
+      <button class="modal-close" type="button" data-close aria-label="Fermer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <div class="modal-head">
+        <span class="modal-ico"><svg class="ico" aria-hidden="true"><use href="#i-truck"/></svg></span>
+        <div>
+          <h3 id="mc-title">Commander maintenant</h3>
+          <p>Indiquez vos formats et votre adresse — livraison à Conakry.</p>
+        </div>
+      </div>
+      <form class="nafi-form" id="formCommande" data-context="commande" data-subject="NAFI — Demande de devis / commande" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="_subject" value="NAFI — Demande de devis / commande" />
+
+        <p class="form-section">Coordonnées</p>
+        <div class="field"><label for="o-nom">Nom complet *</label><input id="o-nom" name="nom" type="text" required /></div>
+        <div class="field-row">
+          <div class="field"><label for="o-societe">Société / Organisation</label><input id="o-societe" name="societe" type="text" /></div>
+          <div class="field"><label for="o-fonction">Fonction</label><input id="o-fonction" name="fonction" type="text" /></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label for="o-tel">Téléphone *</label><input id="o-tel" name="telephone" type="tel" required placeholder="+224 6XX XX XX XX" /></div>
+          <div class="field"><label for="o-wa">WhatsApp</label><input id="o-wa" name="whatsapp" type="tel" placeholder="+224 6XX XX XX XX" /></div>
+        </div>
+        <div class="field"><label for="o-email">E-mail *</label><input id="o-email" name="email" type="email" required /></div>
+
+        <p class="form-section">Adresse de livraison</p>
+        <div class="field-row">
+          <div class="field"><label for="o-pays">Pays *</label><input id="o-pays" name="pays" type="text" required value="Guinée" /></div>
+          <div class="field"><label for="o-ville">Ville *</label><input id="o-ville" name="ville" type="text" required /></div>
+        </div>
+        <div class="field"><label for="o-adresse">Adresse complète *</label><input id="o-adresse" name="adresse" type="text" required placeholder="Commune, quartier, repère" /></div>
+
+        <p class="form-section">Produits souhaités</p>
+        <fieldset class="formats-fieldset">
+          <legend>Quantités souhaitées (en packs)</legend>
+          <div class="qty-row"><label for="q-033">Eau NAFI — 0,33 L</label><input id="q-033" class="qty-input" name="qte_033" type="number" min="0" placeholder="0" /></div>
+          <div class="qty-row"><label for="q-05">Eau NAFI — 0,5 L</label><input id="q-05" class="qty-input" name="qte_05" type="number" min="0" placeholder="0" /></div>
+          <div class="qty-row"><label for="q-15">Eau NAFI — 1,5 L</label><input id="q-15" class="qty-input" name="qte_15" type="number" min="0" placeholder="0" /></div>
+          <div class="qty-row"><label for="q-autre">Eau NAFI — Autre format</label><input id="q-autre" class="qty-input" name="qte_autre" type="text" placeholder="—" /></div>
+        </fieldset>
+
+        <p class="form-section">Informations commerciales</p>
+        <div class="field-row">
+          <div class="field"><label for="o-client">Type de client *</label>
+            <select id="o-client" name="type_client" required><option value="">— Choisir —</option><option>Particulier</option><option>Revendeur</option><option>Grossiste</option><option>Entreprise</option><option>Administration</option><option>Hôtel</option><option>Restaurant</option><option>Événement</option></select>
+          </div>
+          <div class="field"><label for="o-freq">Fréquence d'achat</label>
+            <select id="o-freq" name="frequence"><option value="">— Choisir —</option><option>Achat unique</option><option>Hebdomadaire</option><option>Mensuel</option><option>Trimestriel</option></select>
+          </div>
+        </div>
+
+        <p class="form-section">Détails complémentaires</p>
+        <div class="field-row">
+          <div class="field"><label for="o-date">Date souhaitée de livraison</label><input id="o-date" name="date_livraison" type="date" /></div>
+          <div class="field"><label for="o-devis">Besoin d'un devis officiel ?</label><select id="o-devis" name="devis_officiel"><option value="">— Choisir —</option><option>Oui</option><option>Non</option></select></div>
+        </div>
+        <div class="field"><label for="o-msg">Message</label><textarea id="o-msg" name="message" rows="3" placeholder="Décrivez votre besoin en détail."></textarea></div>
+
+        <label class="check-row check-row--solo"><input type="checkbox" name="consentement" required /> <span>J'accepte d'être contacté concernant cette demande.</span></label>
+        <button type="submit" class="btn btn-primary btn-block">Recevoir mon devis</button>
+        <p class="form-status" role="status"></p>
+      </form>
+    </div>
+  </div>
+
 <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-brand">
         <img src="images/logo-nafi.png" alt="Logo NAFI" class="footer-logo" data-fallback="logo" />
-        <p class="footer-tagline">Eau minérale naturelle</p>
+        <p class="footer-tagline">Eau minérale naturelle<br><span>Née en Guinée <svg class="flag-gn" aria-hidden="true"><use href="#i-flag-gn"/></svg></span></p>
       </div>
 
       <div class="footer-col">
@@ -302,12 +372,20 @@
         <a href="index.html#marque">La marque</a>
         <a href="produits.html">Produits</a>
         <a href="contact.html#faq">FAQ</a>
+        <a href="contact.html#devis">Devis de commande</a>
       </div>
 
       <div class="footer-col">
         <h4>Contact</h4>
+        <a href="tel:+224611260303"><svg class="ico ico-link" aria-hidden="true"><use href="#i-phone"/></svg> +224 611 26 03 03</a>
         <a href="contact.html"><svg class="ico ico-link" aria-hidden="true"><use href="#i-mail"/></svg> Nous écrire</a>
         <p class="footer-city">Conakry, Guinée</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Suivez-nous</h4>
+        <a href="#" class="social" target="_blank" rel="noopener"><svg class="ico ico--fill ico-link" aria-hidden="true"><use href="#i-facebook"/></svg> Facebook</a>
+        <a href="#" class="social" target="_blank" rel="noopener"><svg class="ico ico-link" aria-hidden="true"><use href="#i-instagram"/></svg> Instagram</a>
       </div>
     </div>
     <div class="footer-bottom">

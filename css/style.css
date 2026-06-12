@@ -504,9 +504,10 @@ body.page-inner .burger span { background: var(--blue-deep); }
 .field input[type="file"]::file-selector-button:hover { background: #d6efff; }
 
 /* ----- Cartes de contact (3 choix) ----- */
-.contact-options { display: grid; grid-template-columns: 1fr; gap: 22px; margin-top: 40px; }
+.contact-options { display: grid; grid-template-columns: 1fr; gap: 22px; margin: 40px auto 0; max-width: 480px; }
 .contact-card {
   position: relative; text-align: center; cursor: pointer; overflow: hidden;
+  display: flex; flex-direction: column; align-items: center;
   background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
   padding: 38px 26px 30px; box-shadow: var(--shadow-sm);
   transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s, border-color .35s;
@@ -532,7 +533,7 @@ body.page-inner .burger span { background: var(--blue-deep); }
 .contact-card:hover .contact-ico { transform: translateY(-4px) scale(1.08); background: radial-gradient(circle at 35% 30%, #d6efff, #bfe3fb); }
 .contact-card h3 { font-size: 1.22rem; margin-bottom: 8px; color: var(--ink); }
 .contact-card p { color: var(--muted); font-size: .96rem; margin-bottom: 18px; }
-.contact-link { display: inline-block; font-family: var(--font-head); font-weight: 600; color: var(--blue); transition: gap .3s; }
+.contact-link { display: inline-block; margin-top: auto; font-family: var(--font-head); font-weight: 600; color: var(--blue); transition: gap .3s; }
 .contact-card:hover .contact-link span { display: inline-block; transform: translateX(5px); transition: transform .3s; }
 
 /* ----- Modales ----- */
@@ -964,7 +965,6 @@ body.modal-lock { overflow: hidden; }
 /* ============================= RESPONSIVE ============================= */
 @media (min-width: 600px) {
   .field-row { grid-template-columns: 1fr 1fr; }
-  .contact-options { grid-template-columns: repeat(2, 1fr); }
   .products-grid { grid-template-columns: repeat(2, 1fr); }
   .product-img { height: 240px; }
   .product-img img { max-height: 240px; }
@@ -982,7 +982,7 @@ body.modal-lock { overflow: hidden; }
   .marque-grid { grid-template-columns: repeat(4, 1fr); }
   .benefits-grid { grid-template-columns: repeat(3, 1fr); }
   .products-grid { grid-template-columns: repeat(4, 1fr); }
-  .contact-options { grid-template-columns: repeat(3, 1fr); }
+  .contact-options { grid-template-columns: repeat(3, 1fr); max-width: none; }
   .forms-grid { grid-template-columns: 1fr 1fr; align-items: start; }
   .footer-inner { grid-template-columns: 1.4fr 1fr 1fr 1fr; }
   .story-grid { grid-template-columns: 1.1fr .9fr; align-items: center; }

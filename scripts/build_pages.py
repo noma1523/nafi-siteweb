@@ -191,7 +191,7 @@ PAGES = {
     [BIEN, CTA]),
  "produits.html": ("produits",
     "Nos produits & formats — NAFI",
-    "Découvrez les formats NAFI : 0,33 L, 0,5 L et 1,5 L, ainsi que la composition et la minéralité de notre eau.",
+    "Découvrez les formats NAFI : 0,33 L, 0,5 L et 1,5 L, adaptés à chaque besoin.",
     [PROD, CTA]),
  "qualite.html": ("qualite",
     "Qualité & process — NAFI",
