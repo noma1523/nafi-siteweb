@@ -982,7 +982,7 @@ body.modal-lock { overflow: hidden; }
   .marque-grid { grid-template-columns: repeat(4, 1fr); }
   .benefits-grid { grid-template-columns: repeat(3, 1fr); }
   .products-grid { grid-template-columns: repeat(4, 1fr); }
-  .contact-options { grid-template-columns: repeat(3, 1fr); max-width: none; }
+  .contact-options { grid-template-columns: repeat(2, 1fr); max-width: 760px; }
   .forms-grid { grid-template-columns: 1fr 1fr; align-items: start; }
   .footer-inner { grid-template-columns: 1.4fr 1fr 1fr 1fr; }
   .story-grid { grid-template-columns: 1.1fr .9fr; align-items: center; }
