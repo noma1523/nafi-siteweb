@@ -1,6 +1,7 @@
 {
   "version": "0.0.1",
   "configurations": [
-    { "name": "nafi", "runtimeExecutable": "python3", "runtimeArgs": ["-m", "http.server", "4321"], "port": 4321 }
+    { "name": "nafi", "runtimeExecutable": "python3", "runtimeArgs": ["-m", "http.server", "4321"], "port": 4321 },
+    { "name": "optix", "runtimeExecutable": "node", "runtimeArgs": ["/Users/mansa/Downloads/site/node_modules/vite/bin/vite.js", "--root", "/Users/mansa/Downloads/site", "--config", "/Users/mansa/Downloads/site/vite.config.ts", "--port", "8080", "--host", "--strictPort"], "port": 8080 }
   ]
 }

@@ -124,7 +124,7 @@ function fieldLabel(form, el) {
 function buildMailtoSummary(form, context) {
   const lines = [];
   form.querySelectorAll("input, select, textarea").forEach(el => {
-    if (!el.name || el.type === "hidden") return;
+    if (!el.name || el.type === "hidden" || el.disabled) return;
     if (el.type === "file") {
       if (el.files && el.files.length)
         lines.push(fieldLabel(form, el) + " : " + [...el.files].map(f => f.name).join(", ") + " (à joindre)");
@@ -195,6 +195,64 @@ function handleForm(form) {
 }
 
 $$(".nafi-form").forEach(handleForm);
+
+/* ============================================================
+   Formulaire distributeur : affichage conditionnel selon le profil
+   (Particulier / Entreprise) + minimum de commande
+   - Les champs cachés sont DÉSACTIVÉS : ainsi ils ne bloquent pas la
+     validation HTML5 (« contrôle invalide non focusable ») et ne partent
+     ni dans FormData ni dans le récap e-mail.
+   ============================================================ */
+(() => {
+  const form = $("#formDistrib");
+  if (!form) return;
+  const profil = $("#d-profil", form);
+  const body   = $("#distribBody", form);
+  if (!profil || !body) return;
+
+  const groups   = $$(".profil-group", body);
+  const setFields = (root, disabled) =>
+    $$("input, select, textarea", root).forEach(el => { el.disabled = disabled; });
+
+  const apply = (animate) => {
+    const val = profil.value;
+    if (!val) {                       // aucun profil : tout masqué et désactivé
+      body.hidden = true;
+      body.classList.remove("revealed");
+      setFields(body, true);
+      return;
+    }
+    body.hidden = false;
+    setFields(body, false);           // réactive les champs communs
+    groups.forEach(g => {             // n'affiche que le groupe du profil choisi
+      const active = g.dataset.profil === val;
+      g.hidden = !active;
+      setFields(g, !active);
+    });
+    if (animate) {
+      body.classList.remove("revealed");
+      void body.offsetWidth;          // reflow pour rejouer l'animation
+      body.classList.add("revealed");
+      requestAnimationFrame(() => body.scrollIntoView({ behavior: "smooth", block: "start" }));
+    }
+  };
+
+  apply(false);
+  profil.addEventListener("change", () => apply(true));
+
+  /* Message de validation en français pour le minimum (12 500 packs/mois) */
+  const cap = $("#d-capacite", form);
+  if (cap) {
+    const checkCap = () => {
+      const v = parseInt(cap.value, 10);
+      cap.setCustomValidity(cap.value && (isNaN(v) || v < 12500)
+        ? "La capacité minimale est de 12 500 packs/mois."
+        : "");
+    };
+    cap.addEventListener("input", checkCap);
+    cap.addEventListener("blur", checkCap);
+  }
+})();
 
 /* ============================================================
    Modales de contact (ouverture / fermeture, accessibilité)

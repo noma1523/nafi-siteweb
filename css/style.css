@@ -494,6 +494,13 @@ body.page-inner .burger span { background: var(--blue-deep); }
 .distrib-requirement .req-text { font-size: .96rem; color: var(--ink); line-height: 1.55; margin: 12px 0 0; }
 .distrib-requirement .req-question { font-family: var(--font-head); font-weight: 600; color: var(--blue-deep); margin: 14px 0 2px; }
 .distrib-requirement .check-row input { width: 18px; height: 18px; accent-color: var(--blue); }
+/* Aide sous un champ (ex. minimum requis) */
+.field-hint { font-size: .82rem; color: var(--muted); margin-top: 2px; }
+/* Formulaire distributeur : affichage conditionnel selon le profil */
+.distrib-body, .profil-group { display: flex; flex-direction: column; gap: 16px; }
+.distrib-body[hidden], .profil-group[hidden] { display: none !important; }
+.distrib-body.revealed { animation: distribReveal .45s cubic-bezier(.22,1,.36,1) both; }
+@keyframes distribReveal { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 /* Champs fichier */
 .field input[type="file"] { padding: 9px 12px; font-size: .9rem; background: #fafdff; cursor: pointer; }
 .field input[type="file"]::file-selector-button {
