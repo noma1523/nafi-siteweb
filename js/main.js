@@ -161,35 +161,67 @@ function showSuccess(form, ref) {
   card.appendChild(done);
 }
 
+/* Endpoint de l'ERP (route publique cloisonnée). Surchargable via
+   window.NAFI_LEADS_URL avant le chargement de ce script si besoin. */
+const ERP_LEADS_URL = window.NAFI_LEADS_URL ||
+  "https://nafi-erp.vercel.app/api/public/site-leads";
+
+/* Clé d'idempotence (UUID) : un même envoi (double-clic, retry réseau) ne crée
+   qu'une seule demande côté ERP. Régénérée après un succès. */
+function newOpId() {
+  if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+  // Fallback : UUID v4 VALIDE (sans préfixe) — l'ERP rejette tout client_op_id
+  // qui n'est pas un UUID. Les "4" et "8" restent littéraux (version/variant).
+  return "xxxxxxxx-xxxx-4xxx-8xxx-xxxxxxxxxxxx".replace(/x/g,
+    () => ((Math.random() * 16) | 0).toString(16));
+}
+
+/* Rassemble les champs métier nommés (hors champs techniques : sujet du mail,
+   honeypot, cases de consentement, jeton captcha, fichiers). */
+function collectChamps(form) {
+  const exclus = new Set(["_subject", "website", "consent_rgpd", "verification",
+    "certification", "cf-turnstile-response"]);
+  const champs = {};
+  form.querySelectorAll("input, select, textarea").forEach(el => {
+    if (!el.name || el.disabled || exclus.has(el.name)) return;
+    if (el.type === "file" || el.type === "checkbox" || el.type === "radio") return;
+    const v = (el.value || "").trim();
+    if (v) champs[el.name] = v;
+  });
+  return champs;
+}
+
 function handleForm(form) {
   const status = form.querySelector(".form-status");
+  let opId = newOpId(); // stable par instance de formulaire (idempotence)
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const context = form.dataset.context;
     const ref = refNumber();
-    const mailLink = buildMailtoSummary(form, context);
-
-    // Formspree non configuré -> confirmation puis ouverture du client e-mail
-    if (form.action.includes("YOUR_FORM_ID")) {
-      showSuccess(form, ref);
-      setTimeout(() => { window.open(mailLink, "_blank"); }, 400);
-      return;
-    }
+    const mailLink = buildMailtoSummary(form, form.dataset.context);
+    const type = form.dataset.context === "distributeur" ? "distributeur" : "contact";
+    const consent = !!form.querySelector('[name="consent_rgpd"]')?.checked;
+    const website = form.querySelector('[name="website"]')?.value || "";
+    const captchaToken = form.querySelector('[name="cf-turnstile-response"]')?.value || "";
 
     if (status) { status.className = "form-status loading"; status.textContent = "Envoi en cours…"; }
     try {
-      const res = await fetch(form.action, {
+      const res = await fetch(ERP_LEADS_URL, {
         method: "POST",
-        body: new FormData(form),
-        headers: { Accept: "application/json" }
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type, client_op_id: opId, consent, website, captchaToken,
+          champs: collectChamps(form),
+        }),
       });
-      if (!res.ok) throw new Error("Formspree error");
+      if (!res.ok) throw new Error("HTTP " + res.status);
       showSuccess(form, ref);
+      opId = newOpId(); // prochaine demande = nouvelle clé
     } catch (err) {
       if (status) {
         status.className = "form-status err";
         status.innerHTML = `Échec de l'envoi. <a href="${mailLink}">Envoyer plutôt par e-mail</a>`;
       }
+      if (window.turnstile) { try { window.turnstile.reset(); } catch (_) {} }
     }
   });
 }

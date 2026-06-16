@@ -57,7 +57,14 @@ def fixlinks(html):
     return html
 
 # ---------- Gabarits ----------
-def head(title, desc, inner):
+# Injecté dans le <head> des pages portant des formulaires (anti-spam Turnstile
+# + style du honeypot). Clé "site" de test par défaut — à remplacer en prod.
+TURNSTILE_HEAD = (
+    '  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>\n'
+    '  <style>.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}</style>\n'
+)
+
+def head(title, desc, inner, extra_head=""):
     body_cls = ' class="page-inner"' if inner else ''
     return f'''<!DOCTYPE html>
 <html lang="fr">
@@ -72,7 +79,7 @@ def head(title, desc, inner):
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
-</head>
+{extra_head}</head>
 <body{body_cls}>
 
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
@@ -168,8 +175,8 @@ TAIL = f'''
 </html>
 '''
 
-def build(active, title, desc, blocks, inner):
-    parts = [head(title, desc, inner), navbar(active)]
+def build(active, title, desc, blocks, inner, extra_head=""):
+    parts = [head(title, desc, inner, extra_head), navbar(active)]
     for b in blocks:
         parts.append("\n" + fixlinks(b) + "\n")
     parts.append("\n" + FOOT + "\n")
@@ -205,5 +212,6 @@ PAGES = {
 
 for fname, (active, title, desc, blocks) in PAGES.items():
     inner = fname != "index.html"
-    (ROOT / fname).write_text(build(active, title, desc, blocks, inner), encoding="utf-8")
+    extra = TURNSTILE_HEAD if fname == "contact.html" else ""
+    (ROOT / fname).write_text(build(active, title, desc, blocks, inner, extra), encoding="utf-8")
     print("écrit:", fname)

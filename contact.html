@@ -11,6 +11,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <style>.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}</style>
 </head>
 <body class="page-inner">
 
@@ -55,6 +57,7 @@
 
       <nav class="nav-links" id="navLinks" aria-label="Navigation principale">
         <a href="index.html">Accueil</a>
+        <a href="histoire.html">Histoire</a>
         <a href="bienfaits.html">Bienfaits</a>
         <a href="produits.html">Produits</a>
         <a href="qualite.html">Qualité</a>
@@ -121,7 +124,7 @@
         <details class="faq-item">
           <summary>Comment devenir distributeur ou grossiste NAFI ?</summary>
           <div class="faq-answer">
-            <p>Remplissez le formulaire <a href="contact.html#distributeur">Devenir distributeur</a> en choisissant votre profil (particulier ou entreprise). L'accès au réseau requiert une capacité minimale de 12&nbsp;500 packs/mois. Nous revenons vers vous rapidement avec les conditions.</p>
+            <p>Remplissez le formulaire <a href="contact.html">Contact</a> en choisissant « Devenir distributeur / grossiste ». Nous revenons vers vous rapidement avec les conditions.</p>
           </div>
         </details>
 
@@ -164,7 +167,7 @@
           <p>Dites-nous ce dont vous avez besoin, nous revenons vers vous.</p>
         </div>
       </div>
-      <form class="nafi-form" id="formQuestion" data-context="question" data-subject="NAFI — Question / contact" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data">
+      <form class="nafi-form" id="formQuestion" data-context="question" data-subject="NAFI — Question / contact" method="POST">
         <input type="hidden" name="_subject" value="NAFI — Question / contact" />
 
         <p class="form-section">Informations personnelles</p>
@@ -184,9 +187,10 @@
           <select id="q-moyen" name="moyen_reponse"><option value="">— Choisir —</option><option>Téléphone</option><option>WhatsApp</option><option>E-mail</option></select>
         </div>
 
-        <div class="field"><label for="q-piece">Pièce jointe <span class="opt">(optionnel)</span></label><input id="q-piece" name="piece_jointe" type="file" /></div>
-
         <label class="check-row check-row--solo"><input type="checkbox" name="verification" required /> <span>Je confirme que les informations fournies sont exactes.</span></label>
+        <label class="check-row check-row--solo"><input type="checkbox" name="consent_rgpd" required /> <span>J'accepte que mes informations soient utilisées pour traiter ma demande (<a href="confidentialite.html" target="_blank" rel="noopener">confidentialité</a>).</span></label>
+        <div class="hp" aria-hidden="true"><label>Ne pas remplir<input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAADlcC-Q2oHfgL-AP"></div>
         <button type="submit" class="btn btn-primary btn-block">Envoyer ma demande</button>
         <p class="form-status" role="status"></p>
       </form>
@@ -204,97 +208,84 @@
         <span class="modal-ico"><svg class="ico" aria-hidden="true"><use href="#i-handshake"/></svg></span>
         <div>
           <h3 id="md-title">Devenir distributeur</h3>
-          <p>Rejoignez le réseau NAFI — particulier ou entreprise, à partir de 12&nbsp;500 packs/mois.</p>
+          <p>Rejoignez le réseau NAFI — particuliers, commerces, grossistes, hôtels et restaurants.</p>
         </div>
       </div>
-      <form class="nafi-form" id="formDistrib" data-context="distributeur" data-subject="NAFI — Candidature distributeur" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data">
+      <form class="nafi-form" id="formDistrib" data-context="distributeur" data-subject="NAFI — Candidature distributeur" method="POST">
         <input type="hidden" name="_subject" value="NAFI — Candidature distributeur" />
 
-        <div class="distrib-requirement">
-          <p class="form-section">Condition d'accès</p>
-          <p class="req-text"><strong>Capacité minimale requise&nbsp;: 12&nbsp;500 packs/mois.</strong> Cette condition s'applique à tous les profils — particulier comme entreprise. Les demandes en dessous de ce volume ne peuvent pas être retenues.</p>
+        <div class="field"><label for="d-profil">Vous candidatez en tant que *</label>
+          <select id="d-profil" name="profil" required><option value="">— Choisir —</option><option>Particulier</option><option>Entreprise</option></select>
         </div>
 
-        <div class="field"><label for="d-profil">Vous candidatez en tant que *</label>
-          <select id="d-profil" name="profil" required>
+        <p class="form-section">Informations sur l'entreprise <span class="opt">(si vous êtes une entreprise)</span></p>
+        <div class="field"><label for="d-raison">Raison sociale</label><input id="d-raison" name="raison_sociale" type="text" placeholder="Nom légal de l'entreprise" /></div>
+        <div class="field-row">
+          <div class="field"><label for="d-commercial">Nom commercial</label><input id="d-commercial" name="nom_commercial" type="text" /></div>
+          <div class="field"><label for="d-rccm">Numéro RCCM</label><input id="d-rccm" name="rccm" type="text" /></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label for="d-nif">Numéro NIF</label><input id="d-nif" name="nif" type="text" /></div>
+          <div class="field"><label for="d-creation">Date de création</label><input id="d-creation" name="date_creation" type="date" /></div>
+        </div>
+        <div class="field"><label for="d-web">Site web <span class="opt">(optionnel)</span></label><input id="d-web" name="site_web" type="url" placeholder="https://" /></div>
+
+        <p class="form-section">Personne de contact</p>
+        <div class="field-row">
+          <div class="field"><label for="d-nom">Nom et prénom *</label><input id="d-nom" name="contact_nom" type="text" required /></div>
+          <div class="field"><label for="d-fonction">Fonction *</label><input id="d-fonction" name="fonction" type="text" required /></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label for="d-tel">Téléphone *</label><input id="d-tel" name="telephone" type="tel" required placeholder="+224 6XX XX XX XX" /></div>
+          <div class="field"><label for="d-wa">WhatsApp *</label><input id="d-wa" name="whatsapp" type="tel" required placeholder="+224 6XX XX XX XX" /></div>
+        </div>
+        <div class="field"><label for="d-email">Adresse e-mail *</label><input id="d-email" name="email" type="email" required /></div>
+
+        <p class="form-section">Localisation</p>
+        <div class="field-row">
+          <div class="field"><label for="d-pays">Pays *</label><input id="d-pays" name="pays" type="text" required value="Guinée" /></div>
+          <div class="field"><label for="d-region">Région / Préfecture *</label><input id="d-region" name="region" type="text" required /></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label for="d-ville">Ville *</label><input id="d-ville" name="ville" type="text" required /></div>
+          <div class="field"><label for="d-adresse">Adresse complète *</label><input id="d-adresse" name="adresse" type="text" required /></div>
+        </div>
+
+        <p class="form-section">Activité <span class="opt">(les détails ci-dessous sont optionnels pour un particulier)</span></p>
+        <div class="field"><label for="d-activite">Type d'activité *</label>
+          <select id="d-activite" name="type_activite" required>
             <option value="">— Choisir —</option>
-            <option value="Particulier">Particulier</option>
-            <option value="Entreprise">Entreprise</option>
+            <option>Particulier</option><option>Grossiste</option><option>Distributeur</option><option>Supermarché</option>
+            <option>Commerce de détail</option><option>Hôtel / Restaurant</option><option>Autre</option>
           </select>
         </div>
-
-        <div class="distrib-body" id="distribBody" hidden>
-
-          <p class="form-section">Capacité d'enlèvement</p>
-          <div class="field">
-            <label for="d-capacite">Capacité mensuelle d'enlèvement (packs/mois) *</label>
-            <input id="d-capacite" name="capacite_mensuelle" type="number" min="12500" step="1" inputmode="numeric" required placeholder="Minimum 12 500" />
-            <p class="field-hint">Minimum requis&nbsp;: 12&nbsp;500 packs/mois, quel que soit le profil.</p>
-          </div>
-
-          <div class="profil-group" data-profil="Entreprise">
-            <p class="form-section">Informations sur l'entreprise</p>
-            <div class="field-row">
-              <div class="field"><label for="d-commercial">Nom commercial</label><input id="d-commercial" name="nom_commercial" type="text" /></div>
-              <div class="field"><label for="d-creation">Date de création</label><input id="d-creation" name="date_creation" type="date" /></div>
-            </div>
-            <div class="field"><label for="d-web">Site web <span class="opt">(optionnel)</span></label><input id="d-web" name="site_web" type="url" placeholder="https://" /></div>
-          </div>
-
-          <p class="form-section">Personne de contact</p>
-          <div class="field"><label for="d-nom">Nom et prénom *</label><input id="d-nom" name="contact_nom" type="text" required /></div>
-          <div class="field profil-group" data-profil="Entreprise"><label for="d-fonction">Fonction dans l'entreprise *</label><input id="d-fonction" name="fonction" type="text" required /></div>
-          <div class="field-row">
-            <div class="field"><label for="d-tel">Téléphone *</label><input id="d-tel" name="telephone" type="tel" required placeholder="+224 6XX XX XX XX" /></div>
-            <div class="field"><label for="d-wa">WhatsApp *</label><input id="d-wa" name="whatsapp" type="tel" required placeholder="+224 6XX XX XX XX" /></div>
-          </div>
-          <div class="field"><label for="d-email">Adresse e-mail *</label><input id="d-email" name="email" type="email" required /></div>
-
-          <p class="form-section">Localisation</p>
-          <div class="field-row">
-            <div class="field"><label for="d-pays">Pays *</label><input id="d-pays" name="pays" type="text" required value="Guinée" /></div>
-            <div class="field"><label for="d-region">Région / Préfecture *</label><input id="d-region" name="region" type="text" required /></div>
-          </div>
-          <div class="field-row">
-            <div class="field"><label for="d-ville">Ville *</label><input id="d-ville" name="ville" type="text" required /></div>
-            <div class="field"><label for="d-adresse">Adresse complète *</label><input id="d-adresse" name="adresse" type="text" required /></div>
-          </div>
-
-          <div class="profil-group" data-profil="Entreprise">
-            <p class="form-section">Activité</p>
-            <div class="field"><label for="d-activite">Type d'activité *</label>
-              <select id="d-activite" name="type_activite" required>
-                <option value="">— Choisir —</option>
-                <option>Grossiste</option><option>Distributeur</option><option>Supermarché</option>
-                <option>Commerce de détail</option><option>Hôtel / Restaurant</option><option>Autre</option>
-              </select>
-            </div>
-            <div class="field-row">
-              <div class="field"><label for="d-exp">Années d'expérience</label><input id="d-exp" name="experience" type="number" min="0" /></div>
-              <div class="field"><label for="d-pdv">Points de vente desservis</label><input id="d-pdv" name="points_vente" type="number" min="0" /></div>
-            </div>
-            <div class="field-row">
-              <div class="field"><label for="d-vehic">Véhicules de livraison</label><input id="d-vehic" name="vehicules" type="number" min="0" /></div>
-              <div class="field"><label for="d-effectif">Effectif de l'entreprise</label><input id="d-effectif" name="effectif" type="number" min="0" /></div>
-            </div>
-          </div>
-
-          <p class="form-section">Zone de distribution souhaitée</p>
-          <div class="field"><label for="d-zone">Préfecture(s) ou région(s) souhaitée(s) *</label><input id="d-zone" name="zone_souhaitee" type="text" required /></div>
-          <div class="field-row">
-            <div class="field"><label for="d-entrepot">Disposez-vous d'un entrepôt ? *</label>
-              <select id="d-entrepot" name="entrepot" required><option value="">— Choisir —</option><option>Oui</option><option>Non</option></select>
-            </div>
-            <div class="field"><label for="d-stockage">Capacité de stockage estimée</label><input id="d-stockage" name="capacite_stockage" type="text" placeholder="Ex. 200 palettes" /></div>
-          </div>
-
-          <p class="form-section">Motivation</p>
-          <div class="field"><label for="d-motiv">Pourquoi souhaitez-vous devenir distributeur NAFI ? *</label><textarea id="d-motiv" name="motivation" rows="4" required></textarea></div>
-
-          <label class="check-row check-row--solo"><input type="checkbox" name="certification" required /> <span>Je certifie que les informations fournies sont exactes et je m'engage sur une capacité minimale de 12&nbsp;500 packs/mois.</span></label>
-          <button type="submit" class="btn btn-primary btn-block">Soumettre ma candidature de distributeur</button>
-          <p class="form-status" role="status"></p>
+        <div class="field-row">
+          <div class="field"><label for="d-exp">Années d'expérience</label><input id="d-exp" name="experience" type="number" min="0" /></div>
+          <div class="field"><label for="d-pdv">Points de vente desservis</label><input id="d-pdv" name="points_vente" type="number" min="0" /></div>
         </div>
+        <div class="field-row">
+          <div class="field"><label for="d-vehic">Véhicules de livraison</label><input id="d-vehic" name="vehicules" type="number" min="0" /></div>
+          <div class="field"><label for="d-effectif">Effectif de l'entreprise</label><input id="d-effectif" name="effectif" type="number" min="0" /></div>
+        </div>
+
+        <p class="form-section">Zone de distribution souhaitée</p>
+        <div class="field"><label for="d-zone">Préfecture(s) ou région(s) souhaitée(s) *</label><input id="d-zone" name="zone_souhaitee" type="text" required /></div>
+        <div class="field-row">
+          <div class="field"><label for="d-entrepot">Disposez-vous d'un entrepôt ? *</label>
+            <select id="d-entrepot" name="entrepot" required><option value="">— Choisir —</option><option>Oui</option><option>Non</option></select>
+          </div>
+          <div class="field"><label for="d-stockage">Capacité de stockage estimée</label><input id="d-stockage" name="capacite_stockage" type="text" placeholder="Ex. 200 palettes" /></div>
+        </div>
+
+        <p class="form-section">Motivation</p>
+        <div class="field"><label for="d-motiv">Pourquoi souhaitez-vous devenir distributeur NAFI ? *</label><textarea id="d-motiv" name="motivation" rows="4" required></textarea></div>
+
+        <label class="check-row check-row--solo"><input type="checkbox" name="certification" required /> <span>Je certifie que les informations fournies sont exactes.</span></label>
+        <label class="check-row check-row--solo"><input type="checkbox" name="consent_rgpd" required /> <span>J'accepte que mes informations soient utilisées pour traiter ma candidature (<a href="confidentialite.html" target="_blank" rel="noopener">confidentialité</a>).</span></label>
+        <div class="hp" aria-hidden="true"><label>Ne pas remplir<input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAADlcC-Q2oHfgL-AP"></div>
+        <button type="submit" class="btn btn-primary btn-block">Soumettre ma candidature de distributeur</button>
+        <p class="form-status" role="status"></p>
       </form>
     </div>
   </div>
@@ -303,7 +294,7 @@
     <div class="container footer-inner">
       <div class="footer-brand">
         <img src="images/logo-nafi.png" alt="Logo NAFI" class="footer-logo" data-fallback="logo" />
-        <p class="footer-tagline">Eau minérale naturelle</p>
+        <p class="footer-tagline">Eau minérale naturelle<br><span>Née en Guinée <svg class="flag-gn" aria-hidden="true"><use href="#i-flag-gn"/></svg></span></p>
       </div>
 
       <div class="footer-col">
@@ -316,8 +307,15 @@
 
       <div class="footer-col">
         <h4>Contact</h4>
+        <a href="tel:+224611260303"><svg class="ico ico-link" aria-hidden="true"><use href="#i-phone"/></svg> +224 611 26 03 03</a>
         <a href="contact.html"><svg class="ico ico-link" aria-hidden="true"><use href="#i-mail"/></svg> Nous écrire</a>
         <p class="footer-city">Conakry, Guinée</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Suivez-nous</h4>
+        <a href="#" class="social" target="_blank" rel="noopener"><svg class="ico ico--fill ico-link" aria-hidden="true"><use href="#i-facebook"/></svg> Facebook</a>
+        <a href="#" class="social" target="_blank" rel="noopener"><svg class="ico ico-link" aria-hidden="true"><use href="#i-instagram"/></svg> Instagram</a>
       </div>
     </div>
     <div class="footer-bottom">

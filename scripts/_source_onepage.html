@@ -38,6 +38,9 @@
     }
   }
   </script>
+  <!-- Anti-spam : CAPTCHA Cloudflare Turnstile (clé de test par défaut — à remplacer par la vraie clé "site" en prod). -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <style>.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}</style>
 </head>
 <body>
 
@@ -633,7 +636,7 @@
           <p>Dites-nous ce dont vous avez besoin, nous revenons vers vous.</p>
         </div>
       </div>
-      <form class="nafi-form" id="formQuestion" data-context="question" data-subject="NAFI — Question / contact" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data">
+      <form class="nafi-form" id="formQuestion" data-context="question" data-subject="NAFI — Question / contact" method="POST">
         <input type="hidden" name="_subject" value="NAFI — Question / contact" />
 
         <p class="form-section">Informations personnelles</p>
@@ -653,9 +656,10 @@
           <select id="q-moyen" name="moyen_reponse"><option value="">— Choisir —</option><option>Téléphone</option><option>WhatsApp</option><option>E-mail</option></select>
         </div>
 
-        <div class="field"><label for="q-piece">Pièce jointe <span class="opt">(optionnel)</span></label><input id="q-piece" name="piece_jointe" type="file" /></div>
-
         <label class="check-row check-row--solo"><input type="checkbox" name="verification" required /> <span>Je confirme que les informations fournies sont exactes.</span></label>
+        <label class="check-row check-row--solo"><input type="checkbox" name="consent_rgpd" required /> <span>J'accepte que mes informations soient utilisées pour traiter ma demande (<a href="confidentialite.html" target="_blank" rel="noopener">confidentialité</a>).</span></label>
+        <div class="hp" aria-hidden="true"><label>Ne pas remplir<input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAADlcC-Q2oHfgL-AP"></div>
         <button type="submit" class="btn btn-primary btn-block">Envoyer ma demande</button>
         <p class="form-status" role="status"></p>
       </form>
@@ -676,7 +680,7 @@
           <p>Rejoignez le réseau NAFI — particuliers, commerces, grossistes, hôtels et restaurants.</p>
         </div>
       </div>
-      <form class="nafi-form" id="formDistrib" data-context="distributeur" data-subject="NAFI — Candidature distributeur" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data">
+      <form class="nafi-form" id="formDistrib" data-context="distributeur" data-subject="NAFI — Candidature distributeur" method="POST">
         <input type="hidden" name="_subject" value="NAFI — Candidature distributeur" />
 
         <div class="field"><label for="d-profil">Vous candidatez en tant que *</label>
@@ -746,6 +750,9 @@
         <div class="field"><label for="d-motiv">Pourquoi souhaitez-vous devenir distributeur NAFI ? *</label><textarea id="d-motiv" name="motivation" rows="4" required></textarea></div>
 
         <label class="check-row check-row--solo"><input type="checkbox" name="certification" required /> <span>Je certifie que les informations fournies sont exactes.</span></label>
+        <label class="check-row check-row--solo"><input type="checkbox" name="consent_rgpd" required /> <span>J'accepte que mes informations soient utilisées pour traiter ma candidature (<a href="confidentialite.html" target="_blank" rel="noopener">confidentialité</a>).</span></label>
+        <div class="hp" aria-hidden="true"><label>Ne pas remplir<input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAADlcC-Q2oHfgL-AP"></div>
         <button type="submit" class="btn btn-primary btn-block">Soumettre ma candidature de distributeur</button>
         <p class="form-status" role="status"></p>
       </form>
