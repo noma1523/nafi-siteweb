@@ -184,7 +184,8 @@ function collectChamps(form) {
   const champs = {};
   form.querySelectorAll("input, select, textarea").forEach(el => {
     if (!el.name || el.disabled || exclus.has(el.name)) return;
-    if (el.type === "file" || el.type === "checkbox" || el.type === "radio") return;
+    if (el.type === "file" || el.type === "checkbox") return;
+    if (el.type === "radio") { if (el.checked) champs[el.name] = el.value; return; }
     const v = (el.value || "").trim();
     if (v) champs[el.name] = v;
   });
@@ -230,7 +231,7 @@ $$(".nafi-form").forEach(handleForm);
 
 /* ============================================================
    Formulaire distributeur : affichage conditionnel selon le profil
-   (Particulier / Entreprise) + minimum de commande
+   (Particulier / Distributeur)
    - Les champs cachés sont DÉSACTIVÉS : ainsi ils ne bloquent pas la
      validation HTML5 (« contrôle invalide non focusable ») et ne partent
      ni dans FormData ni dans le récap e-mail.
@@ -271,19 +272,6 @@ $$(".nafi-form").forEach(handleForm);
 
   apply(false);
   profil.addEventListener("change", () => apply(true));
-
-  /* Message de validation en français pour le minimum (12 500 packs/mois) */
-  const cap = $("#d-capacite", form);
-  if (cap) {
-    const checkCap = () => {
-      const v = parseInt(cap.value, 10);
-      cap.setCustomValidity(cap.value && (isNaN(v) || v < 12500)
-        ? "La capacité minimale est de 12 500 packs/mois."
-        : "");
-    };
-    cap.addEventListener("input", checkCap);
-    cap.addEventListener("blur", checkCap);
-  }
 })();
 
 /* ============================================================
