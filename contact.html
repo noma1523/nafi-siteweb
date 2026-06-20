@@ -256,18 +256,14 @@
           <!-- Entreprise / distributeur uniquement -->
           <div class="profil-group" data-profil="Distributeur">
             <p class="form-section">Zone de distribution souhaitée</p>
-            <div class="field"><label for="d-zone">Préfecture(s) ou région(s) souhaitée(s) *</label><input id="d-zone" name="zone_souhaitee" type="text" required /></div>
+            <div class="field"><label for="d-zone">Zone souhaitée *</label><input id="d-zone" name="zone_souhaitee" type="text" required placeholder="Préfecture(s) ou région(s) souhaitée(s)" /></div>
           </div>
 
-          <!-- Capacité logistique minimale — commune aux deux profils (particulier & distributeur) -->
+          <!-- Condition pour devenir distributeur — commune aux deux profils (particulier & distributeur) -->
           <div class="distrib-requirement">
-            <p class="form-section">Capacité logistique minimale</p>
-            <p class="req-text" id="cap-text">Afin de devenir distributeur agréé, vous devez être en mesure d'assurer la livraison d'au moins <strong>5 camions par mois</strong>, soit environ <strong>12 500 packs mensuels</strong>.</p>
-            <p class="req-question" id="cap-question">Confirmez-vous votre capacité à atteindre ce volume ? *</p>
-            <div role="radiogroup" aria-labelledby="cap-question" aria-describedby="cap-text">
-              <label class="check-row"><input type="radio" name="capacite_logistique" value="Oui" required /> <span>Oui, je confirme pouvoir distribuer au minimum 12 500 packs par mois.</span></label>
-              <label class="check-row"><input type="radio" name="capacite_logistique" value="Non" /> <span>Non, je ne peux pas garantir ce volume.</span></label>
-            </div>
+            <p class="form-section">Condition pour devenir distributeur</p>
+            <p class="req-text" id="cap-text">Pour devenir distributeur, vous devez être en mesure d'acheter et de distribuer environ <strong>12 500 packs par mois</strong>.</p>
+            <label class="check-row"><input type="checkbox" name="capacite_logistique" value="Oui" required aria-describedby="cap-text" /> <span>Je confirme pouvoir atteindre ce volume.</span></label>
           </div>
 
           <!-- Commun aux deux profils -->
