@@ -182,12 +182,7 @@
 
         <div class="field"><label for="q-msg">Votre message *</label><textarea id="q-msg" name="message" rows="4" required placeholder="Décrivez votre demande ou votre question en détail."></textarea></div>
 
-        <div class="field"><label for="q-moyen">Moyen de réponse préféré</label>
-          <select id="q-moyen" name="moyen_reponse"><option value="">— Choisir —</option><option>Téléphone</option><option>WhatsApp</option><option>E-mail</option></select>
-        </div>
-
         <label class="check-row check-row--solo"><input type="checkbox" name="verification" required /> <span>Je confirme que les informations fournies sont exactes.</span></label>
-        <label class="check-row check-row--solo"><input type="checkbox" name="consent_rgpd" required /> <span>J'accepte que mes informations soient utilisées pour traiter ma demande (<a href="confidentialite.html" target="_blank" rel="noopener">confidentialité</a>).</span></label>
         <div class="hp" aria-hidden="true"><label>Ne pas remplir<input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
         <div class="cf-turnstile" data-sitekey="0x4AAAAAADlcC-Q2oHfgL-AP"></div>
         <button type="submit" class="btn btn-primary btn-block">Envoyer ma demande</button>
@@ -239,14 +234,7 @@
               <div class="field"><label for="d-commercial">Nom commercial</label><input id="d-commercial" name="nom_commercial" type="text" /></div>
               <div class="field"><label for="d-fonction">Fonction du contact *</label><input id="d-fonction" name="fonction" type="text" required /></div>
             </div>
-            <div class="field-row">
-              <div class="field"><label for="d-rccm">Numéro RCCM</label><input id="d-rccm" name="rccm" type="text" /></div>
-              <div class="field"><label for="d-nif">Numéro NIF</label><input id="d-nif" name="nif" type="text" /></div>
-            </div>
-            <div class="field-row">
-              <div class="field"><label for="d-creation">Date de création</label><input id="d-creation" name="date_creation" type="date" /></div>
-              <div class="field"><label for="d-web">Site web <span class="opt">(optionnel)</span></label><input id="d-web" name="site_web" type="url" placeholder="https://" /></div>
-            </div>
+            <div class="field"><label for="d-web">Site web <span class="opt">(optionnel)</span></label><input id="d-web" name="site_web" type="url" placeholder="https://" /></div>
           </div>
 
           <!-- Commun aux deux profils -->
@@ -263,18 +251,12 @@
             <div class="field"><label for="d-pays">Pays *</label><input id="d-pays" name="pays" type="text" required value="Guinée" /></div>
             <div class="field"><label for="d-region">Région / Préfecture *</label><input id="d-region" name="region" type="text" required /></div>
           </div>
-          <div class="field-row">
-            <div class="field"><label for="d-ville">Ville *</label><input id="d-ville" name="ville" type="text" required /></div>
-            <div class="field"><label for="d-adresse">Adresse complète *</label><input id="d-adresse" name="adresse" type="text" required /></div>
-          </div>
+          <div class="field"><label for="d-ville">Ville *</label><input id="d-ville" name="ville" type="text" required /></div>
 
           <!-- Entreprise / distributeur uniquement -->
           <div class="profil-group" data-profil="Distributeur">
             <p class="form-section">Zone de distribution souhaitée</p>
             <div class="field"><label for="d-zone">Préfecture(s) ou région(s) souhaitée(s) *</label><input id="d-zone" name="zone_souhaitee" type="text" required /></div>
-            <div class="field"><label for="d-entrepot">Disposez-vous d'un entrepôt ? *</label>
-              <select id="d-entrepot" name="entrepot" required><option value="">— Choisir —</option><option>Oui</option><option>Non</option></select>
-            </div>
           </div>
 
           <!-- Capacité logistique minimale — commune aux deux profils (particulier & distributeur) -->
@@ -293,7 +275,6 @@
           <div class="field"><label for="d-motiv">Pourquoi souhaitez-vous rejoindre le réseau NAFI ? *</label><textarea id="d-motiv" name="motivation" rows="4" required></textarea></div>
 
           <label class="check-row check-row--solo"><input type="checkbox" name="certification" required /> <span>Je certifie que les informations fournies sont exactes.</span></label>
-          <label class="check-row check-row--solo"><input type="checkbox" name="consent_rgpd" required /> <span>J'accepte que mes informations soient utilisées pour traiter ma candidature (<a href="confidentialite.html" target="_blank" rel="noopener">confidentialité</a>).</span></label>
           <div class="hp" aria-hidden="true"><label>Ne pas remplir<input type="text" name="website" tabindex="-1" autocomplete="off" /></label></div>
           <div class="cf-turnstile" data-sitekey="0x4AAAAAADlcC-Q2oHfgL-AP"></div>
           <button type="submit" class="btn btn-primary btn-block">Soumettre ma candidature</button>
