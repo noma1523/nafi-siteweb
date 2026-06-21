@@ -502,7 +502,7 @@ if (counters.length) {
    Découpe le texte en .word en préservant <br> et les éléments (accent).
    ============================================================ */
 (() => {
-  const heads = $$(".hero-title, .section-head h2, .story-text h2");
+  const heads = $$(".hero-title, .section-head h1, .section-head h2, .story-text h2");
   if (!heads.length) return;
 
   const split = (el) => {

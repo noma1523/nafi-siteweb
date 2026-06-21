@@ -338,8 +338,8 @@ body.page-inner .burger span { background: var(--blue-deep); }
   padding-bottom: 6px; position: relative; margin-bottom: 16px;
 }
 .eyebrow::after { content:""; position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:36px; height:3px; background:var(--green); border-radius:3px; }
-.section-head h2 { font-size: clamp(1.8rem, 6vw, 2.6rem); }
-.section-head h2, .story-text h2, .cta-text h2 { letter-spacing: -0.015em; }
+.section-head h1, .section-head h2 { font-size: clamp(1.8rem, 6vw, 2.6rem); }
+.section-head h1, .section-head h2, .story-text h2, .cta-text h2 { letter-spacing: -0.015em; }
 .lead { color: var(--muted); font-size: 1.05rem; margin-top: 16px; line-height: 1.55; }
 
 /* ---------- La marque ---------- */
@@ -626,6 +626,9 @@ body.modal-lock { overflow: hidden; }
 .footer-col a:hover { color: var(--blue-light); }
 .footer-city { color: rgba(255,255,255,.6); font-size: .88rem; margin-top: 8px; }
 .footer-bottom { border-top: 1px solid rgba(255,255,255,.12); padding: 18px 0; text-align: center; font-size: .85rem; color: rgba(255,255,255,.6); }
+.footer-bottom-links { margin-top: 6px; }
+.footer-bottom a { color: rgba(255,255,255,.78); text-decoration: none; }
+.footer-bottom a:hover { color: #fff; text-decoration: underline; }
 
 /* ============================= NAV ACTIVE ============================= */
 .nav-links a.active { color: var(--blue-light); }
