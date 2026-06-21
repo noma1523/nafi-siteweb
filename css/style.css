@@ -1316,3 +1316,14 @@ body:not(.page-inner) .navbar:not(.scrolled) { background: linear-gradient(180de
 .cta-vidtint { z-index: 0; background: linear-gradient(150deg, rgba(6,49,107,.85), rgba(21,101,192,.70) 65%, rgba(74,168,224,.55)); }
 @media (prefers-reduced-motion: reduce) { .cta-video, .cta-vidtint { display: none; } }
 @media (max-width: 760px) { .cta-video, .cta-vidtint { display: none; } }
+
+/* ============================================================
+   Fond « lumière d'eau » : base claire teintée + halos aquatiques diffus
+   (les sections de contenu deviennent transparentes ; cartes blanches en relief)
+   ============================================================ */
+body { background: linear-gradient(180deg, #eef5fc 0%, #e6f0fa 100%); background-attachment: fixed; }
+.bienfaits, .contact, .nav-hub, .faq { background: transparent; }
+.bg-parallax span { opacity: .5; filter: blur(75px); }
+.bg-parallax .b1 { background: radial-gradient(circle, rgba(74,168,224,.55), transparent 70%); }
+.bg-parallax .b2 { background: radial-gradient(circle, rgba(125,201,255,.48), transparent 70%); }
+.bg-parallax .b3 { background: radial-gradient(circle, rgba(21,101,192,.40), transparent 70%); }
