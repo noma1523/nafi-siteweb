@@ -1391,7 +1391,13 @@ body.page-inner.has-banner { padding-top: 0; }
   background-image: -webkit-image-set(url('../images/story/paysage.webp') type('image/webp'), url('../images/story/paysage.jpg') type('image/jpeg'));
   background-image: image-set(url('../images/story/paysage.webp') type('image/webp'), url('../images/story/paysage.jpg') type('image/jpeg'));
 }
-/* .page-hero (sans modificateur) = dégradé bleu NAFI : utilisé par Produits en attendant une photo produit */
+/* .page-hero (sans modificateur) = dégradé bleu NAFI (repli) */
+.page-hero--produits {
+  background-image: -webkit-image-set(url('../images/products/banniere.webp') type('image/webp'), url('../images/products/banniere.jpg') type('image/jpeg'));
+  background-image: image-set(url('../images/products/banniere.webp') type('image/webp'), url('../images/products/banniere.jpg') type('image/jpeg'));
+  background-position: center 58%;
+}
+.page-hero--produits::before { background: linear-gradient(180deg, rgba(6,49,107,.46) 0%, rgba(6,49,107,.64) 100%); }
 
 /* Navbar transparente en overlay sur les pages à bannière (tant qu'on n'a pas défilé) */
 body.page-inner.has-banner .navbar:not(.scrolled) { background: linear-gradient(180deg, rgba(3,18,46,.45), rgba(3,18,46,0)); box-shadow: none; }
