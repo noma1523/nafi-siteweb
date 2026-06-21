@@ -38,7 +38,7 @@
     if (r.width < 2 || r.height < 2) return;
     const iw = img.naturalWidth, ih = img.naturalHeight;
     if (!iw || !ih) return;
-    const scale = Math.min(1, 640 / r.width); // résolution interne plafonnée (perf)
+    const scale = Math.min(1, Math.min(iw, 1280) / r.width); // rés. interne = native (max 1280) pour la netteté
     W = Math.max(2, Math.round(r.width * scale));
     H = Math.max(2, Math.round(r.height * scale));
     canvas.width = W; canvas.height = H;
