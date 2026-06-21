@@ -12,6 +12,8 @@
   --blue-soft: #e8f4fc;
   --green: #2ecc71;
   --green-dark: #27ae60;
+  --green-cta: #15803d;
+  --green-cta-dark: #0f6a33;
   --cyan: #d9f3ff;
   --white: #ffffff;
   --ink: #0f2745;
@@ -132,9 +134,9 @@ body.page-inner .burger span { background: var(--blue-deep); }
 .nav-links a:hover { color: var(--blue-light); }
 .navbar.scrolled .nav-links a:hover { background: var(--blue-soft); color: var(--blue-deep); }
 .nav-cta {
-  background: var(--green); color: var(--white) !important; font-weight: 600;
+  background: var(--green-cta); color: var(--white) !important; font-weight: 600;
 }
-.nav-cta:hover { background: var(--green-dark) !important; }
+.nav-cta:hover { background: var(--green-cta-dark) !important; }
 
 .burger { display: none; flex-direction: column; gap: 5px; background: none; border: 0; cursor: pointer; padding: 6px; }
 .burger span { width: 26px; height: 3px; border-radius: 3px; background: var(--white); transition: .3s; }
@@ -399,7 +401,7 @@ body.page-inner .burger span { background: var(--blue-deep); }
 .product-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
 .product-card.featured { border-color: var(--blue-light); box-shadow: var(--shadow-md); }
 .popular {
-  position: absolute; top: 14px; right: 14px; background: var(--green); color: #fff;
+  position: absolute; top: 14px; right: 14px; background: var(--green-cta); color: #fff;
   font-family: var(--font-head); font-weight: 600; font-size: .72rem; padding: 5px 12px; border-radius: 50px;
   box-shadow: 0 3px 8px rgba(46,204,113,.30);
 }
@@ -1239,3 +1241,10 @@ body:not(.page-inner) .navbar:not(.scrolled) .nav-links > a:not(.nav-cta):hover:
 }
 .to-top:focus-visible { outline: 3px solid var(--white); outline-offset: 2px; }
 .modal-close:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+
+/* Accessibilité : lien d'évitement clavier (skip-link) */
+.skip-link { position: absolute; left: 8px; top: -52px; z-index: 2000; background: var(--blue-deep); color: #fff; padding: 10px 16px; border-radius: 8px; font-family: var(--font-head); font-weight: 600; transition: top .2s ease; }
+.skip-link:focus { top: 8px; outline: 3px solid #fff; outline-offset: 2px; }
+/* Accueil : léger voile en haut de la navbar non défilée pour garantir le contraste du menu sur la photo */
+body:not(.page-inner) .navbar:not(.scrolled) { background: linear-gradient(180deg, rgba(3,18,46,.42), rgba(3,18,46,0)); }

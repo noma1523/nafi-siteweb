@@ -68,6 +68,7 @@
   function step() {
     if (src) {
       const s = src.data, o = out.data;
+      let energy = 0;
       for (let y = 1; y < H - 1; y++) {
         const row = y * W;
         for (let x = 1; x < W - 1; x++) {
@@ -75,6 +76,7 @@
           let v = (prev[i - 1] + prev[i + 1] + prev[i - W] + prev[i + W]) * 0.5 - cur[i];
           v *= DAMP;
           cur[i] = v;
+          energy += v < 0 ? -v : v;
           let dx = (prev[i - 1] - prev[i + 1]) * 0.13;
           let dy = (prev[i - W] - prev[i + W]) * 0.13;
           if (dx > MAXD) dx = MAXD; else if (dx < -MAXD) dx = -MAXD;
@@ -92,6 +94,7 @@
       }
       const t = prev; prev = cur; cur = t;
       ctx.putImageData(out, 0, 0);
+      if (energy < 5) { running = false; return; }
     }
     requestAnimationFrame(step);
   }
@@ -99,6 +102,7 @@
   function onMove(e) {
     const r = hero.getBoundingClientRect();
     drop((e.clientX - r.left) / r.width * W, (e.clientY - r.top) / r.height * H, POWER);
+    if (!running) { running = true; requestAnimationFrame(step); }
   }
 
   function init() {

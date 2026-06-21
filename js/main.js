@@ -73,11 +73,13 @@ onNav(window.scrollY);
    ============================================================ */
 const burger = $("#burger");
 const navLinks = $("#navLinks");
+burger.setAttribute("aria-controls", "navLinks");
 const toggleMenu = (open) => {
   const isOpen = open ?? !navLinks.classList.contains("open");
   navLinks.classList.toggle("open", isOpen);
   burger.classList.toggle("open", isOpen);
   burger.setAttribute("aria-expanded", String(isOpen));
+  burger.setAttribute("aria-label", isOpen ? "Fermer le menu" : "Ouvrir le menu");
 };
 burger.addEventListener("click", () => toggleMenu());
 $$(".nav-links a").forEach(a => a.addEventListener("click", () => toggleMenu(false)));
@@ -150,13 +152,15 @@ function showSuccess(form, ref) {
   const card = form.closest(".modal-card") || form.parentElement;
   const done = document.createElement("div");
   done.className = "form-done";
+  done.setAttribute("role", "status");
+  done.setAttribute("aria-live", "polite");
   done.innerHTML =
     `<span class="form-done-ico"><svg viewBox="0 0 24 24" aria-hidden="true">` +
     `<path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.4" ` +
     `stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>` +
     `<h4>Merci, c'est noté&nbsp;!</h4>` +
-    `<p>Votre demande est prête — référence <strong>${ref}</strong>.<br>` +
-    `Nous vous recontactons rapidement.</p>`;
+    `<p>Votre demande a bien été envoyée — référence <strong>${ref}</strong>.<br>` +
+    `Nous revenons vers vous rapidement.</p>`;
   form.style.display = "none";
   card.appendChild(done);
 }
@@ -301,7 +305,7 @@ $$(".modal [data-close]").forEach(el => {
   el.addEventListener("click", () => closeModal(el.closest(".modal")));
 });
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") { const m = $(".modal.open"); if (m) closeModal(m); }
+  if (e.key === "Escape") { const m = $(".modal.open"); if (m) { closeModal(m); } else if (navLinks.classList.contains("open")) { toggleMenu(false); } }
 });
 /* Ouvre automatiquement la modale "Devenir distributeur" via #distributeur */
 function openHashModal() {
