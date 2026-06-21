@@ -69,21 +69,8 @@
   </header>
 
 <section class="hero" id="accueil">
-    <!-- Vidéo de fond du hero -->
-    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="images/hero-poster.jpg" aria-hidden="true">
-      <source src="videos/hero-water.mp4" type="video/mp4" />
-    </video>
-    <div class="hero-overlay" aria-hidden="true"></div>
-
-    <!-- Scène d'eau animée (rendu vidéo sans fichier) -->
-    <div class="hero-caustics" aria-hidden="true"></div>
-    <div class="hero-rays" aria-hidden="true">
-      <span></span><span></span><span></span><span></span><span></span>
-    </div>
-
-    <div class="hero-bg-bubbles" aria-hidden="true">
-      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-    </div>
+    <!-- Image de fond du hero : bouteilles NAFI à l'embouteillage -->
+    <img class="hero-bg-img" src="images/hero-bg.jpg" alt="Bouteilles d'eau minérale NAFI sur la ligne d'embouteillage" />
 
     <div class="container hero-inner">
       <div class="hero-text reveal">
@@ -92,14 +79,6 @@
         <div class="hero-buttons">
           <a href="produits.html" class="btn btn-primary">Découvrir nos produits</a>
           <a href="contact.html" class="btn btn-outline">Nous contacter</a>
-        </div>
-      </div>
-
-      <div class="hero-visual reveal">
-        <div class="hero-glow" aria-hidden="true"></div>
-        <div class="hero-bottle-stage">
-          <img src="images/bottles/nafi-hero.png" alt="Bouteille d'eau minérale NAFI" class="hero-bottle" data-fallback="bottle" />
-          <span class="hero-bottle-reflection" aria-hidden="true"></span>
         </div>
       </div>
     </div>
@@ -204,5 +183,6 @@
   </button>
 
   <script src="js/main.js"></script>
+  <script src="js/hero-ripple.js"></script>
 </body>
 </html>
