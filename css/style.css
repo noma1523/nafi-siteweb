@@ -1300,3 +1300,11 @@ body:not(.page-inner) .navbar:not(.scrolled) { background: linear-gradient(180de
 .qg-item, .ls-item { box-shadow: 0 14px 32px rgba(6,49,107,.13); }
 @media (min-width: 700px) { .atouts-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1000px) { .atouts-grid { grid-template-columns: repeat(4, 1fr); gap: 24px; } }
+
+/* Vidéo de fond de la bande « Pourquoi NAFI » (eau en mouvement) */
+.atouts { position: relative; overflow: hidden; }
+.atouts-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; border: 0; }
+.atouts-overlay { position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(160deg, rgba(6,49,107,.80), rgba(10,61,122,.74) 55%, rgba(6,49,107,.82)); }
+.atouts .container { position: relative; z-index: 2; }
+@media (prefers-reduced-motion: reduce) { .atouts-video { display: none; } }
+@media (max-width: 760px) { .atouts-video { display: none; } }
