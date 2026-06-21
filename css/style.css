@@ -1327,3 +1327,27 @@ body { background: linear-gradient(180deg, #eef5fc 0%, #e6f0fa 100%); background
 .bg-parallax .b1 { background: radial-gradient(circle, rgba(74,168,224,.55), transparent 70%); }
 .bg-parallax .b2 { background: radial-gradient(circle, rgba(125,201,255,.48), transparent 70%); }
 .bg-parallax .b3 { background: radial-gradient(circle, rgba(21,101,192,.40), transparent 70%); }
+
+/* ============================================================
+   Bande « Notre source » : paysage naturel (montagne) en parallaxe
+   ============================================================ */
+.source-band {
+  position: relative;
+  padding: clamp(80px, 12vw, 130px) 0;
+  text-align: center;
+  overflow: hidden;
+  background-color: var(--blue-deep);
+  background-image: url('../images/story/montagne.jpg'); /* fallback */
+  background-image: -webkit-image-set(url('../images/story/montagne.webp') type('image/webp'), url('../images/story/montagne.jpg') type('image/jpeg'));
+  background-image: image-set(url('../images/story/montagne.webp') type('image/webp'), url('../images/story/montagne.jpg') type('image/jpeg'));
+  background-size: cover;
+  background-position: center 35%;
+  background-attachment: fixed;
+}
+.source-band-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,49,107,.48) 0%, rgba(6,49,107,.66) 100%); }
+.source-band-inner { position: relative; z-index: 1; max-width: 680px; }
+.source-band .eyebrow { color: var(--cyan); }
+.source-band .eyebrow::after { background: rgba(217,243,255,.75); }
+.source-band h2 { color: #fff; font-size: clamp(2rem, 6vw, 3rem); font-weight: 800; margin: 0; }
+.source-band p { color: rgba(255,255,255,.92); font-size: 1.1rem; line-height: 1.7; margin: 18px auto 0; max-width: 600px; }
+@media (max-width: 760px) { .source-band { background-attachment: scroll; padding: 72px 0; } }
