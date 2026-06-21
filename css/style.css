@@ -1351,3 +1351,51 @@ body { background: linear-gradient(180deg, #eef5fc 0%, #e6f0fa 100%); background
 .source-band h2 { color: #fff; font-size: clamp(2rem, 6vw, 3rem); font-weight: 800; margin: 0; }
 .source-band p { color: rgba(255,255,255,.92); font-size: 1.1rem; line-height: 1.7; margin: 18px auto 0; max-width: 600px; }
 @media (max-width: 760px) { .source-band { background-attachment: scroll; padding: 72px 0; } }
+
+/* ============================================================
+   Bannière d'en-tête des pages internes (image + titre)
+   + navbar transparente en overlay (cohérent avec l'accueil)
+   ============================================================ */
+body.page-inner.has-banner { padding-top: 0; }
+
+.page-hero {
+  position: relative;
+  padding: clamp(128px, 17vh, 184px) 0 clamp(56px, 8vw, 84px);
+  text-align: center;
+  overflow: hidden;
+  background-color: var(--blue-deep);
+  background-image:
+    radial-gradient(1100px 520px at 80% -10%, rgba(74,168,224,.40), transparent 60%),
+    linear-gradient(160deg, var(--blue-deep) 0%, var(--blue) 60%, var(--blue-light) 135%);
+  background-size: cover;
+  background-position: center;
+}
+.page-hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,49,107,.42) 0%, rgba(6,49,107,.62) 100%); }
+.page-hero-inner { position: relative; z-index: 1; max-width: 760px; }
+.page-hero .eyebrow { color: var(--cyan); }
+.page-hero .eyebrow::after { background: rgba(217,243,255,.75); }
+.page-hero h1 { color: #fff; font-size: clamp(2rem, 6vw, 3rem); font-weight: 800; margin: 0; text-shadow: 0 2px 18px rgba(3,18,46,.45); }
+.page-hero .lead, .page-hero .section-sub { color: rgba(255,255,255,.92); font-size: 1.08rem; line-height: 1.6; margin: 16px auto 0; max-width: 620px; text-shadow: 0 1px 10px rgba(3,18,46,.4); }
+
+/* Images de fond par page (webp + jpg en repli) */
+.page-hero--bienfaits {
+  background-image: -webkit-image-set(url('../images/story/cascade-wide.webp') type('image/webp'), url('../images/story/cascade-wide.jpg') type('image/jpeg'));
+  background-image: image-set(url('../images/story/cascade-wide.webp') type('image/webp'), url('../images/story/cascade-wide.jpg') type('image/jpeg'));
+}
+.page-hero--qualite {
+  background-image: -webkit-image-set(url('../images/quality/riviere.webp') type('image/webp'), url('../images/quality/riviere.jpg') type('image/jpeg'));
+  background-image: image-set(url('../images/quality/riviere.webp') type('image/webp'), url('../images/quality/riviere.jpg') type('image/jpeg'));
+  background-position: center 60%;
+}
+.page-hero--contact {
+  background-image: -webkit-image-set(url('../images/story/paysage.webp') type('image/webp'), url('../images/story/paysage.jpg') type('image/jpeg'));
+  background-image: image-set(url('../images/story/paysage.webp') type('image/webp'), url('../images/story/paysage.jpg') type('image/jpeg'));
+}
+/* .page-hero (sans modificateur) = dégradé bleu NAFI : utilisé par Produits en attendant une photo produit */
+
+/* Navbar transparente en overlay sur les pages à bannière (tant qu'on n'a pas défilé) */
+body.page-inner.has-banner .navbar:not(.scrolled) { background: linear-gradient(180deg, rgba(3,18,46,.45), rgba(3,18,46,0)); box-shadow: none; }
+body.page-inner.has-banner .navbar:not(.scrolled) .nav-links a { color: #fff; text-shadow: 0 1px 10px rgba(3,18,46,.55); }
+body.page-inner.has-banner .navbar:not(.scrolled) .nav-links a:hover { background: rgba(255,255,255,.16); color: #fff; }
+body.page-inner.has-banner .navbar:not(.scrolled) .nav-links a.active { color: #fff !important; background: rgba(255,255,255,.20); }
+body.page-inner.has-banner .navbar:not(.scrolled) .burger span { background: #fff; box-shadow: 0 1px 5px rgba(3,18,46,.45); }
