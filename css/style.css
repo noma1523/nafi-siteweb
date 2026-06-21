@@ -1248,3 +1248,55 @@ body:not(.page-inner) .navbar:not(.scrolled) .nav-links > a:not(.nav-cta):hover:
 .skip-link:focus { top: 8px; outline: 3px solid #fff; outline-offset: 2px; }
 /* Accueil : léger voile en haut de la navbar non défilée pour garantir le contraste du menu sur la photo */
 body:not(.page-inner) .navbar:not(.scrolled) { background: linear-gradient(180deg, rgba(3,18,46,.42), rgba(3,18,46,0)); }
+
+
+/* ============================================================
+   ÉVOLUTION DESIGN « Source pure » — finition premium/éditoriale
+   Couche additive (surcharge le système existant, aucun changement HTML).
+   ============================================================ */
+
+/* 1) Pastilles d'icônes : dégradé bleu -> cyan, icône blanche */
+.feature-icon, .benefit-icon, .contact-ico, .hub-ico {
+  background: linear-gradient(140deg, var(--blue), var(--blue-light));
+  border: 0;
+  box-shadow: 0 14px 28px rgba(8, 76, 160, .28);
+}
+.feature-icon .ico, .benefit-icon .ico, .contact-ico .ico, .hub-ico .ico { stroke: #fff; }
+.feature-card:hover .feature-icon, .benefit-card:hover .benefit-icon { box-shadow: 0 20px 38px rgba(8, 76, 160, .38); }
+.contact-card:hover .contact-ico { background: linear-gradient(140deg, var(--blue-deep), var(--blue)); }
+
+/* 2) Cartes : profondeur douce, bordure discrète (ombre > bordure) */
+.feature-card, .benefit-card, .product-card, .hub-card, .contact-card, .minerality {
+  border-color: rgba(8, 76, 160, .07);
+  box-shadow: 0 2px 4px rgba(6, 49, 107, .04), 0 14px 32px rgba(6, 49, 107, .09);
+}
+.feature-card:hover, .benefit-card:hover, .product-card:hover, .contact-card:hover {
+  box-shadow: 0 12px 22px rgba(6, 49, 107, .10), 0 30px 60px rgba(6, 49, 107, .17);
+}
+
+/* 3) Titres de section : plus de présence + filet dégradé */
+.section-head h1, .section-head h2 { font-size: clamp(2rem, 6.2vw, 2.9rem); font-weight: 800; }
+.section-head { margin-bottom: 54px; }
+.eyebrow::after { background: linear-gradient(90deg, var(--blue), var(--blue-light)); width: 44px; }
+
+/* 4) Rythme : fonds légèrement teintés sur les sections de listing (alternance) */
+.nav-hub, .faq { background: linear-gradient(180deg, #f5fbff, #eaf5fd); }
+
+/* Utilitaires de rythme réutilisables (sections claires / sombres) */
+.section--tint { background: linear-gradient(180deg, #f5fbff, #eaf5fd); }
+.section--dark { background: radial-gradient(1100px 520px at 80% -10%, rgba(74,168,224,.18), transparent 60%), linear-gradient(160deg, var(--blue-deep), var(--blue)); }
+.section--dark .eyebrow { color: var(--blue-light); }
+.section--dark h1, .section--dark h2, .section--dark h3 { color: #fff; }
+.section--dark .lead, .section--dark p { color: rgba(255,255,255,.85); }
+
+/* Bande « Pourquoi NAFI » (atouts, sur fond sombre) */
+.atouts-grid { display: grid; grid-template-columns: 1fr; gap: 28px; }
+.atout { text-align: center; padding: 6px; }
+.atout-ico { display: inline-grid; place-items: center; width: 74px; height: 74px; border-radius: 50%; margin-bottom: 16px; background: linear-gradient(140deg, var(--blue-light), #9bd8ff); box-shadow: 0 14px 30px rgba(8,76,160,.40); }
+.atout-ico .ico { width: 32px; height: 32px; stroke: var(--blue-deep); }
+.atout h3 { font-size: 1.12rem; margin-bottom: 8px; }
+.atout p { font-size: .95rem; line-height: 1.55; }
+/* Traitement d'image unifié (galeries / lifestyle) */
+.qg-item, .ls-item { box-shadow: 0 14px 32px rgba(6,49,107,.13); }
+@media (min-width: 700px) { .atouts-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .atouts-grid { grid-template-columns: repeat(4, 1fr); gap: 24px; } }
