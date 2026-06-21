@@ -175,7 +175,7 @@ body.page-inner .burger span { background: var(--blue-deep); }
 /* Mobile : image en bannière (photo entière visible, nette) + texte en dessous sur le fond bleu */
 @media (max-width: 760px) {
   .hero { display: block; min-height: auto; padding-top: 76px; }
-  .hero-bg-img { position: static; width: 100%; height: auto; animation: heroFade .9s ease both; }
+  .hero-bg-img { position: static; width: calc(100% - 32px); margin: 6px 16px 0; height: auto; border-radius: 22px; box-shadow: 0 16px 36px rgba(3,28,68,.45); animation: heroFade .9s ease both; }
   .hero-ripple-canvas { display: none; }
   .hero-inner { padding: 28px 0 72px; }
   .scroll-cue { display: none !important; }
