@@ -1308,3 +1308,11 @@ body:not(.page-inner) .navbar:not(.scrolled) { background: linear-gradient(180de
 .atouts .container { position: relative; z-index: 2; }
 @media (prefers-reduced-motion: reduce) { .atouts-video { display: none; } }
 @media (max-width: 760px) { .atouts-video { display: none; } }
+
+
+/* Vidéo de fond du bandeau CTA (eau / ondes) */
+.cta-video, .cta-vidtint { position: absolute; inset: 0; }
+.cta-video { width: 100%; height: 100%; object-fit: cover; z-index: 0; border: 0; }
+.cta-vidtint { z-index: 0; background: linear-gradient(150deg, rgba(6,49,107,.85), rgba(21,101,192,.70) 65%, rgba(74,168,224,.55)); }
+@media (prefers-reduced-motion: reduce) { .cta-video, .cta-vidtint { display: none; } }
+@media (max-width: 760px) { .cta-video, .cta-vidtint { display: none; } }
