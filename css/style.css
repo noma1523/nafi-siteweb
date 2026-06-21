@@ -1383,9 +1383,9 @@ body.page-inner.has-banner { padding-top: 0; }
   background-image: image-set(url('../images/story/cascade-wide.webp') type('image/webp'), url('../images/story/cascade-wide.jpg') type('image/jpeg'));
 }
 .page-hero--qualite {
-  background-image: -webkit-image-set(url('../images/quality/riviere.webp') type('image/webp'), url('../images/quality/riviere.jpg') type('image/jpeg'));
-  background-image: image-set(url('../images/quality/riviere.webp') type('image/webp'), url('../images/quality/riviere.jpg') type('image/jpeg'));
-  background-position: center 60%;
+  background-image: -webkit-image-set(url('../images/quality/usine.webp') type('image/webp'), url('../images/quality/usine.jpg') type('image/jpeg'));
+  background-image: image-set(url('../images/quality/usine.webp') type('image/webp'), url('../images/quality/usine.jpg') type('image/jpeg'));
+  background-position: center 32%;
 }
 .page-hero--contact {
   background-image: -webkit-image-set(url('../images/story/paysage.webp') type('image/webp'), url('../images/story/paysage.jpg') type('image/jpeg'));
@@ -1405,3 +1405,40 @@ body.page-inner.has-banner .navbar:not(.scrolled) .nav-links a { color: #fff; te
 body.page-inner.has-banner .navbar:not(.scrolled) .nav-links a:hover { background: rgba(255,255,255,.16); color: #fff; }
 body.page-inner.has-banner .navbar:not(.scrolled) .nav-links a.active { color: #fff !important; background: rgba(255,255,255,.20); }
 body.page-inner.has-banner .navbar:not(.scrolled) .burger span { background: #fff; box-shadow: 0 1px 5px rgba(3,18,46,.45); }
+
+
+/* ============================================================
+   Gouttes d'eau : pluie d'ambiance + éclaboussure au clic
+   ============================================================ */
+.rain-layer { position: fixed; inset: 0; z-index: 50; pointer-events: none; overflow: hidden; }
+.rain-layer .drop {
+  position: absolute; top: -26px; width: 3px; height: 16px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(206,236,255,.95));
+  box-shadow: 0 0 5px rgba(74,168,224,.55);
+  animation: drop-fall var(--dur, 6s) linear forwards;
+}
+@keyframes drop-fall {
+  0% { transform: translate3d(0,0,0); opacity: 0; }
+  8% { opacity: .82; }
+  88% { opacity: .82; }
+  100% { transform: translate3d(var(--drift,0), 102vh, 0); opacity: 0; }
+}
+.rain-layer .splash-ring {
+  position: absolute; width: 12px; height: 12px; margin: -6px 0 0 -6px;
+  border: 2px solid rgba(120,200,255,.8); border-radius: 50%;
+  transform: scale(.2); animation: splash-ring .6s ease-out forwards;
+}
+@keyframes splash-ring { to { transform: scale(4.5); opacity: 0; } }
+.rain-layer .splash-bit {
+  position: absolute; width: 8px; height: 8px; margin: -4px 0 0 -4px;
+  border-radius: 50%; background: radial-gradient(circle at 35% 30%, #eaf6ff, #4aa8e0);
+  box-shadow: 0 0 8px rgba(74,168,224,.65);
+  animation: splash-bit .72s cubic-bezier(.2,.7,.3,1) forwards;
+}
+@keyframes splash-bit {
+  0% { transform: translate(0,0) scale(1); opacity: 1; }
+  70% { opacity: .95; }
+  100% { transform: translate(var(--dx,0), calc(var(--dy,0) + 28px)) scale(.35); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .rain-layer { display: none; } }
