@@ -13,6 +13,8 @@
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   // Souris uniquement : on évite la simulation lourde sur tactile.
   if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+  // Desktop uniquement : sur mobile l'image est affichée en bannière (pas de canvas).
+  if (window.innerWidth <= 760) return;
 
   const canvas = document.createElement("canvas");
   canvas.className = "hero-ripple-canvas";
