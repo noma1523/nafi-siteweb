@@ -20,6 +20,7 @@
   canvas.className = "hero-ripple-canvas";
   canvas.setAttribute("aria-hidden", "true");
   img.insertAdjacentElement("afterend", canvas);
+  canvas.style.cssText += "animation:none;opacity:0;transition:opacity .35s ease";
   const ctx = canvas.getContext("2d", { willReadFrequently: true });
 
   let W, H, cur, prev, src, out, running = false;
@@ -94,12 +95,13 @@
       }
       const t = prev; prev = cur; cur = t;
       ctx.putImageData(out, 0, 0);
-      if (energy < 5) { running = false; return; }
+      if (energy < 5) { running = false; canvas.style.opacity = "0"; return; }
     }
     requestAnimationFrame(step);
   }
 
   function onMove(e) {
+    canvas.style.opacity = "1";
     const r = hero.getBoundingClientRect();
     drop((e.clientX - r.left) / r.width * W, (e.clientY - r.top) / r.height * H, POWER);
     if (!running) { running = true; requestAnimationFrame(step); }
