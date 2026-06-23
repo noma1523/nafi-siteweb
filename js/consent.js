@@ -34,7 +34,7 @@
     bar.setAttribute("role", "dialog");
     bar.setAttribute("aria-label", "Consentement aux cookies");
     bar.innerHTML =
-      '<p class="cookie-txt">Nous utilisons des cookies de mesure d’audience (Google Analytics) ' +
+      '<p class="cookie-txt">Nous utilisons des cookies de mesure d’audience ' +
       'pour comprendre la fréquentation du site. ' +
       '<a href="confidentialite.html">En savoir plus</a>.</p>' +
       '<div class="cookie-actions">' +
