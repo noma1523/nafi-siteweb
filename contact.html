@@ -7,14 +7,24 @@
   <meta name="theme-color" content="#06316b" />
   <title>Contact & distribution — NAFI</title>
   <meta name="description" content="Contactez NAFI : posez votre question ou devenez distributeur d'eau minérale naturelle à Conakry. Réponse rapide." />
-  <link rel="icon" type="image/png" href="images/favicon.png?v=22" />
+  <link rel="icon" type="image/png" href="images/favicon.png?v=23" />
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css?v=22" />
+  <link rel="stylesheet" href="css/style.css?v=23" />
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <style>.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}</style>
+  <!-- Google Analytics 4 (Consent Mode : mesure pleine après consentement) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NSKBDPZVCM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('consent', 'default', { 'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied' });
+    try { if (localStorage.getItem('nafi-consent') === 'granted') gtag('consent','update',{ 'analytics_storage':'granted' }); } catch(e){}
+    gtag('config', 'G-NSKBDPZVCM');
+  </script>
 </head>
 <body class="page-inner has-banner">
   <a class="skip-link" href="#contact">Aller au contenu</a>
@@ -321,6 +331,7 @@
     </svg>
   </button>
 
-  <script src="js/main.js?v=22"></script>
+  <script src="js/main.js?v=23"></script>
+  <script src="js/consent.js?v=23" defer></script>
 </body>
 </html>

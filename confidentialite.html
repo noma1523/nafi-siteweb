@@ -6,7 +6,7 @@
   <title>Confidentialité — NAFI</title>
   <meta name="description" content="Politique de confidentialité de NAFI : usage des informations transmises via les formulaires du site." />
   <meta name="robots" content="noindex, follow" />
-  <link rel="stylesheet" href="css/style.css?v=22" />
+  <link rel="stylesheet" href="css/style.css?v=23" />
   <style>
     .legal{max-width:760px;margin:0 auto;padding:7rem 1.25rem 4rem}
     .legal h1{margin-bottom:.5rem}
@@ -15,6 +15,16 @@
     .legal a{color:var(--blue,#1d4ed8)}
     .legal .back{display:inline-block;margin-top:2.5rem}
   </style>
+  <!-- Google Analytics 4 (Consent Mode : mesure pleine après consentement) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NSKBDPZVCM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('consent', 'default', { 'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied' });
+    try { if (localStorage.getItem('nafi-consent') === 'granted') gtag('consent','update',{ 'analytics_storage':'granted' }); } catch(e){}
+    gtag('config', 'G-NSKBDPZVCM');
+  </script>
 </head>
 <body>
   <main class="legal">
@@ -47,5 +57,6 @@
 
     <a class="back" href="index.html">&larr; Retour à l'accueil</a>
   </main>
+  <script src="js/consent.js?v=23" defer></script>
 </body>
 </html>
