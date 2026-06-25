@@ -20,16 +20,6 @@
    {"@type":"ListItem","position":3,"item":{"@type":"Product","name":"NAFI 1,5 L","image":"https://www.eaunafi.com/images/bottles/nafi-15.png","brand":{"@type":"Brand","name":"NAFI"},"description":"Eau minérale naturelle NAFI, format 1,5 L."}}
   ]}
   </script>
-  <!-- Google Analytics 4 (Consent Mode : mesure pleine après consentement) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NSKBDPZVCM"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('consent', 'default', { 'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied' });
-    try { if (localStorage.getItem('nafi-consent') === 'granted') gtag('consent','update',{ 'analytics_storage':'granted' }); } catch(e){}
-    gtag('config', 'G-NSKBDPZVCM');
-  </script>
 </head>
 <body class="page-inner has-banner">
   <a class="skip-link" href="#produits">Aller au contenu</a>
@@ -78,8 +68,8 @@
         <a href="bienfaits.html">Bienfaits</a>
         <a href="produits.html" class="active">Produits</a>
         <a href="qualite.html">Qualité</a>
-        <a href="contact.html">Contact</a>
-        <a href="contact.html#distributeur" class="nav-cta">Distributeur</a>
+        <a href="contact.html" data-stat="contact">Contact</a>
+        <a href="contact.html#distributeur" data-stat="distributeur" class="nav-cta">Distributeur</a>
       </nav>
 
       <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
@@ -140,7 +130,7 @@
           <h3>Pour les pros</h3>
           <p class="product-target">Commerces & grossistes</p>
           <p class="product-sale">Packs &amp; palettes pour les pros</p>
-          <a href="contact.html#distributeur" class="btn btn-primary btn-sm">Devenir distributeur</a>
+          <a href="contact.html#distributeur" data-stat="distributeur" class="btn btn-primary btn-sm">Devenir distributeur</a>
         </article>
       </div>
 
@@ -157,7 +147,7 @@
         <h2>L'eau pure de Guinée, présente partout à Conakry</h2>
         <p>Pour la maison, le bureau ou votre commerce — découvrez nos formats et rejoignez le réseau de distribution NAFI.</p>
         <div class="cta-actions">
-          <a href="contact.html#distributeur" class="btn btn-light">Devenir distributeur</a>
+          <a href="contact.html#distributeur" data-stat="distributeur" class="btn btn-light">Devenir distributeur</a>
           <a href="produits.html" class="btn btn-outline-light">Voir les formats</a>
         </div>
       </div>
@@ -180,12 +170,12 @@
         <h4>Navigation</h4>
         <a href="produits.html">Produits</a>
         <a href="contact.html#faq">FAQ</a>
-        <a href="contact.html#distributeur">Devenir distributeur</a>
+        <a href="contact.html#distributeur" data-stat="distributeur">Devenir distributeur</a>
       </div>
 
       <div class="footer-col">
         <h4>Contact</h4>
-        <a href="contact.html"><svg class="ico ico-link" aria-hidden="true"><use href="#i-mail"/></svg> Nous écrire</a>
+        <a href="contact.html" data-stat="contact"><svg class="ico ico-link" aria-hidden="true"><use href="#i-mail"/></svg> Nous écrire</a>
         <p class="footer-city">Conakry, Guinée</p>
       </div>
     </div>
@@ -202,6 +192,6 @@
   </button>
 
   <script src="js/main.js?v=24"></script>
-  <script src="js/consent.js?v=24" defer></script>
+  <script src="js/stats.js?v=25" defer></script>
 </body>
 </html>

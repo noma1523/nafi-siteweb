@@ -15,16 +15,6 @@
     .legal a{color:var(--blue,#1d4ed8)}
     .legal .back{display:inline-block;margin-top:2.5rem}
   </style>
-  <!-- Google Analytics 4 (Consent Mode : mesure pleine après consentement) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NSKBDPZVCM"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('consent', 'default', { 'ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','analytics_storage':'denied' });
-    try { if (localStorage.getItem('nafi-consent') === 'granted') gtag('consent','update',{ 'analytics_storage':'granted' }); } catch(e){}
-    gtag('config', 'G-NSKBDPZVCM');
-  </script>
 </head>
 <body>
   <main class="legal">
@@ -47,20 +37,16 @@
     <p>Vos demandes sont conservées le temps nécessaire à leur traitement, puis
        archivées au maximum 24 mois avant suppression.</p>
 
-    <h2>Cookies et mesure d'audience</h2>
-    <p>Ce site utilise <strong>Google Analytics 4</strong> (fourni par Google Ireland Ltd.)
-       afin de mesurer sa fréquentation : nombre de visiteurs, pages consultées, pays et
-       sources de trafic. Cet outil dépose des cookies de mesure d'audience sur votre appareil.</p>
-    <p>Ces cookies ne sont activés <strong>qu'après votre consentement</strong> : lors de votre
-       première visite, une bannière vous permet d'<em>accepter</em> ou de <em>refuser</em>.
-       Tant que vous n'avez pas accepté, aucun cookie de suivi n'est associé à votre navigation.
-       Vous pouvez revenir sur votre choix à tout moment en effaçant les cookies/données de ce
-       site dans votre navigateur : la bannière s'affichera de nouveau.</p>
-    <p>Données traitées : informations de navigation (pages vues, type d'appareil, pays
-       approximatif). <strong>Google Analytics 4 ne conserve pas votre adresse IP</strong> et ces
-       données ne servent pas à de la publicité. Elles sont conservées chez Google pendant
-       14 mois au maximum. Pour en savoir plus :
-       <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">règles de confidentialité de Google</a>.</p>
+    <h2>Mesure d'audience anonyme (sans cookie)</h2>
+    <p>Nous mesurons l'audience de ce site de façon <strong>anonyme et sans cookie</strong>,
+       uniquement pour en améliorer les pages et les contenus : nombre de visites, pages
+       consultées, temps passé et source de trafic approximative.</p>
+    <p>Cette mesure <strong>ne dépose aucun cookie</strong> et ne stocke <strong>ni votre adresse
+       IP, ni identifiant publicitaire, ni aucune donnée personnelle</strong> : votre navigation
+       n'est pas ré-identifiable. Aucun consentement n'est donc requis, et aucune donnée n'est
+       cédée à des tiers à des fins commerciales.</p>
+    <p>Les informations agrégées sont conservées au maximum <strong>12 mois</strong>, puis
+       supprimées automatiquement.</p>
 
     <h2>Vos droits</h2>
     <p>Vous pouvez demander l'accès, la rectification ou la suppression de vos
@@ -72,6 +58,6 @@
 
     <a class="back" href="index.html">&larr; Retour à l'accueil</a>
   </main>
-  <script src="js/consent.js?v=24" defer></script>
+  <script src="js/stats.js?v=25" defer></script>
 </body>
 </html>
